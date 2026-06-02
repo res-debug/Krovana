@@ -434,12 +434,13 @@
     <div class="container"><div style="display: flex; justify-content: center; margin: 60px 0;"><div class="team-card" style="max-width: 500px; text-align: center; width: 100%;"><div class="profile-img"><i class="fas fa-user-tie fa-3x"></i></div><h3>Stephen Ochanda</h3><p style="color: var(--gold); font-weight: 600; margin-bottom: 12px;">Founder & Managing Director</p><p>Stephen is a strategy and research professional with experience in investment readiness, stakeholder engagement, policy analysis, financial systems, and data-driven advisory across African markets.</p><a href="https://www.linkedin.com/in/stephen-ochanda/" target="_blank" class="linkedin-icon"><i class="fab fa-linkedin"></i> LinkedIn Profile</a></div></div></div>
   </div>
 
-  <!-- CONTACT PAGE -->
+  <!-- CONTACT PAGE with Formspree Integration -->
   <div id="page-contact" class="page">
     <section><div class="container"><h1>Connect with Krovana</h1><p>Let's align on your capital readiness journey.</p></div></section>
     <div class="container">
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:50px;">
         <div>
+          <!-- Formspree Form - Your endpoint integrated -->
           <form id="contactForm" class="contact-form" action="https://formspree.io/f/mjkrazye" method="POST">
             <input type="text" name="name" placeholder="Full Name" required>
             <input type="text" name="organization" placeholder="Organization">
@@ -487,12 +488,12 @@
       <div class="footer-links"><h4>Explore</h4><a href="#" data-page="home">Home</a><a href="#" data-page="about">About</a><a href="#" data-page="services">Services</a><a href="#" data-page="team">Team</a><a href="#" data-page="contact">Contact</a></div>
       <div><h4>Connect</h4><div class="social-icons"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div><div style="margin-top: 16px;"><p><i class="fas fa-phone-alt" style="margin-right: 8px; color: var(--gold);"></i> +254 795 655 396</p><p><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--gold);"></i> Nairobi, Kenya</p></div></div>
     </div>
-    <div style="border-top:1px solid rgba(200,169,107,0.3); margin-top:40px; padding-top:24px; text-align:center;">© 2026 Krovana. All rights Reserved.</div>
+    <div style="border-top:1px solid rgba(200,169,107,0.3); margin-top:40px; padding-top:24px; text-align:center;">© 2026 Krovana | All rights reserved.</div>
   </div>
 </footer>
 
 <script>
-  // Page navigation - FULLY FIXED
+  // Page navigation - FULLY FUNCTIONAL
   const pages = {
     home: document.getElementById('page-home'),
     about: document.getElementById('page-about'),
@@ -502,8 +503,6 @@
   };
   
   const navLinks = document.querySelectorAll('.nav-link');
-  const footerLinks = document.querySelectorAll('.footer-links a');
-  const logoLink = document.querySelector('.logo a');
   const allNavTriggers = document.querySelectorAll('[data-page]');
   
   function activatePage(pageId) {
@@ -526,7 +525,8 @@
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
     // Close mobile menu
-    document.getElementById('navLinks').classList.remove('active');
+    const mobileMenu = document.getElementById('navLinks');
+    if (mobileMenu) mobileMenu.classList.remove('active');
   }
   
   // Add click handlers to all elements with data-page attribute
@@ -541,18 +541,23 @@
   });
   
   // Hamburger menu toggle
-  document.getElementById('hamburger').addEventListener('click', () => {
-    document.getElementById('navLinks').classList.toggle('active');
-  });
+  const hamburger = document.getElementById('hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      const mobileMenu = document.getElementById('navLinks');
+      if (mobileMenu) mobileMenu.classList.toggle('active');
+    });
+  }
   
-  // Close mobile menu when a link is clicked
+  // Close mobile menu when a nav link is clicked
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-      document.getElementById('navLinks').classList.remove('active');
+      const mobileMenu = document.getElementById('navLinks');
+      if (mobileMenu) mobileMenu.classList.remove('active');
     });
   });
   
-  // Formspree form submission
+  // Formspree AJAX submission
   const form = document.getElementById('contactForm');
   const feedbackDiv = document.getElementById('formFeedback');
   
@@ -577,14 +582,16 @@
           feedbackDiv.innerHTML = '<div class="formspree-success">✓ Thank you! Your message has been sent. We will respond within 24 hours.</div>';
           form.reset();
         } else {
-          feedbackDiv.innerHTML = '<div class="formspree-error">⚠️ Something went wrong. Please try again.</div>';
+          feedbackDiv.innerHTML = '<div class="formspree-error">⚠️ Something went wrong. Please try again or contact us directly via phone.</div>';
         }
       } catch (error) {
-        feedbackDiv.innerHTML = '<div class="formspree-error">⚠️ Network error. Please check your connection.</div>';
+        feedbackDiv.innerHTML = '<div class="formspree-error">⚠️ Network error. Please check your connection and try again.</div>';
       } finally {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
-        setTimeout(() => { feedbackDiv.innerHTML = ''; }, 6000);
+        setTimeout(() => {
+          if (feedbackDiv.innerHTML) feedbackDiv.innerHTML = '';
+        }, 6000);
       }
     });
   }
