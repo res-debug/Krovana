@@ -36,7 +36,6 @@
       --light-gray: #F5F7FA;
       --charcoal: #2B2B2B;
       --emerald: #1F7A5C;
-      --beige: #D9C7A3;
       --shadow-sm: 0 10px 30px -10px rgba(0,0,0,0.05);
       --shadow-md: 0 20px 35px -12px rgba(0,0,0,0.08);
       --transition: all 0.3s ease;
@@ -102,7 +101,6 @@
       transform: translateY(-3px);
     }
 
-    /* Sticky Nav */
     .navbar {
       position: fixed;
       top: 0;
@@ -143,6 +141,7 @@
       font-weight: 500;
       transition: 0.2s;
       font-size: 1rem;
+      cursor: pointer;
     }
 
     .nav-links a:hover, .nav-links a.active {
@@ -233,6 +232,7 @@
       display: block;
       margin-bottom: 14px;
       transition: 0.2s;
+      cursor: pointer;
     }
     .footer-links a:hover {
       color: var(--gold);
@@ -296,11 +296,10 @@
       margin: 40px 0;
       border-left: 6px solid var(--gold);
     }
-    /* Expandable service details */
     .service-expandable {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.5s ease-out, margin 0.2s;
+      transition: max-height 0.5s ease-out;
       background: #F9FAFE;
       border-radius: 20px;
       margin-top: 0;
@@ -319,16 +318,25 @@
       font-weight: 600;
       cursor: pointer;
       font-size: 0.9rem;
-      letter-spacing: 0.5px;
     }
     .service-card .learn-more-btn i { margin-left: 6px; transition: 0.2s; }
     .service-card .learn-more-btn:hover i { transform: translateX(4px); }
     @media (max-width: 700px) {
       .hero h1 { font-size: 2.4rem; }
-      .service-expandable.show { max-height: 600px; }
     }
-    .footer-contact-detail p {
-      margin-bottom: 8px;
+    .formspree-success {
+      background: #d4edda;
+      color: #155724;
+      padding: 12px;
+      border-radius: 12px;
+      margin-top: 12px;
+    }
+    .formspree-error {
+      background: #f8d7da;
+      color: #721c24;
+      padding: 12px;
+      border-radius: 12px;
+      margin-top: 12px;
     }
   </style>
 </head>
@@ -336,29 +344,29 @@
 
 <nav class="navbar">
   <div class="nav-container">
-    <div class="logo"><a href="#" data-nav="home">Krovana</a></div>
+    <div class="logo"><a href="#" data-page="home">Krovana</a></div>
     <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#" data-nav="home" class="nav-link active-nav">Home</a></li>
-      <li><a href="#" data-nav="about" class="nav-link">About</a></li>
-      <li><a href="#" data-nav="services" class="nav-link">Services</a></li>
-      <li><a href="#" data-nav="team" class="nav-link">Team</a></li>
-      <li><a href="#" data-nav="contact" class="nav-link">Contact</a></li>
+      <li><a href="#" data-page="home" class="nav-link active-nav">Home</a></li>
+      <li><a href="#" data-page="about" class="nav-link">About</a></li>
+      <li><a href="#" data-page="services" class="nav-link">Services</a></li>
+      <li><a href="#" data-page="team" class="nav-link">Team</a></li>
+      <li><a href="#" data-page="contact" class="nav-link">Contact</a></li>
     </ul>
   </div>
 </nav>
 
 <main>
   <!-- HOME PAGE -->
-  <div id="home-page" class="page active-page">
+  <div id="page-home" class="page active-page">
     <section class="hero">
       <div class="container">
         <div class="hero-content">
           <h1>Building the Bridge Between African Innovation and Global Capital</h1>
           <p>We help startups, nonprofits, and impact-driven ventures become investment-ready, access strategic funding, and scale sustainable solutions across Africa.</p>
           <div class="hero-btns">
-            <a href="#" class="btn btn-primary contact-nav-btn">Book a Consultation</a>
-            <a href="#" class="btn btn-outline contact-nav-btn" style="background:rgba(255,255,255,0.1); color:white; border-color:white;">Partner With Us</a>
+            <a href="#" class="btn btn-primary" data-page="contact">Book a Consultation</a>
+            <a href="#" class="btn btn-outline" style="background:rgba(255,255,255,0.1); color:white; border-color:white;" data-page="contact">Partner With Us</a>
           </div>
         </div>
       </div>
@@ -368,11 +376,11 @@
 
     <section style="background:var(--light-gray);"><div class="container"><h2>Investment Readiness Process</h2><div style="display:grid; gap:30px; margin-top:40px;"><div class="process-step"><span style="font-weight:800; font-size:1.8rem; color:var(--gold);">01</span> <strong>Diagnostic & Gap Analysis</strong><p>Deep-dive into financial and operational maturity, investor alignment.</p></div><div class="process-step"><span style="font-weight:800; font-size:1.8rem; color:var(--gold);">02</span> <strong>Strategic Enhancement</strong><p>Custom readiness roadmap, data room setup, and investor positioning.</p></div><div class="process-step"><span style="font-weight:800; font-size:1.8rem; color:var(--gold);">03</span> <strong>Capital Connect</strong><p>Targeted investor matching, term sheet negotiation & closing support.</p></div></div></div></section>
 
-    <div class="container"><div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin:40px 0;"><div class="testimonial"><i class="fas fa-quote-left" style="color:var(--gold);"></i><p>"Krovana transformed our capital strategy. We closed $2.5M within 6 months."</p><h4> Adaeze N., Founder, GreenCycle</h4></div><div class="testimonial"><i class="fas fa-quote-left" style="color:var(--gold);"></i><p>"Exceptional advisory, deep market intelligence. Highly recommend."</p><h4> Michael O., Partner, Nairobi Capital</h4></div></div><div style="text-align:center; padding:50px 0;"><a href="#" class="btn btn-primary btn-gold" data-nav="contact">Let’s Build Sustainable Growth Together →</a></div></div>
+    <div class="container"><div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin:40px 0;"><div class="testimonial"><i class="fas fa-quote-left" style="color:var(--gold);"></i><p>"Krovana transformed our capital strategy. We closed $2.5M within 6 months."</p><h4>Adaeze N., Founder, GreenCycle</h4></div><div class="testimonial"><i class="fas fa-quote-left" style="color:var(--gold);"></i><p>"Exceptional advisory, deep market intelligence. Highly recommend."</p><h4>Michael O., Partner, Nairobi Capital</h4></div></div><div style="text-align:center; padding:50px 0;"><a href="#" class="btn btn-primary btn-gold" data-page="contact">Let's Build Sustainable Growth Together →</a></div></div>
   </div>
 
   <!-- ABOUT PAGE -->
-  <div id="about-page" class="page">
+  <div id="page-about" class="page">
     <section style="background: linear-gradient(120deg, var(--light-gray) 0%, #ffffff 100%);">
       <div class="container"><h1 style="font-size: 3.2rem;">About Krovana</h1><p style="font-size: 1.25rem; max-width: 800px; margin-top: 16px;">Redefining capital readiness for the African century.</p></div>
     </section>
@@ -384,7 +392,7 @@
         <p style="margin-top: 20px; line-height: 1.6;"><strong>Krovana was founded in 2025 to solve this systemic failure.</strong> We are the strategic partner that prepares African ventures to institutional standards and bridges the trust gap between local innovation and global capital, ensuring that capital flows where impact and returns align.</p>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 48px; margin: 60px 0;">
-        <div><h3 style="border-left: 4px solid var(--gold); padding-left: 20px;">Mission</h3><p style="margin-top: 16px;">To systematically unlock Africa’s entrepreneurial potential by making ventures investment-ready and connecting them to the right capital partners, driving inclusive, sustainable growth.</p></div>
+        <div><h3 style="border-left: 4px solid var(--gold); padding-left: 20px;">Mission</h3><p style="margin-top: 16px;">To systematically unlock Africa's entrepreneurial potential by making ventures investment-ready and connecting them to the right capital partners, driving inclusive, sustainable growth.</p></div>
         <div><h3 style="border-left: 4px solid var(--gold); padding-left: 20px;">Vision</h3><p style="margin-top: 16px;">A prosperous Africa where world-class innovation meets global capital readiness, fueling economic transformation across every sector.</p></div>
         <div><h3 style="border-left: 4px solid var(--gold); padding-left: 20px;">Strategic Pillars</h3><p style="margin-top: 16px;">Rigorous financial structuring, investor-grade storytelling, ecosystem intelligence, long-term partnership.</p></div>
       </div>
@@ -405,31 +413,70 @@
     </div>
   </div>
 
-  <!-- SERVICES PAGE with expandable learn more -->
-  <div id="services-page" class="page">
+  <!-- SERVICES PAGE -->
+  <div id="page-services" class="page">
     <section><div class="container"><h1 style="margin-bottom:16px;">Premium Advisory Services</h1><p>Tailored solutions to secure capital and scale impact across African markets.</p></div></section>
     <div class="container">
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:40px;" id="servicesGrid">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:40px;">
         <div class="service-card"><i class="fas fa-chalkboard-user" style="font-size:2rem; color:var(--emerald);"></i><h3>Investment Readiness Advisory</h3><p>Financial infrastructure, data room setup, cap table strategy, governance frameworks.</p><div class="learn-more-btn">Learn more <i class="fas fa-chevron-down"></i></div><div class="service-expandable"><strong>Deep expertise:</strong> We conduct full diagnostic reviews, build investor-grade financial models, design governance policies, and prepare due diligence data rooms. Our team ensures your venture meets institutional fund requirements, including GAAP/IFRS alignment, legal structuring, and risk management frameworks, radically improving capital readiness.</div></div>
         <div class="service-card"><i class="fas fa-people-arrows" style="font-size:2rem; color:var(--emerald);"></i><h3>Capital Matchmaking</h3><p>Curated investor roadshows, term sheet negotiation, venture debt & equity placement.</p><div class="learn-more-btn">Learn more <i class="fas fa-chevron-down"></i></div><div class="service-expandable"><strong>Global network access:</strong> We connect you with impact funds, DFIs, family offices, and corporate venture arms across Africa, Europe, and North America. From teaser development to closing, we offer end-to-end deal support, negotiation strategy, and co-investment structuring to optimize terms and speed to capital.</div></div>
         <div class="service-card"><i class="fas fa-chart-line" style="font-size:2rem; color:var(--emerald);"></i><h3>Strategic Growth Advisory</h3><p>Market entry, corporate development, and operational scaling plans.</p><div class="learn-more-btn">Learn more <i class="fas fa-chevron-down"></i></div><div class="service-expandable"><strong>Scale with confidence:</strong> We design expansion roadmaps, evaluate partnership ecosystems, and provide operational health checks. Our engagements include commercial due diligence, unit economics analysis, and go-to-market strategies for new African markets, ensuring sustainable, data-driven growth.</div></div>
         <div class="service-card"><i class="fas fa-leaf" style="font-size:2rem; color:var(--emerald);"></i><h3>Impact Measurement & Reporting</h3><p>IRIS+ frameworks, ESG alignment, and impact metrics for institutional LPs.</p><div class="learn-more-btn">Learn more <i class="fas fa-chevron-down"></i></div><div class="service-expandable"><strong>Credible impact narrative:</strong> We help you implement best-in-class impact management systems aligned with UN SDGs, IRIS+, and SASB. From data collection to investor-grade impact reports, we position your venture as an accountable ESG leader that attracts thematic capital.</div></div>
         <div class="service-card"><i class="fas fa-database" style="font-size:2rem; color:var(--emerald);"></i><h3>Research & Ecosystem Intelligence</h3><p>Market reports, sector deep dives, and investor mapping for strategic decisions.</p><div class="learn-more-btn">Learn more <i class="fas fa-chevron-down"></i></div><div class="service-expandable"><strong>Data-driven advantage:</strong> Our research team delivers proprietary intelligence on sector trends, competitor landscapes, and active investor profiles. We help boards and founders make informed strategic moves with real-time insights from African markets.</div></div>
       </div>
-      <div style="text-align:center; margin:60px 0;"><a href="#" class="btn btn-primary" style="background:var(--emerald);" data-nav="contact">Request a Service Brief</a></div>
+      <div style="text-align:center; margin:60px 0;"><a href="#" class="btn btn-primary" style="background:var(--emerald);" data-page="contact">Request a Service Brief</a></div>
     </div>
   </div>
 
   <!-- TEAM PAGE -->
-  <div id="team-page" class="page">
+  <div id="page-team" class="page">
     <section style="background: var(--light-gray);"><div class="container"><h1>Executive Leadership</h1><p>World-class experts driving capital transformation across Africa.</p></div></section>
     <div class="container"><div style="display: flex; justify-content: center; margin: 60px 0;"><div class="team-card" style="max-width: 500px; text-align: center; width: 100%;"><div class="profile-img"><i class="fas fa-user-tie fa-3x"></i></div><h3>Stephen Ochanda</h3><p style="color: var(--gold); font-weight: 600; margin-bottom: 12px;">Founder & Managing Director</p><p>Stephen is a strategy and research professional with experience in investment readiness, stakeholder engagement, policy analysis, financial systems, and data-driven advisory across African markets.</p><a href="https://www.linkedin.com/in/stephen-ochanda/" target="_blank" class="linkedin-icon"><i class="fab fa-linkedin"></i> LinkedIn Profile</a></div></div></div>
   </div>
 
   <!-- CONTACT PAGE -->
-  <div id="contact-page" class="page">
+  <div id="page-contact" class="page">
     <section><div class="container"><h1>Connect with Krovana</h1><p>Let's align on your capital readiness journey.</p></div></section>
-    <div class="container"><div style="display:grid; grid-template-columns:1fr 1fr; gap:50px;"><div><form id="contactForm" class="contact-form"><input type="text" placeholder="Full Name" required><input type="text" placeholder="Organization"><input type="email" placeholder="Email Address" required><input type="tel" placeholder="Phone Number"><select><option>Type of Inquiry</option><option>Investment Readiness</option><option>Capital Matchmaking</option><option>General Advisory</option></select><textarea rows="4" placeholder="Message"></textarea><button type="submit" class="btn btn-primary" style="background:var(--gold); color:var(--navy);">Send Message →</button><p id="formFeedback" style="margin-top:10px;"></p></form></div><div><div class="contact-card"><i class="fas fa-map-marker-alt" style="color:var(--gold); font-size: 1.6rem;"></i><h3 style="margin: 12px 0 8px;">Visit Us</h3><p>Nairobi, Kenya</p><div style="margin: 20px 0;"><i class="fas fa-phone-alt" style="color:var(--gold); margin-right: 8px;"></i> <strong>+254 795 655 396</strong></div><div class="map-placeholder"><i class="fas fa-globe-africa" style="font-size: 3rem; color:var(--gold);"></i> <span style="margin-left: 12px;">Nairobi, Kenya (Hub of African Innovation)</span></div></div><div style="margin-top: 30px;"><a href="#" class="btn btn-outline" data-nav="contact">Schedule a Strategic Call →</a></div></div></div></div>
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:50px;">
+        <div>
+          <form id="contactForm" class="contact-form" action="https://formspree.io/f/mjkrazye" method="POST">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="text" name="organization" placeholder="Organization">
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number">
+            <select name="inquiry_type">
+              <option value="">Type of Inquiry</option>
+              <option value="Investment Readiness">Investment Readiness</option>
+              <option value="Capital Matchmaking">Capital Matchmaking</option>
+              <option value="Strategic Growth">Strategic Growth Advisory</option>
+              <option value="Impact Measurement">Impact Measurement</option>
+              <option value="General Advisory">General Advisory</option>
+            </select>
+            <textarea name="message" rows="4" placeholder="Message" required></textarea>
+            <input type="hidden" name="_subject" value="New Krovana Website Inquiry">
+            <input type="hidden" name="_replyto" value="email">
+            <button type="submit" class="btn btn-primary" style="background:var(--gold); color:var(--navy);">Send Message →</button>
+            <div id="formFeedback" style="margin-top:12px;"></div>
+          </form>
+        </div>
+        <div>
+          <div class="contact-card">
+            <i class="fas fa-map-marker-alt" style="color:var(--gold); font-size: 1.6rem;"></i>
+            <h3 style="margin: 12px 0 8px;">Visit Us</h3>
+            <p>Nairobi, Kenya</p>
+            <div style="margin: 20px 0;">
+              <i class="fas fa-phone-alt" style="color:var(--gold); margin-right: 8px;"></i> 
+              <strong>+254 795 655 396</strong>
+            </div>
+            <div class="map-placeholder">
+              <i class="fas fa-globe-africa" style="font-size: 3rem; color:var(--gold);"></i> 
+              <span style="margin-left: 12px;">Nairobi, Kenya (Hub of African Innovation)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </main>
 
@@ -437,59 +484,121 @@
   <div class="container">
     <div class="footer-grid">
       <div><div class="logo" style="margin-bottom:12px;"><span style="color:var(--gold); font-size:1.8rem; font-weight:bold;">Krovana</span></div><p>Investment readiness & capital advisory for African innovation.</p></div>
-      <div class="footer-links"><h4>Explore</h4><a href="#" data-nav="home">Home</a><a href="#" data-nav="about">About</a><a href="#" data-nav="services">Services</a><a href="#" data-nav="team">Team</a><a href="#" data-nav="contact">Contact</a></div>
-      <div><h4>Connect</h4><div class="social-icons"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div><div class="footer-contact-detail" style="margin-top: 16px;"><p><i class="fas fa-phone-alt" style="margin-right: 8px; color: var(--gold);"></i> +254 795 655 396</p><p><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--gold);"></i> Nairobi, Kenya</p></div></div>
+      <div class="footer-links"><h4>Explore</h4><a href="#" data-page="home">Home</a><a href="#" data-page="about">About</a><a href="#" data-page="services">Services</a><a href="#" data-page="team">Team</a><a href="#" data-page="contact">Contact</a></div>
+      <div><h4>Connect</h4><div class="social-icons"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div><div style="margin-top: 16px;"><p><i class="fas fa-phone-alt" style="margin-right: 8px; color: var(--gold);"></i> +254 795 655 396</p><p><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--gold);"></i> Nairobi, Kenya</p></div></div>
     </div>
-    <div style="border-top:1px solid rgba(200,169,107,0.3); margin-top:40px; padding-top:24px; text-align:center;">© Copyright Reserved 2026 Krovana, All rights reserved.</div>
+    <div style="border-top:1px solid rgba(200,169,107,0.3); margin-top:40px; padding-top:24px; text-align:center;">© 2026 Krovana. All rights Reserved.</div>
   </div>
 </footer>
 
 <script>
-  // Page navigation
-  const pages = { home: document.getElementById('home-page'), about: document.getElementById('about-page'), services: document.getElementById('services-page'), team: document.getElementById('team-page'), contact: document.getElementById('contact-page') };
+  // Page navigation - FULLY FIXED
+  const pages = {
+    home: document.getElementById('page-home'),
+    about: document.getElementById('page-about'),
+    services: document.getElementById('page-services'),
+    team: document.getElementById('page-team'),
+    contact: document.getElementById('page-contact')
+  };
+  
   const navLinks = document.querySelectorAll('.nav-link');
-  const footerNav = document.querySelectorAll('.footer-links a');
+  const footerLinks = document.querySelectorAll('.footer-links a');
   const logoLink = document.querySelector('.logo a');
+  const allNavTriggers = document.querySelectorAll('[data-page]');
   
   function activatePage(pageId) {
-    Object.keys(pages).forEach(id => pages[id].classList.remove('active-page'));
-    pages[pageId].classList.add('active-page');
-    navLinks.forEach(link => { const linkPage = link.getAttribute('data-nav'); if(linkPage === pageId) link.classList.add('active-nav'); else link.classList.remove('active-nav'); });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-  
-  function setNavigation() {
-    const allTriggers = [...navLinks, ...footerNav, logoLink];
-    allTriggers.forEach(trigger => { if(trigger) trigger.addEventListener('click', (e) => { e.preventDefault(); const page = trigger.getAttribute('data-nav'); if(page && pages[page]) activatePage(page); document.getElementById('navLinks').classList.remove('active'); }); });
-    
-    // Special handling for "Book a Consultation" and "Partner With Us" buttons
-    const contactBtns = document.querySelectorAll('.contact-nav-btn');
-    contactBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        activatePage('contact');
-        document.getElementById('navLinks').classList.remove('active');
-      });
+    // Hide all pages
+    Object.values(pages).forEach(page => {
+      if (page) page.classList.remove('active-page');
     });
-    
-    activatePage('home');
+    // Show selected page
+    if (pages[pageId]) {
+      pages[pageId].classList.add('active-page');
+    }
+    // Update active nav styling
+    navLinks.forEach(link => {
+      if (link.getAttribute('data-page') === pageId) {
+        link.classList.add('active-nav');
+      } else {
+        link.classList.remove('active-nav');
+      }
+    });
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Close mobile menu
+    document.getElementById('navLinks').classList.remove('active');
   }
   
-  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('active'));
-  document.getElementById('contactForm')?.addEventListener('submit', (e) => { e.preventDefault(); document.getElementById('formFeedback').innerHTML = '<span style="color:green;">✓ Thank you. We will reach out within 24 hours.</span>'; e.target.reset(); });
-  setNavigation();
-  document.querySelectorAll('.nav-link').forEach(ln => ln.addEventListener('click', () => document.getElementById('navLinks').classList.remove('active')));
-
+  // Add click handlers to all elements with data-page attribute
+  allNavTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      const page = trigger.getAttribute('data-page');
+      if (page && pages[page]) {
+        activatePage(page);
+      }
+    });
+  });
+  
+  // Hamburger menu toggle
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('active');
+  });
+  
+  // Close mobile menu when a link is clicked
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('active');
+    });
+  });
+  
+  // Formspree form submission
+  const form = document.getElementById('contactForm');
+  const feedbackDiv = document.getElementById('formFeedback');
+  
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Sending...';
+      submitBtn.disabled = true;
+      
+      const formData = new FormData(form);
+      
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        
+        if (response.ok) {
+          feedbackDiv.innerHTML = '<div class="formspree-success">✓ Thank you! Your message has been sent. We will respond within 24 hours.</div>';
+          form.reset();
+        } else {
+          feedbackDiv.innerHTML = '<div class="formspree-error">⚠️ Something went wrong. Please try again.</div>';
+        }
+      } catch (error) {
+        feedbackDiv.innerHTML = '<div class="formspree-error">⚠️ Network error. Please check your connection.</div>';
+      } finally {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        setTimeout(() => { feedbackDiv.innerHTML = ''; }, 6000);
+      }
+    });
+  }
+  
   // Expandable service cards
   document.querySelectorAll('.service-card').forEach(card => {
     const btn = card.querySelector('.learn-more-btn');
     const expandDiv = card.querySelector('.service-expandable');
-    if(btn && expandDiv) {
+    if (btn && expandDiv) {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         expandDiv.classList.toggle('show');
         const icon = btn.querySelector('i');
-        if(expandDiv.classList.contains('show')) {
+        if (expandDiv.classList.contains('show')) {
           icon.classList.remove('fa-chevron-down');
           icon.classList.add('fa-chevron-up');
         } else {
@@ -499,6 +608,9 @@
       });
     }
   });
+  
+  // Start on home page
+  activatePage('home');
 </script>
 </body>
 </html>
