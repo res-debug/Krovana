@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Krovana | African Investment Readiness & Capital Advisory</title>
+  <!-- Google Fonts: Playfair Display + Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FFFFFF;
+      color: #2B2B2B;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, .heading-font {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    :root {
+      --navy: #0B1F3A;
+      --gold: #C8A96B;
+      --white: #FFFFFF;
+      --light-gray: #F5F7FA;
+      --charcoal: #2B2B2B;
+      --emerald: #1F7A5C;
+      --beige: #D9C7A3;
+      --shadow-sm: 0 10px 30px -10px rgba(0,0,0,0.05);
+      --shadow-md: 0 20px 35px -12px rgba(0,0,0,0.08);
+      --transition: all 0.3s ease;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border-radius: 40px;
+      transition: var(--transition);
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      background: transparent;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: white;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold);
+      color: var(--navy);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--navy);
+      color: var(--navy);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--navy);
+      color: white;
+      border-color: var(--navy);
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .btn-gold:hover {
+      background: var(--navy);
+      color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    /* Sticky Nav */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(11, 31, 58, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(200,169,107,0.2);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo a {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--gold);
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        background: var(--navy);
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+        gap: 24px;
+        transition: 0.3s;
+      }
+      .nav-links.active { left: 0; }
+      .hamburger { display: block; }
+      .container { padding: 0 24px; }
+      section { padding: 60px 0; }
+    }
+
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(107deg, var(--navy) 0%, #0a2942 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: url('https://placehold.co/1600x1200/0B1F3A/FFFFFF?text=African+Innovation') center/cover no-repeat;
+      opacity: 0.2;
+      mix-blend-mode: overlay;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 700px; }
+    .hero h1 { font-size: 3.8rem; color: white; line-height: 1.2; margin-bottom: 24px; }
+    .hero p { font-size: 1.2rem; color: rgba(255,255,255,0.85); margin-bottom: 32px; }
+    .hero-btns { display: flex; gap: 20px; flex-wrap: wrap; }
+
+    .service-card, .team-card {
+      background: white;
+      padding: 32px;
+      border-radius: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .process-step { border-left: 3px solid var(--gold); padding-left: 20px; margin-bottom: 24px; }
+    .testimonial { background: var(--light-gray); padding: 32px; border-radius: 20px; }
+    
+    footer {
+      background: var(--navy);
+      color: #ccc;
+      padding: 50px 0 30px;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .footer-links h4 {
+      margin-bottom: 20px;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 14px;
+      transition: 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--gold);
+      transform: translateX(3px);
+    }
+    .social-icons a {
+      color: var(--gold);
+      font-size: 1.4rem;
+      margin-right: 20px;
+      display: inline-block;
+      transition: 0.2s;
+    }
+    .social-icons a:hover {
+      transform: translateY(-3px);
+      color: white;
+    }
+    .page { display: none; animation: fadeIn 0.5s ease; }
+    .active-page { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: translateY(0);} }
+    
+    .contact-form input, .contact-form select, .contact-form textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #ddd;
+      border-radius: 16px;
+      font-family: 'Inter';
+      margin-bottom: 20px;
+    }
+    .contact-card {
+      background: var(--light-gray);
+      padding: 28px;
+      border-radius: 28px;
+    }
+    .map-placeholder {
+      background: #e9eef3;
+      border-radius: 24px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 24px;
+    }
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg, #e9e2d4, #d9c7a3);
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      color: var(--navy);
+    }
+    .linkedin-icon { color: #0A66C2; font-size: 1.4rem; margin-top: 12px; display: inline-block; text-decoration: none; font-weight: 500; }
+    .linkedin-icon i { margin-right: 6px; }
+    .story-highlight {
+      background: var(--light-gray);
+      border-radius: 32px;
+      padding: 40px;
+      margin: 40px 0;
+      border-left: 6px solid var(--gold);
+    }
+    /* Expandable service details */
+    .service-expandable {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out, margin 0.2s;
+      background: #F9FAFE;
+      border-radius: 20px;
+      margin-top: 0;
+    }
+    .service-expandable.show {
+      max-height: 450px;
+      margin-top: 20px;
+      padding: 20px 24px;
+      background: #F9FAFE;
+      border-left: 3px solid var(--gold);
+    }
+    .service-card .learn-more-btn {
+      display: inline-block;
+      margin-top: 18px;
+      color: var(--gold);
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+    .service-card .learn-more-btn i { margin-left: 6px; transition: 0.2s; }
+    .service-card .learn-more-btn:hover i { transform: translateX(4px); }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 2.4rem; }
+      .service-expandable.show { max-height: 600px; }
+    }
+    .footer-contact-detail p {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo"><a href="#" data-nav="home">Krovana</a></div>
+    <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" data-nav="home" class="nav-link active-nav">Home</a></li>
+      <li><a href="#" data-nav="about" class="nav-link">About</a></li>
+      <li><a href="#" data-nav="services" class="nav-link">Services</a></li>
+      <li><a href="#" data-nav="team" class="nav-link">Team</a></li>
+      <li><a href="#" data-nav="contact" class="nav-link">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <!-- HOME PAGE -->
+  <div id="home-page" class="page active-page">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Building the Bridge Between African Innovation and Global Capital</h1>
+          <p>We help startups, nonprofits, and impact-driven ventures become investment-ready, access strategic funding, and scale sustainable solutions across Africa.</p>
+          <div class="hero-btns">
+            <a href="#" class="btn btn-primary contact-nav-btn">Book a Consultation</a>
+            <a href="#" class="btn btn-outline contact-nav-btn" style="background:rgba(255,255,255,0.1); color:white; border-color:white;">Partner With Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section><div class="container"><h2 style="margin-bottom:40px;">Our Advisory Edge</h2><div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px;"><div class="service-card"><i class="fas fa-chart-line" style="font-size:2.5rem; color:var(--gold);"></i><h3>Investment Readiness</h3><p>Financial modelling, due diligence prep, governance structuring for African ventures.</p></div><div class="service-card"><i class="fas fa-handshake" style="font-size:2.5rem; color:var(--gold);"></i><h3>Capital Matchmaking</h3><p>Curated connections with global & local impact funds, family offices, DFIs.</p></div><div class="service-card"><i class="fas fa-chart-simple" style="font-size:2.5rem; color:var(--gold);"></i><h3>Growth Strategy</h3><p>Scaling playbooks for African ecosystems, market entry & operational expansion.</p></div></div></div></section>
+
+    <section style="background:var(--light-gray);"><div class="container"><h2>Investment Readiness Process</h2><div style="display:grid; gap:30px; margin-top:40px;"><div class="process-step"><span style="font-weight:800; font-size:1.8rem; color:var(--gold);">01</span> <strong>Diagnostic & Gap Analysis</strong><p>Deep-dive into financial and operational maturity, investor alignment.</p></div><div class="process-step"><span style="font-weight:800; font-size:1.8rem; color:var(--gold);">02</span> <strong>Strategic Enhancement</strong><p>Custom readiness roadmap, data room setup, and investor positioning.</p></div><div class="process-step"><span style="font-weight:800; font-size:1.8rem; color:var(--gold);">03</span> <strong>Capital Connect</strong><p>Targeted investor matching, term sheet negotiation & closing support.</p></div></div></div></section>
+
+    <div class="container"><div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin:40px 0;"><div class="testimonial"><i class="fas fa-quote-left" style="color:var(--gold);"></i><p>"Krovana transformed our capital strategy. We closed $2.5M within 6 months."</p><h4> Adaeze N., Founder, GreenCycle</h4></div><div class="testimonial"><i class="fas fa-quote-left" style="color:var(--gold);"></i><p>"Exceptional advisory, deep market intelligence. Highly recommend."</p><h4> Michael O., Partner, Nairobi Capital</h4></div></div><div style="text-align:center; padding:50px 0;"><a href="#" class="btn btn-primary btn-gold" data-nav="contact">Let’s Build Sustainable Growth Together →</a></div></div>
+  </div>
+
+  <!-- ABOUT PAGE -->
+  <div id="about-page" class="page">
+    <section style="background: linear-gradient(120deg, var(--light-gray) 0%, #ffffff 100%);">
+      <div class="container"><h1 style="font-size: 3.2rem;">About Krovana</h1><p style="font-size: 1.25rem; max-width: 800px; margin-top: 16px;">Redefining capital readiness for the African century.</p></div>
+    </section>
+    <div class="container">
+      <div class="story-highlight">
+        <h2 style="color: var(--navy);">Why we exist: The Gap We Bridge</h2>
+        <p style="margin-top: 20px; line-height: 1.6;">Despite Africa being home to the world's fastest-growing entrepreneurial ecosystems, less than 3% of global venture capital reaches the continent. Most high-potential startups, nonprofits, and impact ventures face fragmented advisory landscapes, unprepared financial infrastructure, and misaligned investor expectations. Founders struggle with complex due diligence, governance gaps, and limited access to strategic capital beyond friends and family.</p>
+        <p style="margin-top: 20px; line-height: 1.6;">At the same time, global institutional investors are eager to deploy into Africa but encounter a lack of investment-ready pipelines, inconsistent financial reporting, and opaque governance structures. This disconnect leaves billions in untapped potential and stalls transformative solutions in climate, health, fintech, and agriculture.</p>
+        <p style="margin-top: 20px; line-height: 1.6;"><strong>Krovana was founded in 2025 to solve this systemic failure.</strong> We are the strategic partner that prepares African ventures to institutional standards and bridges the trust gap between local innovation and global capital, ensuring that capital flows where impact and returns align.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 48px; margin: 60px 0;">
+        <div><h3 style="border-left: 4px solid var(--gold); padding-left: 20px;">Mission</h3><p style="margin-top: 16px;">To systematically unlock Africa’s entrepreneurial potential by making ventures investment-ready and connecting them to the right capital partners, driving inclusive, sustainable growth.</p></div>
+        <div><h3 style="border-left: 4px solid var(--gold); padding-left: 20px;">Vision</h3><p style="margin-top: 16px;">A prosperous Africa where world-class innovation meets global capital readiness, fueling economic transformation across every sector.</p></div>
+        <div><h3 style="border-left: 4px solid var(--gold); padding-left: 20px;">Strategic Pillars</h3><p style="margin-top: 16px;">Rigorous financial structuring, investor-grade storytelling, ecosystem intelligence, long-term partnership.</p></div>
+      </div>
+      <div style="background: var(--light-gray); border-radius: 32px; padding: 48px 32px; margin: 40px 0;">
+        <h3 style="text-align: center; margin-bottom: 32px;">Our Core Values</h3>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+          <span style="background: white; padding: 12px 28px; border-radius: 60px; font-weight: 500;">Integrity</span>
+          <span style="background: white; padding: 12px 28px; border-radius: 60px; font-weight: 500;">Excellence</span>
+          <span style="background: white; padding: 12px 28px; border-radius: 60px; font-weight: 500;">Impact</span>
+          <span style="background: white; padding: 12px 28px; border-radius: 60px; font-weight: 500;">Collaboration</span>
+          <span style="background: white; padding: 12px 28px; border-radius: 60px; font-weight: 500;">Global Standards</span>
+        </div>
+      </div>
+      <div style="text-align: center; margin: 40px 0 60px;">
+        <i class="fas fa-map-africa" style="font-size: 4rem; color: var(--gold); opacity: 0.8;"></i>
+        <p style="margin-top: 16px;">Rooted in Nairobi, serving Pan-African ecosystems</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES PAGE with expandable learn more -->
+  <div id="services-page" class="page">
+    <section><div class="container"><h1 style="margin-bottom:16px;">Premium Advisory Services</h1><p>Tailored solutions to secure capital and scale impact across African markets.</p></div></section>
+    <div class="container">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:40px;" id="servicesGrid">
+        <div class="service-card"><i class="fas fa-chalkboard-user" style="font-size:2rem; color:var(--emerald);"></i><h3>Investment Readiness Advisory</h3><p>Financial infrastructure, data room setup, cap table strategy, governance frameworks.</p><div class="learn-more-btn">Learn more <i class="fas fa-chevron-down"></i></div><div class="service-expandable"><strong>Deep expertise:</strong> We conduct full diagnostic reviews, build investor-grade financial models, design governance policies, and prepare due diligence data rooms. Our team ensures your venture meets institutional fund requirements, including GAAP/IFRS alignment, legal structuring, and risk management frameworks, radically improving capital readiness.</div></div>
+        <div class="service-card"><i class="fas fa-people-arrows" style="font-size:2rem; color:var(--emerald);"></i><h3>Capital Matchmaking</h3><p>Curated investor roadshows, term sheet negotiation, venture debt & equity placement.</p><div class="learn-more-btn">Learn more <i class="fas fa-chevron-down"></i></div><div class="service-expandable"><strong>Global network access:</strong> We connect you with impact funds, DFIs, family offices, and corporate venture arms across Africa, Europe, and North America. From teaser development to closing, we offer end-to-end deal support, negotiation strategy, and co-investment structuring to optimize terms and speed to capital.</div></div>
+        <div class="service-card"><i class="fas fa-chart-line" style="font-size:2rem; color:var(--emerald);"></i><h3>Strategic Growth Advisory</h3><p>Market entry, corporate development, and operational scaling plans.</p><div class="learn-more-btn">Learn more <i class="fas fa-chevron-down"></i></div><div class="service-expandable"><strong>Scale with confidence:</strong> We design expansion roadmaps, evaluate partnership ecosystems, and provide operational health checks. Our engagements include commercial due diligence, unit economics analysis, and go-to-market strategies for new African markets, ensuring sustainable, data-driven growth.</div></div>
+        <div class="service-card"><i class="fas fa-leaf" style="font-size:2rem; color:var(--emerald);"></i><h3>Impact Measurement & Reporting</h3><p>IRIS+ frameworks, ESG alignment, and impact metrics for institutional LPs.</p><div class="learn-more-btn">Learn more <i class="fas fa-chevron-down"></i></div><div class="service-expandable"><strong>Credible impact narrative:</strong> We help you implement best-in-class impact management systems aligned with UN SDGs, IRIS+, and SASB. From data collection to investor-grade impact reports, we position your venture as an accountable ESG leader that attracts thematic capital.</div></div>
+        <div class="service-card"><i class="fas fa-database" style="font-size:2rem; color:var(--emerald);"></i><h3>Research & Ecosystem Intelligence</h3><p>Market reports, sector deep dives, and investor mapping for strategic decisions.</p><div class="learn-more-btn">Learn more <i class="fas fa-chevron-down"></i></div><div class="service-expandable"><strong>Data-driven advantage:</strong> Our research team delivers proprietary intelligence on sector trends, competitor landscapes, and active investor profiles. We help boards and founders make informed strategic moves with real-time insights from African markets.</div></div>
+      </div>
+      <div style="text-align:center; margin:60px 0;"><a href="#" class="btn btn-primary" style="background:var(--emerald);" data-nav="contact">Request a Service Brief</a></div>
+    </div>
+  </div>
+
+  <!-- TEAM PAGE -->
+  <div id="team-page" class="page">
+    <section style="background: var(--light-gray);"><div class="container"><h1>Executive Leadership</h1><p>World-class experts driving capital transformation across Africa.</p></div></section>
+    <div class="container"><div style="display: flex; justify-content: center; margin: 60px 0;"><div class="team-card" style="max-width: 500px; text-align: center; width: 100%;"><div class="profile-img"><i class="fas fa-user-tie fa-3x"></i></div><h3>Stephen Ochanda</h3><p style="color: var(--gold); font-weight: 600; margin-bottom: 12px;">Founder & Managing Director</p><p>Stephen is a strategy and research professional with experience in investment readiness, stakeholder engagement, policy analysis, financial systems, and data-driven advisory across African markets.</p><a href="https://www.linkedin.com/in/stephen-ochanda/" target="_blank" class="linkedin-icon"><i class="fab fa-linkedin"></i> LinkedIn Profile</a></div></div></div>
+  </div>
+
+  <!-- CONTACT PAGE -->
+  <div id="contact-page" class="page">
+    <section><div class="container"><h1>Connect with Krovana</h1><p>Let's align on your capital readiness journey.</p></div></section>
+    <div class="container"><div style="display:grid; grid-template-columns:1fr 1fr; gap:50px;"><div><form id="contactForm" class="contact-form"><input type="text" placeholder="Full Name" required><input type="text" placeholder="Organization"><input type="email" placeholder="Email Address" required><input type="tel" placeholder="Phone Number"><select><option>Type of Inquiry</option><option>Investment Readiness</option><option>Capital Matchmaking</option><option>General Advisory</option></select><textarea rows="4" placeholder="Message"></textarea><button type="submit" class="btn btn-primary" style="background:var(--gold); color:var(--navy);">Send Message →</button><p id="formFeedback" style="margin-top:10px;"></p></form></div><div><div class="contact-card"><i class="fas fa-map-marker-alt" style="color:var(--gold); font-size: 1.6rem;"></i><h3 style="margin: 12px 0 8px;">Visit Us</h3><p>Nairobi, Kenya</p><div style="margin: 20px 0;"><i class="fas fa-phone-alt" style="color:var(--gold); margin-right: 8px;"></i> <strong>+254 795 655 396</strong></div><div class="map-placeholder"><i class="fas fa-globe-africa" style="font-size: 3rem; color:var(--gold);"></i> <span style="margin-left: 12px;">Nairobi, Kenya (Hub of African Innovation)</span></div></div><div style="margin-top: 30px;"><a href="#" class="btn btn-outline" data-nav="contact">Schedule a Strategic Call →</a></div></div></div></div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="logo" style="margin-bottom:12px;"><span style="color:var(--gold); font-size:1.8rem; font-weight:bold;">Krovana</span></div><p>Investment readiness & capital advisory for African innovation.</p></div>
+      <div class="footer-links"><h4>Explore</h4><a href="#" data-nav="home">Home</a><a href="#" data-nav="about">About</a><a href="#" data-nav="services">Services</a><a href="#" data-nav="team">Team</a><a href="#" data-nav="contact">Contact</a></div>
+      <div><h4>Connect</h4><div class="social-icons"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div><div class="footer-contact-detail" style="margin-top: 16px;"><p><i class="fas fa-phone-alt" style="margin-right: 8px; color: var(--gold);"></i> +254 795 655 396</p><p><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--gold);"></i> Nairobi, Kenya</p></div></div>
+    </div>
+    <div style="border-top:1px solid rgba(200,169,107,0.3); margin-top:40px; padding-top:24px; text-align:center;">© Copyright Reserved 2026 Krovana, All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // Page navigation
+  const pages = { home: document.getElementById('home-page'), about: document.getElementById('about-page'), services: document.getElementById('services-page'), team: document.getElementById('team-page'), contact: document.getElementById('contact-page') };
+  const navLinks = document.querySelectorAll('.nav-link');
+  const footerNav = document.querySelectorAll('.footer-links a');
+  const logoLink = document.querySelector('.logo a');
+  
+  function activatePage(pageId) {
+    Object.keys(pages).forEach(id => pages[id].classList.remove('active-page'));
+    pages[pageId].classList.add('active-page');
+    navLinks.forEach(link => { const linkPage = link.getAttribute('data-nav'); if(linkPage === pageId) link.classList.add('active-nav'); else link.classList.remove('active-nav'); });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  
+  function setNavigation() {
+    const allTriggers = [...navLinks, ...footerNav, logoLink];
+    allTriggers.forEach(trigger => { if(trigger) trigger.addEventListener('click', (e) => { e.preventDefault(); const page = trigger.getAttribute('data-nav'); if(page && pages[page]) activatePage(page); document.getElementById('navLinks').classList.remove('active'); }); });
+    
+    // Special handling for "Book a Consultation" and "Partner With Us" buttons
+    const contactBtns = document.querySelectorAll('.contact-nav-btn');
+    contactBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        activatePage('contact');
+        document.getElementById('navLinks').classList.remove('active');
+      });
+    });
+    
+    activatePage('home');
+  }
+  
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('active'));
+  document.getElementById('contactForm')?.addEventListener('submit', (e) => { e.preventDefault(); document.getElementById('formFeedback').innerHTML = '<span style="color:green;">✓ Thank you. We will reach out within 24 hours.</span>'; e.target.reset(); });
+  setNavigation();
+  document.querySelectorAll('.nav-link').forEach(ln => ln.addEventListener('click', () => document.getElementById('navLinks').classList.remove('active')));
+
+  // Expandable service cards
+  document.querySelectorAll('.service-card').forEach(card => {
+    const btn = card.querySelector('.learn-more-btn');
+    const expandDiv = card.querySelector('.service-expandable');
+    if(btn && expandDiv) {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        expandDiv.classList.toggle('show');
+        const icon = btn.querySelector('i');
+        if(expandDiv.classList.contains('show')) {
+          icon.classList.remove('fa-chevron-down');
+          icon.classList.add('fa-chevron-up');
+        } else {
+          icon.classList.remove('fa-chevron-up');
+          icon.classList.add('fa-chevron-down');
+        }
+      });
+    }
+  });
+</script>
+</body>
+</html>
