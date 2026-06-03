@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    const path = window.location.pathname.substring(1);
+    if (['about', 'services', 'team', 'contact'].includes(path)) {
+      window.location.href = '/';
+    }
+  </script>
+</head>
+<body>Loading...</body>
+</html>
