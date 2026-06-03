@@ -127,6 +127,7 @@
       color: var(--gold);
       text-decoration: none;
       letter-spacing: -0.5px;
+      cursor: pointer;
     }
 
     .nav-links {
@@ -344,14 +345,14 @@
 
 <nav class="navbar">
   <div class="nav-container">
-    <div class="logo"><a href="#" data-page="home">Krovana</a></div>
+    <div class="logo"><a data-page="home">Krovana</a></div>
     <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#" data-page="home" class="nav-link active-nav">Home</a></li>
-      <li><a href="#" data-page="about" class="nav-link">About</a></li>
-      <li><a href="#" data-page="services" class="nav-link">Services</a></li>
-      <li><a href="#" data-page="team" class="nav-link">Team</a></li>
-      <li><a href="#" data-page="contact" class="nav-link">Contact</a></li>
+      <li><a data-page="home" class="nav-link active-nav">Home</a></li>
+      <li><a data-page="about" class="nav-link">About</a></li>
+      <li><a data-page="services" class="nav-link">Services</a></li>
+      <li><a data-page="team" class="nav-link">Team</a></li>
+      <li><a data-page="contact" class="nav-link">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -365,8 +366,8 @@
           <h1>Building the Bridge Between African Innovation and Global Capital</h1>
           <p>We help startups, nonprofits, and impact-driven ventures become investment-ready, access strategic funding, and scale sustainable solutions across Africa.</p>
           <div class="hero-btns">
-            <a href="#" class="btn btn-primary" data-page="contact">Book a Consultation</a>
-            <a href="#" class="btn btn-outline" style="background:rgba(255,255,255,0.1); color:white; border-color:white;" data-page="contact">Partner With Us</a>
+            <a class="btn btn-primary" data-page="contact">Book a Consultation</a>
+            <a class="btn btn-outline" style="background:rgba(255,255,255,0.1); color:white; border-color:white;" data-page="contact">Partner With Us</a>
           </div>
         </div>
       </div>
@@ -376,7 +377,7 @@
 
     <section style="background:var(--light-gray);"><div class="container"><h2>Investment Readiness Process</h2><div style="display:grid; gap:30px; margin-top:40px;"><div class="process-step"><span style="font-weight:800; font-size:1.8rem; color:var(--gold);">01</span> <strong>Diagnostic & Gap Analysis</strong><p>Deep-dive into financial and operational maturity, investor alignment.</p></div><div class="process-step"><span style="font-weight:800; font-size:1.8rem; color:var(--gold);">02</span> <strong>Strategic Enhancement</strong><p>Custom readiness roadmap, data room setup, and investor positioning.</p></div><div class="process-step"><span style="font-weight:800; font-size:1.8rem; color:var(--gold);">03</span> <strong>Capital Connect</strong><p>Targeted investor matching, term sheet negotiation & closing support.</p></div></div></div></section>
 
-    <div class="container"><div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin:40px 0;"><div class="testimonial"><i class="fas fa-quote-left" style="color:var(--gold);"></i><p>"Krovana transformed our capital strategy. We closed $2.5M within 6 months."</p><h4>Adaeze N., Founder, GreenCycle</h4></div><div class="testimonial"><i class="fas fa-quote-left" style="color:var(--gold);"></i><p>"Exceptional advisory, deep market intelligence. Highly recommend."</p><h4>Michael O., Partner, Nairobi Capital</h4></div></div><div style="text-align:center; padding:50px 0;"><a href="#" class="btn btn-primary btn-gold" data-page="contact">Let's Build Sustainable Growth Together →</a></div></div>
+    <div class="container"><div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin:40px 0;"><div class="testimonial"><i class="fas fa-quote-left" style="color:var(--gold);"></i><p>"Krovana transformed our capital strategy. We closed $2.5M within 6 months."</p><h4>Adaeze N., Founder, GreenCycle</h4></div><div class="testimonial"><i class="fas fa-quote-left" style="color:var(--gold);"></i><p>"Exceptional advisory, deep market intelligence. Highly recommend."</p><h4>Michael O., Partner, Nairobi Capital</h4></div></div><div style="text-align:center; padding:50px 0;"><a class="btn btn-primary btn-gold" data-page="contact">Let's Build Sustainable Growth Together →</a></div></div>
   </div>
 
   <!-- ABOUT PAGE -->
@@ -424,7 +425,7 @@
         <div class="service-card"><i class="fas fa-leaf" style="font-size:2rem; color:var(--emerald);"></i><h3>Impact Measurement & Reporting</h3><p>IRIS+ frameworks, ESG alignment, and impact metrics for institutional LPs.</p><div class="learn-more-btn">Learn more <i class="fas fa-chevron-down"></i></div><div class="service-expandable"><strong>Credible impact narrative:</strong> We help you implement best-in-class impact management systems aligned with UN SDGs, IRIS+, and SASB. From data collection to investor-grade impact reports, we position your venture as an accountable ESG leader that attracts thematic capital.</div></div>
         <div class="service-card"><i class="fas fa-database" style="font-size:2rem; color:var(--emerald);"></i><h3>Research & Ecosystem Intelligence</h3><p>Market reports, sector deep dives, and investor mapping for strategic decisions.</p><div class="learn-more-btn">Learn more <i class="fas fa-chevron-down"></i></div><div class="service-expandable"><strong>Data-driven advantage:</strong> Our research team delivers proprietary intelligence on sector trends, competitor landscapes, and active investor profiles. We help boards and founders make informed strategic moves with real-time insights from African markets.</div></div>
       </div>
-      <div style="text-align:center; margin:60px 0;"><a href="#" class="btn btn-primary" style="background:var(--emerald);" data-page="contact">Request a Service Brief</a></div>
+      <div style="text-align:center; margin:60px 0;"><a class="btn btn-primary" style="background:var(--emerald);" data-page="contact">Request a Service Brief</a></div>
     </div>
   </div>
 
@@ -434,13 +435,12 @@
     <div class="container"><div style="display: flex; justify-content: center; margin: 60px 0;"><div class="team-card" style="max-width: 500px; text-align: center; width: 100%;"><div class="profile-img"><i class="fas fa-user-tie fa-3x"></i></div><h3>Stephen Ochanda</h3><p style="color: var(--gold); font-weight: 600; margin-bottom: 12px;">Founder & Managing Director</p><p>Stephen is a strategy and research professional with experience in investment readiness, stakeholder engagement, policy analysis, financial systems, and data-driven advisory across African markets.</p><a href="https://www.linkedin.com/in/stephen-ochanda/" target="_blank" class="linkedin-icon"><i class="fab fa-linkedin"></i> LinkedIn Profile</a></div></div></div>
   </div>
 
-  <!-- CONTACT PAGE with Formspree Integration -->
+  <!-- CONTACT PAGE -->
   <div id="page-contact" class="page">
     <section><div class="container"><h1>Connect with Krovana</h1><p>Let's align on your capital readiness journey.</p></div></section>
     <div class="container">
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:50px;">
         <div>
-          <!-- Formspree Form - Your endpoint integrated -->
           <form id="contactForm" class="contact-form" action="https://formspree.io/f/mjkrazye" method="POST">
             <input type="text" name="name" placeholder="Full Name" required>
             <input type="text" name="organization" placeholder="Organization">
@@ -485,7 +485,7 @@
   <div class="container">
     <div class="footer-grid">
       <div><div class="logo" style="margin-bottom:12px;"><span style="color:var(--gold); font-size:1.8rem; font-weight:bold;">Krovana</span></div><p>Investment readiness & capital advisory for African innovation.</p></div>
-      <div class="footer-links"><h4>Explore</h4><a href="#" data-page="home">Home</a><a href="#" data-page="about">About</a><a href="#" data-page="services">Services</a><a href="#" data-page="team">Team</a><a href="#" data-page="contact">Contact</a></div>
+      <div class="footer-links"><h4>Explore</h4><a data-page="home">Home</a><a data-page="about">About</a><a data-page="services">Services</a><a data-page="team">Team</a><a data-page="contact">Contact</a></div>
       <div><h4>Connect</h4><div class="social-icons"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div><div style="margin-top: 16px;"><p><i class="fas fa-phone-alt" style="margin-right: 8px; color: var(--gold);"></i> +254 795 655 396</p><p><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--gold);"></i> Nairobi, Kenya</p></div></div>
     </div>
     <div style="border-top:1px solid rgba(200,169,107,0.3); margin-top:40px; padding-top:24px; text-align:center;">© 2026 Krovana | All rights reserved.</div>
@@ -493,7 +493,8 @@
 </footer>
 
 <script>
-  // Page navigation - FULLY FUNCTIONAL
+  // FULL URL ROUTING - Browser URLs update, back/forward buttons work, pages can be bookmarked
+  
   const pages = {
     home: document.getElementById('page-home'),
     about: document.getElementById('page-about'),
@@ -502,10 +503,12 @@
     contact: document.getElementById('page-contact')
   };
   
+  const pageIds = ['home', 'about', 'services', 'team', 'contact'];
   const navLinks = document.querySelectorAll('.nav-link');
   const allNavTriggers = document.querySelectorAll('[data-page]');
   
-  function activatePage(pageId) {
+  // Function to activate a page without pushing to history (used for initial load and popstate)
+  function activatePage(pageId, updateHistory = false) {
     // Hide all pages
     Object.values(pages).forEach(page => {
       if (page) page.classList.remove('active-page');
@@ -522,6 +525,20 @@
         link.classList.remove('active-nav');
       }
     });
+    // Update browser URL without reloading
+    if (updateHistory) {
+      const newUrl = pageId === 'home' ? window.location.pathname.replace(/\/[^\/]*$/, '') || '/' : `/${pageId}`;
+      window.history.pushState({ page: pageId }, '', newUrl);
+    }
+    // Update document title
+    const titles = {
+      home: 'Krovana | African Investment Readiness & Capital Advisory',
+      about: 'Krovana | About Us - Investment Readiness Advisory',
+      services: 'Krovana | Our Services - Capital Advisory for African Ventures',
+      team: 'Krovana | Executive Leadership Team',
+      contact: 'Krovana | Contact Us - Let\'s Build Together'
+    };
+    document.title = titles[pageId] || 'Krovana | African Investment Readiness & Capital Advisory';
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
     // Close mobile menu
@@ -529,13 +546,39 @@
     if (mobileMenu) mobileMenu.classList.remove('active');
   }
   
-  // Add click handlers to all elements with data-page attribute
+  // Function to navigate to a page (called when user clicks)
+  function navigateTo(pageId) {
+    if (!pages[pageId]) return;
+    activatePage(pageId, true);
+  }
+  
+  // Handle browser back/forward buttons
+  window.addEventListener('popstate', (event) => {
+    const page = event.state ? event.state.page : getPageFromPath();
+    if (page && pages[page]) {
+      activatePage(page, false);
+    } else {
+      activatePage('home', false);
+    }
+  });
+  
+  // Get current page from URL path (e.g., /about, /services)
+  function getPageFromPath() {
+    const path = window.location.pathname;
+    const pageKey = path.substring(1); // Remove leading slash
+    if (pageIds.includes(pageKey)) {
+      return pageKey;
+    }
+    return 'home';
+  }
+  
+  // Add click handlers to all navigation triggers
   allNavTriggers.forEach(trigger => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
       const page = trigger.getAttribute('data-page');
       if (page && pages[page]) {
-        activatePage(page);
+        navigateTo(page);
       }
     });
   });
@@ -616,8 +659,9 @@
     }
   });
   
-  // Start on home page
-  activatePage('home');
+  // Initialize: load the correct page based on current URL
+  const initialPage = getPageFromPath();
+  activatePage(initialPage, false);
 </script>
 </body>
 </html>
