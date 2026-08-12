@@ -1,15 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Redirecting...</title>
-  <script>
-    const path = window.location.pathname.substring(1);
-    // Include all your page routes including ai-plus
-    if (['home', 'about', 'services', 'ai-plus', 'team', 'contact'].includes(path)) {
-      window.location.href = '/';
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting to Krovana...</title>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0B0D0F;
+      color: #F4F1EA;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+      padding: 20px;
     }
+    .container {
+      max-width: 400px;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #C9A227;
+      margin-bottom: 12px;
+    }
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid rgba(201, 162, 39, 0.15);
+      border-top: 3px solid #C9A227;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 20px auto;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    p {
+      color: #A5ADB2;
+      font-size: 0.9rem;
+    }
+  </style>
+  <script>
+    // Redirect all paths to the root (SPA)
+    // The SPA will handle routing via JavaScript
+    window.location.href = '/';
   </script>
 </head>
-<body>Loading...</body>
+<body>
+  <div class="container">
+    <div class="logo">KROVANA</div>
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
+</body>
 </html>
