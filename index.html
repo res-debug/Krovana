@@ -583,4 +583,211 @@
               <option value="General Advisory">General Advisory</option>
             </select>
             <textarea name="message" rows="4" placeholder="Message" required></textarea>
-            <input
+            <input type="hidden" name="_subject" value="New Krovana Website Inquiry">
+            <input type="hidden" name="_replyto" value="email">
+            <button type="submit" class="btn btn-primary" style="background:var(--gold); color:var(--navy);">Send Message →</button>
+            <div id="formFeedback" style="margin-top:12px;"></div>
+          </form>
+        </div>
+        <div>
+          <div class="contact-card">
+            <i class="fas fa-map-marker-alt" style="color:var(--gold); font-size: 1.6rem;"></i>
+            <h3 style="margin: 12px 0 8px;">Visit Us</h3>
+            <p>Nairobi, Kenya</p>
+            <div style="margin: 20px 0;">
+              <i class="fas fa-phone-alt" style="color:var(--gold); margin-right: 8px;"></i> 
+              <strong>+254 795 655 396</strong>
+            </div>
+            <div class="map-placeholder">
+              <i class="fas fa-globe-africa" style="font-size: 3rem; color:var(--gold);"></i> 
+              <span style="margin-left: 12px;">Nairobi, Kenya (Hub of African Innovation)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><div style="margin-bottom:12px;"><img src="Krovana-logo.png" alt="Krovana" style="height: 55px; width: auto;"></div><p>Investment readiness & capital advisory for African innovation.</p></div>
+      <div class="footer-links"><h4>Explore</h4><a data-page="home">Home</a><a data-page="about">About</a><a data-page="services">Services</a><a data-page="ai-plus">Krovana AI+</a><a data-page="team">Team</a><a data-page="contact">Contact</a></div>
+      <div><h4>Connect</h4><div class="social-icons"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div><div style="margin-top: 16px;"><p><i class="fas fa-phone-alt" style="margin-right: 8px; color: var(--gold);"></i> +254 795 655 396</p><p><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--gold);"></i> Nairobi, Kenya</p></div></div>
+    </div>
+    <div style="border-top:1px solid rgba(200,169,107,0.3); margin-top:40px; padding-top:24px; text-align:center;">© 2026 Krovana | All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // FULL URL ROUTING - Browser URLs update, back/forward buttons work
+  const pages = {
+    home: document.getElementById('page-home'),
+    about: document.getElementById('page-about'),
+    services: document.getElementById('page-services'),
+    'ai-plus': document.getElementById('page-ai-plus'),
+    team: document.getElementById('page-team'),
+    contact: document.getElementById('page-contact')
+  };
+  
+  const pageIds = ['home', 'about', 'services', 'ai-plus', 'team', 'contact'];
+  const navLinks = document.querySelectorAll('.nav-link');
+  const allNavTriggers = document.querySelectorAll('[data-page]');
+  
+  function activatePage(pageId, updateHistory = false) {
+    // Hide all pages
+    Object.values(pages).forEach(page => {
+      if (page) page.classList.remove('active-page');
+    });
+    // Show selected page
+    if (pages[pageId]) {
+      pages[pageId].classList.add('active-page');
+    }
+    // Update active nav styling
+    navLinks.forEach(link => {
+      if (link.getAttribute('data-page') === pageId) {
+        link.classList.add('active-nav');
+      } else {
+        link.classList.remove('active-nav');
+      }
+    });
+    // Update browser URL without reloading
+    if (updateHistory) {
+      const newUrl = pageId === 'home' ? '/' : `/${pageId}`;
+      window.history.pushState({ page: pageId }, '', newUrl);
+    }
+    // Update document title
+    const titles = {
+      home: 'Krovana | African Investment Readiness & Capital Advisory',
+      about: 'Krovana | About Us - Investment Readiness Advisory',
+      services: 'Krovana | Our Services - Capital Advisory for African Ventures',
+      'ai-plus': 'Krovana AI+ | Responsible AI Training & Strategy for Africa',
+      team: 'Krovana | Executive Leadership Team',
+      contact: 'Krovana | Contact Us - Let\'s Build Together'
+    };
+    document.title = titles[pageId] || 'Krovana';
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Close mobile menu
+    const mobileMenu = document.getElementById('navLinks');
+    if (mobileMenu) mobileMenu.classList.remove('active');
+  }
+  
+  function navigateTo(pageId) {
+    if (!pages[pageId]) return;
+    activatePage(pageId, true);
+  }
+  
+  // Handle browser back/forward buttons
+  window.addEventListener('popstate', (event) => {
+    const page = event.state ? event.state.page : getPageFromPath();
+    if (page && pages[page]) {
+      activatePage(page, false);
+    } else {
+      activatePage('home', false);
+    }
+  });
+  
+  function getPageFromPath() {
+    const path = window.location.pathname;
+    const pageKey = path.substring(1);
+    if (pageIds.includes(pageKey)) {
+      return pageKey;
+    }
+    return 'home';
+  }
+  
+  // Add click handlers to all navigation triggers
+  allNavTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      const page = trigger.getAttribute('data-page');
+      if (page && pages[page]) {
+        navigateTo(page);
+      }
+    });
+  });
+  
+  // Hamburger menu toggle
+  const hamburger = document.getElementById('hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      const mobileMenu = document.getElementById('navLinks');
+      if (mobileMenu) mobileMenu.classList.toggle('active');
+    });
+  }
+  
+  // Close mobile menu when a nav link is clicked
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const mobileMenu = document.getElementById('navLinks');
+      if (mobileMenu) mobileMenu.classList.remove('active');
+    });
+  });
+  
+  // Formspree AJAX submission
+  const form = document.getElementById('contactForm');
+  const feedbackDiv = document.getElementById('formFeedback');
+  
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Sending...';
+      submitBtn.disabled = true;
+      
+      const formData = new FormData(form);
+      
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        
+        if (response.ok) {
+          feedbackDiv.innerHTML = '<div class="formspree-success">✓ Thank you! Your message has been sent. We will respond within 24 hours.</div>';
+          form.reset();
+        } else {
+          feedbackDiv.innerHTML = '<div class="formspree-error">⚠️ Something went wrong. Please try again or contact us directly via phone.</div>';
+        }
+      } catch (error) {
+        feedbackDiv.innerHTML = '<div class="formspree-error">⚠️ Network error. Please check your connection and try again.</div>';
+      } finally {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        setTimeout(() => {
+          if (feedbackDiv.innerHTML) feedbackDiv.innerHTML = '';
+        }, 6000);
+      }
+    });
+  }
+  
+  // Expandable service cards
+  document.querySelectorAll('.service-card').forEach(card => {
+    const btn = card.querySelector('.learn-more-btn');
+    const expandDiv = card.querySelector('.service-expandable');
+    if (btn && expandDiv) {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        expandDiv.classList.toggle('show');
+        const icon = btn.querySelector('i');
+        if (expandDiv.classList.contains('show')) {
+          icon.classList.remove('fa-chevron-down');
+          icon.classList.add('fa-chevron-up');
+        } else {
+          icon.classList.remove('fa-chevron-up');
+          icon.classList.add('fa-chevron-down');
+        }
+      });
+    }
+  });
+  
+  // Initialize: load the correct page based on current URL
+  const initialPage = getPageFromPath();
+  activatePage(initialPage, false);
+</script>
+</body>
+</html>
