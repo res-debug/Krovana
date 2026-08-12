@@ -3,13 +3,467 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krovana AI+ | AI &amp; Business Intelligence for African Organizations</title>
-    <meta name="description" content="Krovana AI+ helps organizations understand, adopt and apply artificial intelligence to improve decision-making, operations and growth.">
+    <title>Krovana AI+ | Responsible AI Training &amp; Organizational Readiness</title>
+    <meta name="description" content="Krovana AI+ helps organizations build the knowledge, confidence and responsible practices required to navigate artificial intelligence.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <style>
+        /* Same base styles as previous pages */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0B0D0F;
+            --bg-secondary: #111518;
+            --bg-card: #15191C;
+            --text-primary: #F4F1EA;
+            --text-secondary: #A5ADB2;
+            --text-muted: #6A7278;
+            --gold: #C9A227;
+            --gold-dim: rgba(201, 162, 39, 0.10);
+            --cyan: #3B9EFF;
+            --cyan-dim: rgba(59, 158, 255, 0.08);
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --radius: 20px;
+            --radius-sm: 12px;
+            --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow-card: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
+            --max-width: 1240px;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+        .section-padding { padding: 100px 0; }
+        .section-padding-sm { padding: 80px 0; }
+        .section-alt { background: var(--bg-secondary); }
+
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+        .section-label.cyan { color: var(--cyan); }
+
+        .section-title {
+            font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .section-sub {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            line-height: 1.7;
+        }
+        .text-center { text-align: center; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .gold { color: var(--gold); }
+        .cyan { color: var(--cyan); }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 60px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            background: transparent;
+            color: var(--text-primary);
+            font-family: var(--font);
+        }
+        .btn-primary { background: var(--gold); color: var(--bg-primary); }
+        .btn-primary:hover { background: #dbb230; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201, 162, 39, 0.25); }
+        .btn-outline { border: 1.5px solid rgba(255, 255, 255, 0.12); color: var(--text-primary); }
+        .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+        .btn-ai { background: var(--cyan); color: var(--bg-primary); }
+        .btn-ai:hover { background: #5aafff; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(59, 158, 255, 0.20); }
+
+        /* Navigation (same) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 16px 0;
+            z-index: 1000;
+            transition: background 0.35s, backdrop-filter 0.35s, border-color 0.35s;
+            background: transparent;
+            border-bottom: 1px solid transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(11, 13, 15, 0.88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-family: var(--font);
+            cursor: pointer;
+        }
+        .logo:hover { color: var(--gold); }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: 0.2s;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-primary);
+            border-bottom-color: var(--gold);
+        }
+        .nav-links a.ai-link { color: var(--cyan); }
+        .nav-links a.ai-link:hover,
+        .nav-links a.ai-link.active {
+            color: #7abfff;
+            border-bottom-color: var(--cyan);
+        }
+        .nav-links .plus { display: inline-block; font-weight: 700; font-size: 0.7rem; margin-left: 1px; }
+        .nav-cta .btn { padding: 10px 24px; font-size: 0.8rem; }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1001;
+        }
+        .hamburger .bar { width: 24px; height: 2px; background: var(--text-primary); transition: var(--transition); border-radius: 2px; }
+        .hamburger.open .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.open .bar:nth-child(2) { opacity: 0; }
+        .hamburger.open .bar:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        @media (max-width: 1024px) { .nav-links { gap: 20px; } }
+        @media (max-width: 900px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--bg-primary);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+                transition: 0.4s;
+                padding: 40px;
+                z-index: 999;
+            }
+            .nav-links.open { left: 0; }
+            .nav-links a { font-size: 1.2rem; }
+            .nav-cta { display: none; }
+            .hamburger { display: flex; }
+        }
+
+        .page-hero {
+            padding: 140px 0 80px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at 80% 30%, rgba(59, 158, 255, 0.04) 0%, transparent 50%);
+        }
+        .page-hero h1 {
+            font-size: clamp(2.8rem, 5vw, 4.2rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            max-width: 900px;
+        }
+        .page-hero h1 .cyan { color: var(--cyan); }
+        .page-hero .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            line-height: 1.7;
+        }
+        .page-hero .hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        /* AI Sections */
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .ai-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            padding: 28px 24px;
+            border: 1px solid rgba(59, 158, 255, 0.04);
+            transition: var(--transition);
+        }
+        .ai-card:hover {
+            border-color: rgba(59, 158, 255, 0.12);
+            transform: translateY(-4px);
+        }
+        .ai-card .ai-num {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--cyan);
+            opacity: 0.15;
+            display: block;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .ai-card h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .ai-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .three-words {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 20px;
+        }
+        .three-words .word-item {
+            text-align: center;
+        }
+        .three-words .word-item .word {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--cyan);
+            opacity: 0.2;
+            display: block;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .three-words .word-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-width: 240px;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            .three-words { grid-template-columns: 1fr; gap: 30px; }
+            .three-words .word-item p { max-width: 100%; }
+        }
+
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .journey-step {
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            padding: 28px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            text-align: center;
+        }
+        .journey-step .step-num {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--cyan);
+            opacity: 0.15;
+            display: block;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .journey-step h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; }
+        .journey-step p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .journey-grid { grid-template-columns: 1fr; }
+        }
+
+        .audience-compact {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .audience-compact-item {
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            padding: 28px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: var(--transition);
+            text-align: center;
+        }
+        .audience-compact-item:hover {
+            border-color: rgba(255, 255, 255, 0.08);
+            transform: translateY(-4px);
+        }
+        .audience-compact-item .num {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--cyan);
+            opacity: 0.2;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .audience-compact-item h4 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+        .audience-compact-item p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        @media (max-width: 900px) { .audience-compact { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 500px) { .audience-compact { grid-template-columns: 1fr; } }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; transform: none !important; } }
+
+        /* Footer (same) */
+        .footer-premium {
+            padding: 60px 0 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .footer-premium .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-brand-large .logo-large {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 4px;
+            text-decoration: none;
+            font-family: var(--font);
+        }
+        .footer-brand-large .logo-large:hover { color: var(--gold); }
+        .footer-brand-large .tagline {
+            color: var(--gold);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .footer-brand-large .desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            max-width: 280px;
+            line-height: 1.7;
+        }
+        .footer-col h4 {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+        .footer-col a {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            transition: 0.2s;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .footer-col a:hover { color: var(--text-primary); }
+        .footer-divider {
+            border: none;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.04);
+            margin: 0 0 24px 0;
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+        .footer-bottom-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .footer-bottom-links a:hover { color: var(--text-primary); }
+        @media (max-width: 1024px) { .footer-premium .footer-top { grid-template-columns: 1fr 1fr 1fr; } }
+        @media (max-width: 768px) {
+            .footer-premium .footer-top { grid-template-columns: 1fr 1fr; gap: 30px; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+        }
+        @media (max-width: 480px) { .footer-premium .footer-top { grid-template-columns: 1fr; gap: 24px; } }
+
+        :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+        @media (max-width: 640px) {
+            .container { padding: 0 20px; }
+            .section-padding { padding: 60px 0; }
+            .section-padding-sm { padding: 50px 0; }
+            .page-hero { padding: 120px 0 60px; }
+            .page-hero h1 { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
 
@@ -33,112 +487,178 @@
     </div>
 </nav>
 
-<!-- ========== HERO ========== -->
-<section class="page-hero ai-hero">
+<!-- ========== PAGE HERO ========== -->
+<section class="page-hero">
     <div class="container">
         <span class="section-label cyan">Krovana AI+</span>
-        <h1>Intelligence for the businesses shaping <span class="highlight-cyan">tomorrow</span>.</h1>
-        <p class="hero-desc">Krovana AI+ helps organizations understand, adopt and apply artificial intelligence to improve decision-making, operations and growth.</p>
+        <h1>AI is changing how organizations work. <br><span class="cyan">Are your people ready?</span></h1>
+        <p class="hero-desc">Krovana AI+ helps organizations build the knowledge, confidence and responsible practices required to navigate artificial intelligence.</p>
         <div class="hero-actions">
-            <a href="/contact" class="btn btn-ai">Explore AI With Krovana</a>
+            <a href="/contact" class="btn btn-ai">Explore AI+ Training</a>
+            <a href="/contact" class="btn btn-outline">Talk to Krovana</a>
         </div>
     </div>
 </section>
 
-<!-- ========== POSITIONING ========== -->
+<!-- ========== SECTION 1: AI READINESS ========== -->
 <section class="section-padding section-alt">
     <div class="container">
-        <div class="positioning-grid">
-            <div class="positioning-text">
-                <span class="section-label cyan">Our Approach</span>
-                <h2>AI + Data + Human Expertise + Strategy</h2>
-                <p>Krovana AI+ is the technology and intelligence arm of Krovana, focused on helping organizations navigate AI transformation.</p>
-                <p>We combine technical understanding with strategic business insight to help organizations use AI responsibly and effectively.</p>
+        <div class="text-center reveal">
+            <span class="section-label cyan">AI Readiness</span>
+            <h2 class="section-title">AI Readiness Is More Than Technology.</h2>
+            <p class="section-sub mx-auto">AI adoption is not simply a technology decision. Organizations need people who understand AI, leaders who can make informed decisions, and frameworks that help them navigate risk, responsibility and opportunity.</p>
+            <p class="section-sub mx-auto" style="margin-top: 8px; font-weight: 500; color: var(--text-primary);">Krovana AI+ focuses on the human, strategic and ethical dimensions of AI.</p>
+        </div>
+
+        <div class="three-words reveal">
+            <div class="word-item">
+                <span class="word">PEOPLE</span>
+                <p>Build AI literacy and confidence across the organization.</p>
             </div>
-            <div class="positioning-visual">
-                <div class="ai-visual-grid">
-                    <span class="ai-tag">AI</span>
-                    <span class="ai-tag">Data</span>
-                    <span class="ai-tag">Human Expertise</span>
-                    <span class="ai-tag">Strategy</span>
-                </div>
+            <div class="word-item">
+                <span class="word">PRACTICE</span>
+                <p>Develop responsible approaches to using AI.</p>
+            </div>
+            <div class="word-item">
+                <span class="word">PREPAREDNESS</span>
+                <p>Build organizational readiness for an AI-powered future.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ========== CORE AREAS ========== -->
-<section class="section-padding">
+<!-- ========== SECTION 2: SERVICES ========== -->
+<section class="section-padding-sm">
     <div class="container">
-        <div class="section-header">
-            <span class="section-label cyan">What We Do</span>
-            <h2>AI for the real world.</h2>
+        <div class="text-center reveal">
+            <span class="section-label cyan">Our Services</span>
+            <h2 class="section-title">What We Help Organizations Build</h2>
         </div>
-        <div class="ai-areas-grid">
-            <div class="ai-area-card">
-                <span class="area-icon">🧠</span>
-                <h4>AI Strategy</h4>
-                <p>Help organizations identify where AI can create meaningful business value.</p>
+
+        <div class="ai-grid reveal">
+            <div class="ai-card">
+                <span class="ai-num">01</span>
+                <h4>Ethical AI Training</h4>
+                <p>Practical training that helps teams understand the ethical opportunities, risks and responsibilities associated with AI.</p>
             </div>
-            <div class="ai-area-card">
-                <span class="area-icon">📊</span>
-                <h4>AI Readiness</h4>
-                <p>Assess organizational, technological, data and operational readiness for AI adoption.</p>
+            <div class="ai-card">
+                <span class="ai-num">02</span>
+                <h4>AI Literacy</h4>
+                <p>Building practical AI understanding and confidence across teams and leadership.</p>
             </div>
-            <div class="ai-area-card">
-                <span class="area-icon">💡</span>
-                <h4>AI-Powered Intelligence</h4>
-                <p>Use AI and data to improve business intelligence and decision-making.</p>
-            </div>
-            <div class="ai-area-card">
-                <span class="area-icon">⚡</span>
-                <h4>AI Automation</h4>
-                <p>Identify processes that can be improved through intelligent automation.</p>
-            </div>
-            <div class="ai-area-card">
-                <span class="area-icon">🛡️</span>
+            <div class="ai-card">
+                <span class="ai-num">03</span>
                 <h4>Responsible AI</h4>
-                <p>Support responsible, transparent and sustainable AI adoption.</p>
+                <p>Helping organizations establish principles and practices for responsible AI use.</p>
+            </div>
+            <div class="ai-card">
+                <span class="ai-num">04</span>
+                <h4>AI Governance</h4>
+                <p>Helping organizations think through accountability, oversight, policy and risk.</p>
+            </div>
+            <div class="ai-card">
+                <span class="ai-num">05</span>
+                <h4>AI Strategy &amp; Adoption</h4>
+                <p>Helping organizations identify where AI can create meaningful value and approach adoption responsibly.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ========== PHILOSOPHY ========== -->
-<section class="section-padding section-alt">
+<!-- ========== SECTION 3: AUDIENCE ========== -->
+<section class="section-padding-sm section-alt">
     <div class="container">
-        <div class="philosophy-section">
-            <div class="philosophy-icon">💭</div>
-            <h2>AI should not replace human judgment.</h2>
-            <h2 class="highlight-cyan">It should make better judgment possible.</h2>
-            <p class="philosophy-desc">Krovana AI+ takes a human-centred approach to AI adoption, focusing on how technology can empower people and organizations to make better decisions.</p>
+        <div class="text-center reveal">
+            <span class="section-label cyan">Designed For</span>
+            <h2 class="section-title">Designed for People Making AI Decisions.</h2>
+        </div>
+
+        <div class="audience-compact reveal">
+            <div class="audience-compact-item">
+                <span class="num">01</span>
+                <h4>Leadership</h4>
+                <p>Understand the strategic implications of AI.</p>
+            </div>
+            <div class="audience-compact-item">
+                <span class="num">02</span>
+                <h4>Teams</h4>
+                <p>Build practical AI literacy and confidence.</p>
+            </div>
+            <div class="audience-compact-item">
+                <span class="num">03</span>
+                <h4>Startups &amp; Innovators</h4>
+                <p>Build responsible AI-powered products and businesses.</p>
+            </div>
+            <div class="audience-compact-item">
+                <span class="num">04</span>
+                <h4>Institutions</h4>
+                <p>Develop responsible AI practices and governance.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SECTION 4: JOURNEY ========== -->
+<section class="section-padding-sm">
+    <div class="container">
+        <div class="text-center reveal">
+            <span class="section-label cyan">Our Approach</span>
+            <h2 class="section-title">Practical. Relevant. Responsible.</h2>
+        </div>
+
+        <div class="journey-grid reveal">
+            <div class="journey-step">
+                <span class="step-num">01</span>
+                <h4>Understand</h4>
+                <p>Build a practical foundation in AI.</p>
+            </div>
+            <div class="journey-step">
+                <span class="step-num">02</span>
+                <h4>Question</h4>
+                <p>Explore opportunity, risk, ethics and responsibility.</p>
+            </div>
+            <div class="journey-step">
+                <span class="step-num">03</span>
+                <h4>Apply</h4>
+                <p>Translate learning into responsible action.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SECTION 5: PHILOSOPHY ========== -->
+<section class="section-padding-sm section-alt" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+    <div class="container">
+        <div class="reveal" style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <div style="font-size: 3rem; margin-bottom: 16px; opacity: 0.2;">💭</div>
+            <h2 style="font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">AI should not replace human judgment.</h2>
+            <h2 style="font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; color: var(--cyan);">It should make better judgment possible.</h2>
+            <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-top: 16px;">Krovana AI+ takes a human-centred approach to AI — helping people use technology as a tool for better decisions, stronger organizations and meaningful impact.</p>
         </div>
     </div>
 </section>
 
 <!-- ========== FINAL CTA ========== -->
-<section class="section-padding">
+<section class="cta-final" style="text-align: center; padding: 80px 0; border-bottom: 1px solid rgba(255,255,255,0.03);">
     <div class="container">
-        <div class="section-header">
-            <span class="section-label cyan">Explore</span>
-            <h2>Ready to harness AI for your organization?</h2>
-        </div>
-        <div class="ai-cta-grid">
-            <a href="/contact" class="btn btn-ai">Explore AI With Krovana</a>
+        <div class="reveal">
+            <h2 style="font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px;">Prepare Your Organization for the <span class="cyan">AI-Powered</span> Future.</h2>
+            <a href="/contact" class="btn btn-ai">Start a Conversation →</a>
         </div>
     </div>
 </section>
 
 <!-- ========== FOOTER ========== -->
-<footer>
+<footer class="footer-premium">
     <div class="container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="/" class="logo">KROVANA</a>
-                <p>Building investment-ready African businesses.</p>
+        <div class="footer-top">
+            <div class="footer-brand-large">
+                <a href="/" class="logo-large">KROVANA</a>
+                <div class="tagline">Building What Africa Needs Next.</div>
+                <div class="desc">Strategic advisory and responsible AI for ambitious African organizations.</div>
             </div>
             <div class="footer-col">
-                <h4>Navigation</h4>
+                <h4>Explore</h4>
                 <a href="/about">About</a>
                 <a href="/services">Services</a>
                 <a href="/krovana-ai">Krovana AI+</a>
@@ -146,33 +666,89 @@
                 <a href="/contact">Contact</a>
             </div>
             <div class="footer-col">
-                <h4>Services</h4>
-                <a href="/services#investment-readiness">Investment Readiness</a>
-                <a href="/services#capital-matchmaking">Capital Matchmaking</a>
-                <a href="/services#growth-strategy">Growth Strategy</a>
+                <h4>Krovana Advisory</h4>
+                <a href="/services">Investment Readiness</a>
+                <a href="/services">Capital Advisory</a>
+                <a href="/services">Capital Matchmaking</a>
+                <a href="/services">Growth Strategy</a>
             </div>
             <div class="footer-col">
                 <h4>Krovana AI+</h4>
-                <a href="/krovana-ai">Explore AI+</a>
+                <a href="/krovana-ai">Ethical AI Training</a>
+                <a href="/krovana-ai">AI Literacy</a>
+                <a href="/krovana-ai">Responsible AI</a>
+                <a href="/krovana-ai">AI Governance</a>
+                <a href="/krovana-ai">AI Strategy &amp; Adoption</a>
             </div>
             <div class="footer-col">
                 <h4>Connect</h4>
                 <a href="tel:+254795655396">+254 795 655 396</a>
-                <a href="#">krovana.co.ke</a>
-                <div class="social">
-                    <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-                    <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-                    <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-                </div>
+                <a href="#" style="opacity:0.5; pointer-events:none;">hello@krovana.co.ke</a>
+                <a href="#" style="margin-top:8px; display:inline-block;">LinkedIn</a>
             </div>
         </div>
+
+        <hr class="footer-divider">
+
         <div class="footer-bottom">
             <span>&copy; 2026 Krovana. All rights reserved.</span>
-            <span>Built with purpose in Africa.</span>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <span style="color: var(--text-muted);">Building What Africa Needs Next.</span>
+            </div>
         </div>
     </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script>
+    (function() {
+        'use strict';
+
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 40) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }, { passive: true });
+
+        if (hamburger) {
+            hamburger.addEventListener('click', function() {
+                const isOpen = navLinks.classList.toggle('open');
+                hamburger.classList.toggle('open');
+                hamburger.setAttribute('aria-expanded', isOpen);
+            });
+        }
+
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('open');
+                    hamburger.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
+
+        reveals.forEach(function(el) {
+            observer.observe(el);
+        });
+    })();
+</script>
+
 </body>
 </html>
