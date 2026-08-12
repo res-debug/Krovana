@@ -5,7 +5,8 @@
   <title>Redirecting...</title>
   <script>
     const path = window.location.pathname.substring(1);
-    if (['about', 'services', 'team', 'contact'].includes(path)) {
+    // Include all your page routes including ai-plus
+    if (['home', 'about', 'services', 'ai-plus', 'team', 'contact'].includes(path)) {
       window.location.href = '/';
     }
   </script>
