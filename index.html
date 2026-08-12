@@ -145,6 +145,14 @@
       color: var(--gold);
     }
 
+    .nav-links a.ai-plus-link {
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .nav-links a.ai-plus-link:hover {
+      color: #ffffff;
+    }
+
     .hamburger {
       display: none;
       font-size: 1.8rem;
@@ -335,6 +343,41 @@
       border-radius: 12px;
       margin-top: 12px;
     }
+    .ai-hero {
+      background: linear-gradient(135deg, #0B1F3A 0%, #1a3a5c 100%);
+      padding: 140px 0 80px;
+    }
+    .ai-service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .ai-service-card {
+      background: white;
+      padding: 32px;
+      border-radius: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border-top: 4px solid var(--gold);
+    }
+    .ai-service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+    .ai-service-card i {
+      font-size: 2.5rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .ai-service-card h3 {
+      margin-bottom: 12px;
+      color: var(--navy);
+    }
+    .ai-service-card p {
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
@@ -342,15 +385,16 @@
 <nav class="navbar">
   <div class="nav-container">
     <div class="logo">
-  <a data-page="home">
-    <img src="Krovana-logo.png" alt="Krovana" style="height: 90px; width: auto; display: block;">
-  </a>
-</div>
+      <a data-page="home">
+        <img src="Krovana-logo.png" alt="Krovana" style="height: 70px; width: auto; display: block;">
+      </a>
+    </div>
     <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
     <ul class="nav-links" id="navLinks">
       <li><a data-page="home" class="nav-link active-nav">Home</a></li>
       <li><a data-page="about" class="nav-link">About</a></li>
       <li><a data-page="services" class="nav-link">Services</a></li>
+      <li><a data-page="ai-plus" class="nav-link ai-plus-link">Krovana AI+</a></li>
       <li><a data-page="team" class="nav-link">Team</a></li>
       <li><a data-page="contact" class="nav-link">Contact</a></li>
     </ul>
@@ -373,7 +417,7 @@
       </div>
     </section>
 
-    <section><div class="container"><h2 style="margin-bottom:40px;">Our Advisory Edge</h2><div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px;"><div class="service-card"><i class="fas fa-chart-line" style="font-size:2.5rem; color:var(--gold);"></i><h3>Investment Readiness</h3><p>Financial modelling, due diligence prep, governance structuring for African ventures.</p></div><div class="service-card"><i class="fas fa-handshake" style="font-size:2.5rem; color:var(--gold);"></i><h3>Capital Matchmaking</h3><p>Curated connections with global & local impact funds, family offices, DFIs.</p></div><div class="service-card"><i class="fas fa-arrow-trend-up" style="font-size:2.5rem; color:var(--gold);"></i><h3>Growth Strategy</h3><p>Scaling playbooks for African ecosystems, market entry & operational expansion.</p></div></div></div></section>
+    <section><div class="container"><h2 style="margin-bottom:40px;">Our Advisory Edge</h2><div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px;"><div class="service-card"><i class="fas fa-chart-line" style="font-size:2.5rem; color:var(--gold);"></i><h3>Investment Readiness</h3><p>Financial modelling, due diligence prep, governance structuring for African ventures.</p></div><div class="service-card"><i class="fas fa-handshake" style="font-size:2.5rem; color:var(--gold);"></i><h3>Capital Matchmaking</h3><p>Curated connections with global & local impact funds, family offices, DFIs.</p></div><div class="service-card"><i class="fas fa-chart-line" style="font-size:2.5rem; color:var(--gold);"></i><h3>Growth Strategy</h3><p>Scaling playbooks for African ecosystems, market entry & operational expansion.</p></div></div></div></section>
 
     <section style="background:var(--light-gray);"><div class="container"><h2>Investment Readiness Process</h2><div style="display:grid; gap:30px; margin-top:40px;"><div class="process-step"><span style="font-weight:800; font-size:1.8rem; color:var(--gold);">01</span> <strong>Diagnostic & Gap Analysis</strong><p>Deep-dive into financial and operational maturity, investor alignment.</p></div><div class="process-step"><span style="font-weight:800; font-size:1.8rem; color:var(--gold);">02</span> <strong>Strategic Enhancement</strong><p>Custom readiness roadmap, data room setup, and investor positioning.</p></div><div class="process-step"><span style="font-weight:800; font-size:1.8rem; color:var(--gold);">03</span> <strong>Capital Connect</strong><p>Targeted investor matching, term sheet negotiation & closing support.</p></div></div></div></section>
 
@@ -429,6 +473,90 @@
     </div>
   </div>
 
+  <!-- KROVANA AI+ PAGE -->
+  <div id="page-ai-plus" class="page">
+    <section class="ai-hero">
+      <div class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+          <h1 style="color: var(--gold); font-size: 3.5rem; margin-bottom: 16px;">Krovana AI+</h1>
+          <p style="color: white; font-size: 1.4rem; opacity: 0.9;">Responsible AI training, strategy and governance for modern organizations.</p>
+          <p style="color: rgba(255,255,255,0.7); margin-top: 20px; font-size: 1.1rem;">Equipping Africa's innovators to build and use AI responsibly, ethically, and strategically.</p>
+        </div>
+      </div>
+    </section>
+
+    <section><div class="container">
+      <h2 style="text-align: center; margin-bottom: 20px;">Our AI+ Capabilities</h2>
+      <p style="text-align: center; max-width: 700px; margin: 0 auto 40px; color: var(--charcoal);">Building responsible, AI-ready organizations across Africa — from ethical foundations to strategic governance.</p>
+      <div class="ai-service-grid">
+        <div class="ai-service-card">
+          <i class="fas fa-brain"></i>
+          <h3>Ethical AI Training</h3>
+          <p>Foundational training on responsible AI principles, bias mitigation, fairness, transparency, and accountability for teams and leaders.</p>
+        </div>
+        <div class="ai-service-card">
+          <i class="fas fa-users"></i>
+          <h3>AI Literacy for Organizations</h3>
+          <p>Building AI fluency across all levels of your organization — from executives to frontline teams — to foster AI-informed decision-making.</p>
+        </div>
+        <div class="ai-service-card">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Responsible AI & Governance</h3>
+          <p>AI governance frameworks, ethics policies, compliance alignment, and risk assessment tailored to African regulatory and operational contexts.</p>
+        </div>
+        <div class="ai-service-card">
+          <i class="fas fa-rocket"></i>
+          <h3>AI Readiness for Startups</h3>
+          <p>Assessing and preparing startups to leverage AI effectively, ensuring they are investment-ready and equipped for AI-driven growth.</p>
+        </div>
+        <div class="ai-service-card">
+          <i class="fas fa-chess-queen"></i>
+          <h3>AI Strategy & Adoption</h3>
+          <p>Strategic advisory on AI adoption roadmaps, use case identification, and integration aligned with your organization's goals.</p>
+        </div>
+        <div class="ai-service-card">
+          <i class="fas fa-balance-scale"></i>
+          <h3>AI Risk & Responsible Innovation</h3>
+          <p>Comprehensive AI risk assessments, responsible innovation frameworks, and ethical safeguards to ensure sustainable and trusted AI deployment.</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 50px;">
+        <a class="btn btn-primary" style="background: var(--gold); color: var(--navy);" data-page="contact">Start Your AI+ Journey</a>
+      </div>
+    </div></section>
+
+    <section style="background: var(--light-gray);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+          <div>
+            <h2 style="color: var(--navy);">Why Krovana AI+?</h2>
+            <p style="margin: 20px 0; line-height: 1.8;">In a rapidly evolving AI landscape, organizations face new challenges in governance, ethics, and responsible innovation. Krovana AI+ bridges the gap between AI potential and responsible implementation, ensuring that African organizations lead with integrity and foresight.</p>
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin: 12px 0; display: flex; align-items: center; gap: 12px;"><span style="color: var(--gold); font-weight: bold;">✓</span> Pan-African perspective on AI ethics</li>
+              <li style="margin: 12px 0; display: flex; align-items: center; gap: 12px;"><span style="color: var(--gold); font-weight: bold;">✓</span> Practical frameworks for real-world challenges</li>
+              <li style="margin: 12px 0; display: flex; align-items: center; gap: 12px;"><span style="color: var(--gold); font-weight: bold;">✓</span> Investment-grade AI readiness assessments</li>
+              <li style="margin: 12px 0; display: flex; align-items: center; gap: 12px;"><span style="color: var(--gold); font-weight: bold;">✓</span> Integration with your existing strategy</li>
+            </ul>
+            <a class="btn btn-primary" style="margin-top: 20px;" data-page="contact">Book a Consultation</a>
+          </div>
+          <div style="background: var(--navy); border-radius: 24px; padding: 40px; color: white; text-align: center;">
+            <i class="fas fa-robot" style="font-size: 4rem; color: var(--gold);"></i>
+            <h3 style="margin: 20px 0; color: var(--gold);">"AI that aligns with African values and global standards"</h3>
+            <p style="opacity: 0.8;">Responsible AI is not just about technology — it's about trust, ethics, and sustainable impact.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: var(--navy);">
+      <div class="container" style="text-align: center; padding: 60px 0;">
+        <h2 style="color: white; font-size: 2.5rem;">Ready to build responsible AI?</h2>
+        <p style="color: rgba(255,255,255,0.8); margin: 20px 0; font-size: 1.1rem;">Let's shape the future of AI in Africa together.</p>
+        <a class="btn btn-gold" data-page="contact">Get Started</a>
+      </div>
+    </section>
+  </div>
+
   <!-- TEAM PAGE -->
   <div id="page-team" class="page">
     <section style="background: var(--light-gray);"><div class="container"><h1>Executive Leadership</h1><p>World-class experts driving capital transformation across Africa.</p></div></section>
@@ -451,223 +579,8 @@
               <option value="Investment Readiness">Investment Readiness</option>
               <option value="Capital Matchmaking">Capital Matchmaking</option>
               <option value="Strategic Growth">Strategic Growth Advisory</option>
-              <option value="Impact Measurement">Impact Measurement</option>
+              <option value="AI+">Krovana AI+</option>
               <option value="General Advisory">General Advisory</option>
             </select>
             <textarea name="message" rows="4" placeholder="Message" required></textarea>
-            <input type="hidden" name="_subject" value="New Krovana Website Inquiry">
-            <input type="hidden" name="_replyto" value="email">
-            <button type="submit" class="btn btn-primary" style="background:var(--gold); color:var(--navy);">Send Message →</button>
-            <div id="formFeedback" style="margin-top:12px;"></div>
-          </form>
-        </div>
-        <div>
-          <div class="contact-card">
-            <i class="fas fa-map-marker-alt" style="color:var(--gold); font-size: 1.6rem;"></i>
-            <h3 style="margin: 12px 0 8px;">Visit Us</h3>
-            <p>Nairobi, Kenya</p>
-            <div style="margin: 20px 0;">
-              <i class="fas fa-phone-alt" style="color:var(--gold); margin-right: 8px;"></i> 
-              <strong>+254 795 655 396</strong>
-            </div>
-            <div class="map-placeholder">
-              <i class="fas fa-globe-africa" style="font-size: 3rem; color:var(--gold);"></i> 
-              <span style="margin-left: 12px;">Nairobi, Kenya (Hub of African Innovation)</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div><div style="margin-bottom:12px;"><img src="Krovana-logo.png" alt="Krovana" style="height: 80px; width: auto;"></div><p>Investment readiness & capital advisory for African innovation.</p></div>
-      <div class="footer-links"><h4>Explore</h4><a data-page="home">Home</a><a data-page="about">About</a><a data-page="services">Services</a><a data-page="team">Team</a><a data-page="contact">Contact</a></div>
-      <div><h4>Connect</h4><div class="social-icons"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div><div style="margin-top: 16px;"><p><i class="fas fa-phone-alt" style="margin-right: 8px; color: var(--gold);"></i> +254 795 655 396</p><p><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--gold);"></i> Nairobi, Kenya</p></div></div>
-    </div>
-    <div style="border-top:1px solid rgba(200,169,107,0.3); margin-top:40px; padding-top:24px; text-align:center;">© 2026 Krovana | All rights reserved.</div>
-  </div>
-</footer>
-
-<script>
-  // FULL URL ROUTING - Browser URLs update, back/forward buttons work, pages can be bookmarked
-  
-  const pages = {
-    home: document.getElementById('page-home'),
-    about: document.getElementById('page-about'),
-    services: document.getElementById('page-services'),
-    team: document.getElementById('page-team'),
-    contact: document.getElementById('page-contact')
-  };
-  
-  const pageIds = ['home', 'about', 'services', 'team', 'contact'];
-  const navLinks = document.querySelectorAll('.nav-link');
-  const allNavTriggers = document.querySelectorAll('[data-page]');
-  
-  // Function to activate a page without pushing to history (used for initial load and popstate)
-  function activatePage(pageId, updateHistory = false) {
-    // Hide all pages
-    Object.values(pages).forEach(page => {
-      if (page) page.classList.remove('active-page');
-    });
-    // Show selected page
-    if (pages[pageId]) {
-      pages[pageId].classList.add('active-page');
-    }
-    // Update active nav styling
-    navLinks.forEach(link => {
-      if (link.getAttribute('data-page') === pageId) {
-        link.classList.add('active-nav');
-      } else {
-        link.classList.remove('active-nav');
-      }
-    });
-    // Update browser URL without reloading
-    if (updateHistory) {
-      const newUrl = pageId === 'home' ? window.location.pathname.replace(/\/[^\/]*$/, '') || '/' : `/${pageId}`;
-      window.history.pushState({ page: pageId }, '', newUrl);
-    }
-    // Update document title
-    const titles = {
-      home: 'Krovana | African Investment Readiness & Capital Advisory',
-      about: 'Krovana | About Us - Investment Readiness Advisory',
-      services: 'Krovana | Our Services - Capital Advisory for African Ventures',
-      team: 'Krovana | Executive Leadership Team',
-      contact: 'Krovana | Contact Us - Let\'s Build Together'
-    };
-    document.title = titles[pageId] || 'Krovana | African Investment Readiness & Capital Advisory';
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    // Close mobile menu
-    const mobileMenu = document.getElementById('navLinks');
-    if (mobileMenu) mobileMenu.classList.remove('active');
-  }
-  
-  // Function to navigate to a page (called when user clicks)
-  function navigateTo(pageId) {
-    if (!pages[pageId]) return;
-    activatePage(pageId, true);
-  }
-  
-  // Handle browser back/forward buttons
-  window.addEventListener('popstate', (event) => {
-    const page = event.state ? event.state.page : getPageFromPath();
-    if (page && pages[page]) {
-      activatePage(page, false);
-    } else {
-      activatePage('home', false);
-    }
-  });
-  
-  // Get current page from URL path (e.g., /about, /services)
-  function getPageFromPath() {
-    const path = window.location.pathname;
-    const pageKey = path.substring(1); // Remove leading slash
-    if (pageIds.includes(pageKey)) {
-      return pageKey;
-    }
-    return 'home';
-  }
-  
-  // Add click handlers to all navigation triggers
-  allNavTriggers.forEach(trigger => {
-    trigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      const page = trigger.getAttribute('data-page');
-      if (page && pages[page]) {
-        navigateTo(page);
-      }
-    });
-  });
-  
-  // Hamburger menu toggle
-  const hamburger = document.getElementById('hamburger');
-  if (hamburger) {
-    hamburger.addEventListener('click', () => {
-      const mobileMenu = document.getElementById('navLinks');
-      if (mobileMenu) mobileMenu.classList.toggle('active');
-    });
-  }
-  
-  // Close mobile menu when a nav link is clicked
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      const mobileMenu = document.getElementById('navLinks');
-      if (mobileMenu) mobileMenu.classList.remove('active');
-    });
-  });
-  
-  // Formspree AJAX submission
-  const form = document.getElementById('contactForm');
-  const feedbackDiv = document.getElementById('formFeedback');
-  
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = 'Sending...';
-      submitBtn.disabled = true;
-      
-      const formData = new FormData(form);
-      
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-        
-        if (response.ok) {
-          feedbackDiv.innerHTML = '<div class="formspree-success">✓ Thank you! Your message has been sent. We will respond within 24 hours.</div>';
-          form.reset();
-        } else {
-          feedbackDiv.innerHTML = '<div class="formspree-error">⚠️ Something went wrong. Please try again or contact us directly via phone.</div>';
-        }
-      } catch (error) {
-        feedbackDiv.innerHTML = '<div class="formspree-error">⚠️ Network error. Please check your connection and try again.</div>';
-      } finally {
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        setTimeout(() => {
-          if (feedbackDiv.innerHTML) feedbackDiv.innerHTML = '';
-        }, 6000);
-      }
-    });
-  }
-  
-  // Expandable service cards
-  document.querySelectorAll('.service-card').forEach(card => {
-    const btn = card.querySelector('.learn-more-btn');
-    const expandDiv = card.querySelector('.service-expandable');
-    if (btn && expandDiv) {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        expandDiv.classList.toggle('show');
-        const icon = btn.querySelector('i');
-        if (expandDiv.classList.contains('show')) {
-          icon.classList.remove('fa-chevron-down');
-          icon.classList.add('fa-chevron-up');
-        } else {
-          icon.classList.remove('fa-chevron-up');
-          icon.classList.add('fa-chevron-down');
-        }
-      });
-    }
-  });
-  
-  // Initialize: load the correct page based on current URL
-  const initialPage = getPageFromPath();
-  activatePage(initialPage, false);
-</script>
-</body>
-</html>
-
-@media (max-width: 768px) {
-  .logo img {
-    height: 50px !important;
-  }
-}
+            <input type="hidden
