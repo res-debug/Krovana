@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krovana Team | Strategy, Capital &amp; Responsible Innovation</title>
-    <meta name="description" content="Krovana brings together strategic, financial, research, technology and sector expertise to help ambitious organizations move forward.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Krovana Team | Expertise Built Around the Challenge</title>
+    <meta name="description" content="Krovana combines founder-led strategic leadership with a multidisciplinary network of professionals and specialists across finance, investment, strategy, research, technology and responsible AI." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
     <style>
-        /* Same base styles */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* ===== BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
             --bg-primary: #0B0D0F;
             --bg-secondary: #111518;
@@ -27,11 +32,15 @@
             --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --radius: 20px;
             --radius-sm: 12px;
-            --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --shadow-card: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
             --max-width: 1240px;
         }
-        html { scroll-behavior: smooth; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: var(--font);
             background: var(--bg-primary);
@@ -39,13 +48,31 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
 
-        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
-        .section-padding { padding: 100px 0; }
-        .section-padding-sm { padding: 80px 0; }
-        .section-alt { background: var(--bg-secondary); }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+        .section-padding-sm {
+            padding: 80px 0;
+        }
+        .section-alt {
+            background: var(--bg-secondary);
+        }
 
         .section-label {
             font-size: 0.7rem;
@@ -56,7 +83,9 @@
             margin-bottom: 12px;
             display: inline-block;
         }
-        .section-label.cyan { color: var(--cyan); }
+        .section-label.cyan {
+            color: var(--cyan);
+        }
 
         .section-title {
             font-size: clamp(2.2rem, 4.5vw, 3.6rem);
@@ -65,17 +94,30 @@
             line-height: 1.1;
             margin-bottom: 16px;
         }
+
         .section-sub {
             font-size: 1.1rem;
             color: var(--text-secondary);
             max-width: 640px;
             line-height: 1.7;
         }
-        .text-center { text-align: center; }
-        .mx-auto { margin-left: auto; margin-right: auto; }
-        .gold { color: var(--gold); }
-        .cyan { color: var(--cyan); }
 
+        .text-center {
+            text-align: center;
+        }
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gold {
+            color: var(--gold);
+        }
+        .cyan {
+            color: var(--cyan);
+        }
+
+        /* ----- BUTTONS ----- */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -92,14 +134,38 @@
             color: var(--text-primary);
             font-family: var(--font);
         }
-        .btn-primary { background: var(--gold); color: var(--bg-primary); }
-        .btn-primary:hover { background: #dbb230; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201, 162, 39, 0.25); }
-        .btn-outline { border: 1.5px solid rgba(255, 255, 255, 0.12); color: var(--text-primary); }
-        .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
-        .btn-ai { background: var(--cyan); color: var(--bg-primary); }
-        .btn-ai:hover { background: #5aafff; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(59, 158, 255, 0.20); }
 
-        /* Navigation */
+        .btn-primary {
+            background: var(--gold);
+            color: var(--bg-primary);
+        }
+        .btn-primary:hover {
+            background: #dbb230;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201, 162, 39, 0.25);
+        }
+
+        .btn-outline {
+            border: 1.5px solid rgba(255, 255, 255, 0.12);
+            color: var(--text-primary);
+        }
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-ai {
+            background: var(--cyan);
+            color: var(--bg-primary);
+        }
+        .btn-ai:hover {
+            background: #5aafff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(59, 158, 255, 0.20);
+        }
+
+        /* ----- NAVIGATION ----- */
         .navbar {
             position: fixed;
             top: 0;
@@ -111,11 +177,13 @@
             background: transparent;
             border-bottom: 1px solid transparent;
         }
+
         .navbar.scrolled {
             background: rgba(11, 13, 15, 0.88);
             backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.04);
         }
+
         .nav-container {
             display: flex;
             align-items: center;
@@ -124,6 +192,7 @@
             margin: 0 auto;
             padding: 0 32px;
         }
+
         .logo {
             font-size: 1.3rem;
             font-weight: 700;
@@ -133,13 +202,17 @@
             font-family: var(--font);
             cursor: pointer;
         }
-        .logo:hover { color: var(--gold); }
+        .logo:hover {
+            color: var(--gold);
+        }
+
         .nav-links {
             display: flex;
             align-items: center;
             gap: 32px;
             list-style: none;
         }
+
         .nav-links a {
             text-decoration: none;
             color: var(--text-secondary);
@@ -150,19 +223,35 @@
             border-bottom: 2px solid transparent;
             padding-bottom: 4px;
         }
+
         .nav-links a:hover,
         .nav-links a.active {
             color: var(--text-primary);
             border-bottom-color: var(--gold);
         }
-        .nav-links a.ai-link { color: var(--cyan); }
+
+        .nav-links a.ai-link {
+            color: var(--cyan);
+        }
+
         .nav-links a.ai-link:hover,
         .nav-links a.ai-link.active {
             color: #7abfff;
             border-bottom-color: var(--cyan);
         }
-        .nav-links .plus { display: inline-block; font-weight: 700; font-size: 0.7rem; margin-left: 1px; }
-        .nav-cta .btn { padding: 10px 24px; font-size: 0.8rem; }
+
+        .nav-links .plus {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 0.7rem;
+            margin-left: 1px;
+        }
+
+        .nav-cta .btn {
+            padding: 10px 24px;
+            font-size: 0.8rem;
+        }
+
         .hamburger {
             display: none;
             flex-direction: column;
@@ -173,12 +262,31 @@
             padding: 4px;
             z-index: 1001;
         }
-        .hamburger .bar { width: 24px; height: 2px; background: var(--text-primary); transition: var(--transition); border-radius: 2px; }
-        .hamburger.open .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .hamburger.open .bar:nth-child(2) { opacity: 0; }
-        .hamburger.open .bar:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        @media (max-width: 1024px) { .nav-links { gap: 20px; } }
+        .hamburger .bar {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .hamburger.open .bar:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.open .bar:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open .bar:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        @media (max-width: 1024px) {
+            .nav-links {
+                gap: 20px;
+            }
+        }
+
         @media (max-width: 900px) {
             .nav-links {
                 position: fixed;
@@ -195,16 +303,28 @@
                 padding: 40px;
                 z-index: 999;
             }
-            .nav-links.open { left: 0; }
-            .nav-links a { font-size: 1.2rem; }
-            .nav-cta { display: none; }
-            .hamburger { display: flex; }
+            .nav-links.open {
+                left: 0;
+            }
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+            .nav-cta {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
         }
 
+        /* ----- HERO ----- */
         .page-hero {
             padding: 140px 0 80px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            overflow: hidden;
         }
+
         .page-hero h1 {
             font-size: clamp(2.8rem, 5vw, 4.2rem);
             font-weight: 700;
@@ -213,6 +333,7 @@
             margin-bottom: 16px;
             max-width: 900px;
         }
+
         .page-hero .hero-desc {
             font-size: 1.2rem;
             color: var(--text-secondary);
@@ -220,162 +341,524 @@
             line-height: 1.7;
         }
 
-        /* Founder Profile */
+        /* Network Canvas for Hero */
+        #hero-network {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ----- FOUNDER PROFILE ----- */
         .founder-profile {
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 50px;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 60px;
             align-items: start;
             margin-top: 20px;
         }
+
+        .founder-image-wrapper {
+            position: relative;
+        }
+
         .founder-image {
-            background: var(--bg-card);
+            width: 100%;
+            aspect-ratio: 1/1.15;
             border-radius: var(--radius);
-            aspect-ratio: 1/1.2;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            font-size: 5rem;
-            opacity: 0.2;
+            position: relative;
         }
+
+        .founder-image .placeholder-icon {
+            font-size: 6rem;
+            opacity: 0.08;
+        }
+
+        .founder-image .network-overlay {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.06;
+        }
+
         .founder-info .founder-name {
-            font-size: 2.2rem;
+            font-size: 2.6rem;
             font-weight: 700;
             letter-spacing: -0.02em;
+            line-height: 1.1;
             margin-bottom: 2px;
         }
+
         .founder-info .founder-title {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--gold);
             font-weight: 500;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
+
         .founder-info p {
             color: var(--text-secondary);
             font-size: 1rem;
             line-height: 1.8;
             margin-bottom: 16px;
+            max-width: 640px;
         }
-        .founder-info .expertise-tags {
+
+        .founder-info p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 900px) {
+            .founder-profile {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .founder-image {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        /* ----- EXPERTISE STRIP ----- */
+        .expertise-strip {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .expertise-strip .strip-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .expertise-strip .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 16px;
+            gap: 10px;
         }
-        .founder-info .expertise-tags span {
+
+        .expertise-strip .tags span {
             background: rgba(255, 255, 255, 0.04);
-            padding: 4px 14px;
+            padding: 6px 18px;
             border-radius: 60px;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 500;
             color: var(--text-secondary);
             border: 1px solid rgba(255, 255, 255, 0.04);
-        }
-        .founder-info .linkedin-link {
-            display: inline-block;
-            color: var(--text-secondary);
-            font-weight: 500;
-            transition: 0.2s;
-        }
-        .founder-info .linkedin-link:hover { color: var(--cyan); }
-
-        @media (max-width: 900px) {
-            .founder-profile { grid-template-columns: 1fr; gap: 30px; }
-            .founder-image { aspect-ratio: 1/1; max-width: 300px; margin: 0 auto; }
-        }
-
-        /* Expertise Network */
-        .network-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin-top: 20px;
-        }
-        .network-grid .network-item {
-            background: var(--bg-card);
-            border-radius: var(--radius-sm);
-            padding: 16px 20px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-secondary);
+            letter-spacing: 0.02em;
             transition: var(--transition);
         }
-        .network-grid .network-item:hover {
-            border-color: rgba(255, 255, 255, 0.08);
+
+        .expertise-strip .tags span:hover {
+            border-color: var(--gold);
             color: var(--text-primary);
         }
-        @media (max-width: 768px) {
-            .network-grid { grid-template-columns: 1fr 1fr; }
+
+        /* ----- FOUNDER JOURNEY ----- */
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 20px;
         }
-        @media (max-width: 480px) {
-            .network-grid { grid-template-columns: 1fr; }
+
+        .journey-item .num {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--gold);
+            opacity: 0.15;
+            line-height: 1;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .journey-item h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .journey-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .journey-closing {
+            margin-top: 32px;
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            max-width: 700px;
+        }
+
+        @media (max-width: 768px) {
+            .journey-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* ----- TRANSITION ----- */
+        .transition-section {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .transition-section h2 {
+            font-size: clamp(2.4rem, 4vw, 3.6rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .transition-section p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* ----- NETWORK VISUALIZATION ----- */
+        .network-visualization {
+            position: relative;
+            padding: 40px 0;
+            min-height: 400px;
         }
 
         .network-center {
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--gold);
-            padding: 20px 0;
+            padding: 20px 0 40px;
+            letter-spacing: 0.04em;
         }
 
-        .principles-compact {
+        .network-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin-top: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
         }
-        .principles-compact .principle {
+
+        .network-node {
             background: var(--bg-card);
             border-radius: var(--radius-sm);
-            padding: 24px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 20px 16px;
             text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: var(--transition);
+            cursor: default;
+            position: relative;
         }
-        .principles-compact .principle .num {
-            font-size: 1.8rem;
+
+        .network-node:hover {
+            border-color: rgba(255, 255, 255, 0.10);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .network-node .node-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            display: block;
+            margin-bottom: 4px;
+            transition: var(--transition);
+        }
+
+        .network-node:hover .node-label {
+            color: var(--text-primary);
+        }
+
+        .network-node .node-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.3s ease, max-height 0.3s ease;
+        }
+
+        .network-node:hover .node-desc {
+            opacity: 1;
+            max-height: 100px;
+        }
+
+        .network-node.gold-node .node-label {
+            color: var(--gold);
+        }
+
+        .network-node.cyan-node .node-label {
+            color: var(--cyan);
+        }
+
+        @media (max-width: 768px) {
+            .network-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .network-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ----- HOW NETWORK WORKS ----- */
+        .network-process {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .network-process .step {
+            text-align: center;
+            padding: 16px 12px;
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .network-process .step:hover {
+            border-color: rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+        }
+
+        .network-process .step .num {
+            display: block;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .network-process .arrow {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            opacity: 0.3;
+        }
+
+        @media (max-width: 768px) {
+            .network-process {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+            .network-process .arrow {
+                display: none;
+            }
+            .network-process .step {
+                padding: 12px;
+            }
+        }
+
+        /* ----- SECTORS ----- */
+        .sectors-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .sectors-grid span {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px 20px;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: var(--transition);
+            letter-spacing: 0.02em;
+        }
+
+        .sectors-grid span:hover {
+            border-color: var(--gold);
+            color: var(--text-primary);
+        }
+
+        /* ----- PRINCIPLES ----- */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .principle-item {
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            padding: 28px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: var(--transition);
+        }
+
+        .principle-item:hover {
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .principle-item .num {
+            font-size: 2rem;
             font-weight: 700;
             color: var(--gold);
-            opacity: 0.15;
+            opacity: 0.12;
             display: block;
             line-height: 1;
             margin-bottom: 8px;
         }
-        .principles-compact .principle h4 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
-        .principles-compact .principle p {
+
+        .principle-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .principle-item p {
             color: var(--text-secondary);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             line-height: 1.6;
         }
-        @media (max-width: 768px) {
-            .principles-compact { grid-template-columns: 1fr 1fr; }
+
+        @media (max-width: 900px) {
+            .principles-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
+
         @media (max-width: 480px) {
-            .principles-compact { grid-template-columns: 1fr; }
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+        /* ----- QUOTE ----- */
+        .quote-section {
+            text-align: center;
+            padding: 80px 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
         }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-        @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; transform: none !important; } }
 
-        /* Footer */
+        .quote-section .quote-mark {
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.15;
+            line-height: 1;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .quote-section blockquote {
+            font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+            font-weight: 400;
+            line-height: 1.4;
+            max-width: 700px;
+            margin: 0 auto 20px;
+            font-style: italic;
+            color: var(--text-primary);
+        }
+
+        .quote-section .attribution {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .quote-section .attribution .name {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* ----- CTA ----- */
+        .cta-final {
+            text-align: center;
+            padding: 100px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .cta-final h2 {
+            font-size: clamp(2.4rem, 4vw, 3.6rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .cta-final p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .cta-final .actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .cta-final .secondary-link {
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cta-final .secondary-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* ----- FOOTER ----- */
         .footer-premium {
             padding: 60px 0 32px;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
         }
+
         .footer-premium .footer-top {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
             gap: 40px;
             margin-bottom: 40px;
         }
+
         .footer-brand-large .logo-large {
             font-size: 2rem;
             font-weight: 700;
@@ -386,19 +869,25 @@
             text-decoration: none;
             font-family: var(--font);
         }
-        .footer-brand-large .logo-large:hover { color: var(--gold); }
+
+        .footer-brand-large .logo-large:hover {
+            color: var(--gold);
+        }
+
         .footer-brand-large .tagline {
             color: var(--gold);
             font-size: 0.9rem;
             font-weight: 500;
             margin-bottom: 8px;
         }
+
         .footer-brand-large .desc {
             color: var(--text-secondary);
             font-size: 0.85rem;
             max-width: 280px;
             line-height: 1.7;
         }
+
         .footer-col h4 {
             font-size: 0.7rem;
             font-weight: 600;
@@ -407,6 +896,7 @@
             color: var(--text-secondary);
             margin-bottom: 14px;
         }
+
         .footer-col a {
             display: block;
             color: var(--text-secondary);
@@ -416,308 +906,661 @@
             text-decoration: none;
             cursor: pointer;
         }
-        .footer-col a:hover { color: var(--text-primary); }
+
+        .footer-col a:hover {
+            color: var(--text-primary);
+        }
+
         .footer-divider {
             border: none;
             height: 1px;
             background: rgba(255, 255, 255, 0.04);
             margin: 0 0 24px 0;
         }
+
         .footer-bottom {
             display: flex;
             justify-content: space-between;
             font-size: 0.75rem;
             color: var(--text-secondary);
         }
+
         .footer-bottom-links {
             display: flex;
             gap: 24px;
         }
+
         .footer-bottom-links a {
             color: var(--text-secondary);
             text-decoration: none;
             transition: 0.2s;
         }
-        .footer-bottom-links a:hover { color: var(--text-primary); }
-        @media (max-width: 1024px) { .footer-premium .footer-top { grid-template-columns: 1fr 1fr 1fr; } }
-        @media (max-width: 768px) {
-            .footer-premium .footer-top { grid-template-columns: 1fr 1fr; gap: 30px; }
-            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-        }
-        @media (max-width: 480px) { .footer-premium .footer-top { grid-template-columns: 1fr; gap: 24px; } }
 
-        :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+        .footer-bottom-links a:hover {
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 1024px) {
+            .footer-premium .footer-top {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-premium .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-premium .footer-top {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        /* ----- REVEAL ----- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+        /* ----- ACCESSIBILITY ----- */
+        :focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+        }
+
         @media (max-width: 640px) {
-            .container { padding: 0 20px; }
-            .section-padding { padding: 60px 0; }
-            .section-padding-sm { padding: 50px 0; }
-            .page-hero { padding: 120px 0 60px; }
-            .page-hero h1 { font-size: 2rem; }
+            .container {
+                padding: 0 20px;
+            }
+            .section-padding {
+                padding: 60px 0;
+            }
+            .section-padding-sm {
+                padding: 50px 0;
+            }
+            .page-hero {
+                padding: 120px 0 60px;
+            }
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            .founder-info .founder-name {
+                font-size: 2rem;
+            }
+            .cta-final {
+                padding: 60px 0;
+            }
+            .quote-section {
+                padding: 60px 0;
+            }
+        }
+
+        /* Grain overlay for hero */
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.12;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 120px;
+            mix-blend-mode: soft-light;
         }
     </style>
 </head>
 <body>
 
-<!-- ========== NAVIGATION ========== -->
-<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
-    <div class="nav-container">
-        <a href="/" class="logo">KROVANA</a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="/about">About</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/krovana-ai" class="ai-link">Krovana AI<span class="plus">+</span></a></li>
-            <li><a href="/team" class="active">Team</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li class="nav-cta"><a href="/contact" class="btn btn-primary">Start a Conversation</a></li>
-        </ul>
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-    </div>
-</nav>
-
-<!-- ========== PAGE HERO ========== -->
-<section class="page-hero">
-    <div class="container">
-        <span class="section-label">The People Behind Krovana</span>
-        <h1>Built on Expertise. <span class="gold">Connected by Purpose.</span></h1>
-        <p class="hero-desc">Krovana brings together strategic, financial, research, technology and sector expertise to help ambitious organizations move forward.</p>
-    </div>
-</section>
-
-<!-- ========== SECTION 1: FOUNDER ========== -->
-<section class="section-padding-sm section-alt">
-    <div class="container">
-        <div class="text-center reveal">
-            <span class="section-label">Founder &amp; Managing Director</span>
-            <h2 class="section-title">Stephen Ochanda</h2>
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="/" class="logo">KROVANA</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/about">About</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/krovana-ai" class="ai-link">Krovana AI<span class="plus">+</span></a></li>
+                <li><a href="/team" class="active">Team</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li class="nav-cta"><a href="/contact" class="btn btn-primary">Start a Conversation</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
+    </nav>
 
-        <div class="founder-profile reveal">
-            <div class="founder-image">
-                <span style="font-size: 5rem; opacity: 0.2;">👤</span>
+    <!-- ========== HERO ========== -->
+    <section class="page-hero">
+        <canvas id="hero-network" aria-hidden="true"></canvas>
+        <div class="container hero-content">
+            <span class="section-label">The People Behind Krovana</span>
+            <h1>Expertise Built Around <span class="gold">the Challenge</span>.</h1>
+            <p class="hero-desc">
+                Krovana combines founder-led strategic leadership with a multidisciplinary network of professionals and specialists across finance, investment, strategy, research, technology and responsible AI.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== FOUNDER PROFILE ========== -->
+    <section class="section-padding-sm section-alt">
+        <div class="container">
+            <div class="founder-profile reveal">
+                <div class="founder-image-wrapper">
+                    <div class="founder-image">
+                        <span class="placeholder-icon">⚡</span>
+                        <div class="network-overlay">
+                            <svg width="100%" height="100%" viewBox="0 0 400 500" style="opacity:0.04;">
+                                <circle cx="200" cy="250" r="80" fill="none" stroke="var(--gold)" stroke-width="0.5"/>
+                                <circle cx="200" cy="250" r="120" fill="none" stroke="var(--gold)" stroke-width="0.3"/>
+                                <circle cx="200" cy="250" r="160" fill="none" stroke="var(--gold)" stroke-width="0.2"/>
+                                <line x1="120" y1="250" x2="280" y2="250" stroke="var(--gold)" stroke-width="0.3"/>
+                                <line x1="200" y1="170" x2="200" y2="330" stroke="var(--gold)" stroke-width="0.3"/>
+                                <line x1="143" y1="193" x2="257" y2="307" stroke="var(--gold)" stroke-width="0.3"/>
+                                <line x1="143" y1="307" x2="257" y2="193" stroke="var(--gold)" stroke-width="0.3"/>
+                                <circle cx="120" cy="250" r="2" fill="var(--gold)"/>
+                                <circle cx="280" cy="250" r="2" fill="var(--gold)"/>
+                                <circle cx="200" cy="170" r="2" fill="var(--gold)"/>
+                                <circle cx="200" cy="330" r="2" fill="var(--gold)"/>
+                                <circle cx="143" cy="193" r="2" fill="var(--gold)"/>
+                                <circle cx="257" cy="307" r="2" fill="var(--gold)"/>
+                                <circle cx="143" cy="307" r="2" fill="var(--gold)"/>
+                                <circle cx="257" cy="193" r="2" fill="var(--gold)"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="founder-info">
+                    <div class="founder-name">Stephen Ochanda</div>
+                    <div class="founder-title">Founder &amp; Managing Director, Krovana</div>
+                    <p>
+                        Stephen Ochanda is the Founder and Managing Director of Krovana, an African strategic advisory and responsible AI firm focused on helping ambitious organizations move from potential to execution.
+                    </p>
+                    <p>
+                        His work brings together strategy, finance, research, data and stakeholder engagement, with a focus on investment readiness, business growth and responsible innovation.
+                    </p>
+                    <p>
+                        Through Krovana, Stephen works at the intersection of capital, organizational capability and emerging technology — helping businesses and organizations prepare for what comes next.
+                    </p>
+                </div>
             </div>
-            <div class="founder-info">
-                <div class="founder-name">Stephen Ochanda</div>
-                <div class="founder-title">Founder &amp; Managing Director, Krovana</div>
-                <p>Stephen Ochanda is a strategy and research professional focused on helping African businesses and organizations strengthen their readiness for growth, capital and emerging opportunities.</p>
-                <p>His work brings together strategy, finance, research, data and stakeholder engagement, with a particular interest in investment readiness, business growth and responsible innovation.</p>
-                <p>Through Krovana, Stephen works at the intersection of capital, organizational capability and technology — helping ambitious organizations move from potential to execution.</p>
-                <div class="expertise-tags">
+
+            <!-- Expertise Strip -->
+            <div class="expertise-strip reveal">
+                <span class="strip-label">Areas of Expertise</span>
+                <div class="tags">
                     <span>Strategy</span>
                     <span>Investment Readiness</span>
                     <span>Capital Advisory</span>
+                    <span>Business Growth</span>
                     <span>Research</span>
                     <span>Data &amp; Analytics</span>
                     <span>Stakeholder Engagement</span>
-                    <span>Business Growth</span>
                     <span>Responsible Innovation</span>
                 </div>
-                <a href="https://www.linkedin.com/in/stephen-ochanda/" target="_blank" class="linkedin-link">Connect with Stephen →</a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ========== SECTION 2: EXPERTISE MODEL ========== -->
-<section class="section-padding-sm">
-    <div class="container">
-        <div class="text-center reveal">
-            <span class="section-label">Our Model</span>
-            <h2 class="section-title">One Core Team. A Broader Expert Network.</h2>
-            <p class="section-sub mx-auto">Krovana is intentionally multidisciplinary. Our work draws on a broader network of experienced professionals, specialists, researchers, entrepreneurs, investors and sector experts who bring relevant expertise to specific engagements.</p>
-        </div>
+    <!-- ========== FOUNDER JOURNEY ========== -->
+    <section class="section-padding-sm">
+        <div class="container">
+            <div class="reveal">
+                <span class="section-label">How He Thinks</span>
+                <h2 class="section-title">Built at the Intersection of <span class="gold">Business, Data &amp; Opportunity</span>.</h2>
 
-        <div class="reveal">
-            <div class="network-center">KROVANA</div>
-            <div class="network-grid">
-                <div class="network-item">Strategy</div>
-                <div class="network-item">Finance</div>
-                <div class="network-item">Investment</div>
-                <div class="network-item">Research</div>
-                <div class="network-item">Data &amp; Analytics</div>
-                <div class="network-item">Technology</div>
-                <div class="network-item">Responsible AI</div>
-                <div class="network-item">Entrepreneurship</div>
-                <div class="network-item">Market Expertise</div>
-                <div class="network-item">Ecosystem Development</div>
-                <div class="network-item">Business Strategy</div>
-                <div class="network-item">Innovation</div>
-            </div>
-            <p style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: 20px;">Krovana combines core strategic leadership with specialized expertise brought in where the engagement requires it.</p>
-        </div>
-    </div>
-</section>
+                <div class="journey-grid">
+                    <div class="journey-item">
+                        <span class="num">01</span>
+                        <h4>Business</h4>
+                        <p>Understanding how organizations create value, compete and grow.</p>
+                    </div>
+                    <div class="journey-item">
+                        <span class="num">02</span>
+                        <h4>Data</h4>
+                        <p>Using research and analytical thinking to turn information into better decisions.</p>
+                    </div>
+                    <div class="journey-item">
+                        <span class="num">03</span>
+                        <h4>Capital</h4>
+                        <p>Helping ambitious businesses become better positioned for investment and growth.</p>
+                    </div>
+                </div>
 
-<!-- ========== SECTION 3: EXPERTISE AREAS ========== -->
-<section class="section-padding-sm section-alt">
-    <div class="container">
-        <div class="text-center reveal">
-            <span class="section-label">Expertise</span>
-            <h2 class="section-title">Expertise Across the Ecosystem.</h2>
-        </div>
-
-        <div class="network-grid reveal" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-            <div class="network-item">Financial Services</div>
-            <div class="network-item">Technology</div>
-            <div class="network-item">Entrepreneurship</div>
-            <div class="network-item">Investment</div>
-            <div class="network-item">Research</div>
-            <div class="network-item">Data &amp; Analytics</div>
-            <div class="network-item">Business Strategy</div>
-            <div class="network-item">Innovation</div>
-            <div class="network-item">AI &amp; Emerging Technology</div>
-            <div class="network-item">Development &amp; Ecosystems</div>
-        </div>
-    </div>
-</section>
-
-<!-- ========== SECTION 4: HOW WE WORK ========== -->
-<section class="section-padding-sm">
-    <div class="container">
-        <div class="text-center reveal">
-            <span class="section-label">How We Work Together</span>
-            <h2 class="section-title">Our Principles</h2>
-        </div>
-
-        <div class="principles-compact reveal">
-            <div class="principle">
-                <span class="num">01</span>
-                <h4>Context</h4>
-                <p>We understand the environment before recommending the solution.</p>
-            </div>
-            <div class="principle">
-                <span class="num">02</span>
-                <h4>Rigour</h4>
-                <p>We bring evidence, structure and analytical discipline.</p>
-            </div>
-            <div class="principle">
-                <span class="num">03</span>
-                <h4>Collaboration</h4>
-                <p>We work alongside clients rather than advising from the sidelines.</p>
-            </div>
-            <div class="principle">
-                <span class="num">04</span>
-                <h4>Responsibility</h4>
-                <p>We care about the long-term consequences of the decisions we help shape.</p>
+                <div class="journey-closing">
+                    These perspectives shape the way Krovana approaches every engagement.
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ========== FINAL CTA ========== -->
-<section class="cta-final" style="text-align: center; padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03);">
-    <div class="container">
-        <div class="reveal">
-            <h2 style="font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px;">Bring Us Your <span class="gold">Next Challenge</span>.</h2>
-            <a href="/contact" class="btn btn-primary">Work With Krovana →</a>
+    <!-- ========== TRANSITION ========== -->
+    <section class="transition-section section-alt">
+        <div class="container reveal">
+            <h2>No One Perspective Solves <span class="gold">Every Challenge</span>.</h2>
+            <p>Complex business challenges require different perspectives. Krovana brings together specialist expertise around the needs of each engagement.</p>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ========== FOOTER ========== -->
-<footer class="footer-premium">
-    <div class="container">
-        <div class="footer-top">
-            <div class="footer-brand-large">
-                <a href="/" class="logo-large">KROVANA</a>
-                <div class="tagline">Building What Africa Needs Next.</div>
-                <div class="desc">Strategic advisory and responsible AI for ambitious African organizations.</div>
+    <!-- ========== EXPERT NETWORK ========== -->
+    <section class="section-padding-sm">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Krovana Expert Network</span>
+                <h2 class="section-title">Expertise That Scales <span class="gold">With the Engagement</span>.</h2>
+                <p class="section-sub mx-auto">
+                    Krovana works with a broader network of experienced professionals, specialists and sector practitioners whose expertise can be brought into engagements where relevant.
+                </p>
             </div>
-            <div class="footer-col">
-                <h4>Explore</h4>
-                <a href="/about">About</a>
-                <a href="/services">Services</a>
-                <a href="/krovana-ai">Krovana AI+</a>
-                <a href="/team">Team</a>
-                <a href="/contact">Contact</a>
-            </div>
-            <div class="footer-col">
-                <h4>Krovana Advisory</h4>
-                <a href="/services">Investment Readiness</a>
-                <a href="/services">Capital Advisory</a>
-                <a href="/services">Capital Matchmaking</a>
-                <a href="/services">Growth Strategy</a>
-            </div>
-            <div class="footer-col">
-                <h4>Krovana AI+</h4>
-                <a href="/krovana-ai">Ethical AI Training</a>
-                <a href="/krovana-ai">AI Literacy</a>
-                <a href="/krovana-ai">Responsible AI</a>
-                <a href="/krovana-ai">AI Governance</a>
-                <a href="/krovana-ai">AI Strategy &amp; Adoption</a>
-            </div>
-            <div class="footer-col">
-                <h4>Connect</h4>
-                <a href="tel:+254795655396">+254 795 655 396</a>
-                <a href="#" style="opacity:0.5; pointer-events:none;">hello@krovana.co.ke</a>
-                <a href="#" style="margin-top:8px; display:inline-block;">LinkedIn</a>
+
+            <div class="network-visualization reveal">
+                <div class="network-center">KROVANA</div>
+                <div class="network-grid">
+                    <div class="network-node gold-node">
+                        <span class="node-label">Strategy</span>
+                        <span class="node-desc">Business models, growth and organizational direction.</span>
+                    </div>
+                    <div class="network-node">
+                        <span class="node-label">Finance</span>
+                        <span class="node-desc">Financial analysis, modelling and decision support.</span>
+                    </div>
+                    <div class="network-node gold-node">
+                        <span class="node-label">Investment</span>
+                        <span class="node-desc">Investment readiness, capital strategy and investor engagement.</span>
+                    </div>
+                    <div class="network-node">
+                        <span class="node-label">Research</span>
+                        <span class="node-desc">Market intelligence, sector research and evidence.</span>
+                    </div>
+                    <div class="network-node cyan-node">
+                        <span class="node-label">Data &amp; Analytics</span>
+                        <span class="node-desc">Data-driven insight and business intelligence.</span>
+                    </div>
+                    <div class="network-node">
+                        <span class="node-label">Technology</span>
+                        <span class="node-desc">Technology-enabled business transformation.</span>
+                    </div>
+                    <div class="network-node cyan-node">
+                        <span class="node-label">Responsible AI</span>
+                        <span class="node-desc">AI literacy, ethics, governance and responsible adoption.</span>
+                    </div>
+                    <div class="network-node gold-node">
+                        <span class="node-label">Entrepreneurship</span>
+                        <span class="node-desc">Founder realities, innovation and venture growth.</span>
+                    </div>
+                    <div class="network-node">
+                        <span class="node-label">Ecosystem Development</span>
+                        <span class="node-desc">Partnerships, entrepreneurship ecosystems and institutional collaboration.</span>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <hr class="footer-divider">
+    <!-- ========== HOW NETWORK WORKS ========== -->
+    <section class="section-padding-sm section-alt">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">How It Works</span>
+                <h2 class="section-title">Expertise That Scales With <span class="gold">the Engagement</span>.</h2>
+                <p class="section-sub mx-auto">
+                    Krovana maintains a focused core and draws on specialist expertise when the challenge requires it. This allows us to stay agile while bringing the right perspective, experience and technical capability to each engagement.
+                </p>
+            </div>
 
-        <div class="footer-bottom">
-            <span>&copy; 2026 Krovana. All rights reserved.</span>
-            <div class="footer-bottom-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Use</a>
-                <span style="color: var(--text-muted);">Building What Africa Needs Next.</span>
+            <div class="network-process reveal">
+                <div class="step">
+                    <span class="num">01</span>
+                    Client Challenge
+                </div>
+                <div class="arrow">→</div>
+                <div class="step">
+                    <span class="num">02</span>
+                    Krovana Core
+                </div>
+                <div class="arrow">→</div>
+                <div class="step">
+                    <span class="num">03</span>
+                    Specialist Expertise
+                </div>
+                <div class="arrow">→</div>
+                <div class="step">
+                    <span class="num">04</span>
+                    Integrated Solution
+                </div>
+                <div class="arrow">→</div>
+                <div class="step">
+                    <span class="num">05</span>
+                    Impact
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </section>
 
-<script>
-    (function() {
-        'use strict';
+    <!-- ========== SECTORS ========== -->
+    <section class="section-padding-sm">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Where We Work</span>
+                <h2 class="section-title">Experience Across <span class="gold">Different Contexts</span>.</h2>
+                <p class="section-sub mx-auto" style="max-width: 600px;">
+                    The Krovana network brings expertise across these areas, enabling us to understand diverse organizational realities.
+                </p>
+            </div>
 
-        const navbar = document.getElementById('navbar');
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
+            <div class="sectors-grid reveal">
+                <span>Financial Services</span>
+                <span>Technology</span>
+                <span>Startups</span>
+                <span>SMEs</span>
+                <span>Investment</span>
+                <span>Research</span>
+                <span>Development</span>
+                <span>AI &amp; Emerging Technology</span>
+                <span>Entrepreneurship</span>
+                <span>Ecosystems</span>
+            </div>
+        </div>
+    </section>
 
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 40) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        }, { passive: true });
+    <!-- ========== PRINCIPLES ========== -->
+    <section class="section-padding-sm section-alt">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">How We Work</span>
+                <h2 class="section-title">Our <span class="gold">Principles</span>.</h2>
+            </div>
 
-        if (hamburger) {
-            hamburger.addEventListener('click', function() {
-                const isOpen = navLinks.classList.toggle('open');
-                hamburger.classList.toggle('open');
-                hamburger.setAttribute('aria-expanded', isOpen);
-            });
-        }
+            <div class="principles-grid reveal">
+                <div class="principle-item">
+                    <span class="num">01</span>
+                    <h4>Context</h4>
+                    <p>We understand the environment before recommending a solution.</p>
+                </div>
+                <div class="principle-item">
+                    <span class="num">02</span>
+                    <h4>Rigour</h4>
+                    <p>We bring evidence, structure and analytical discipline.</p>
+                </div>
+                <div class="principle-item">
+                    <span class="num">03</span>
+                    <h4>Collaboration</h4>
+                    <p>We work alongside clients rather than advising from a distance.</p>
+                </div>
+                <div class="principle-item">
+                    <span class="num">04</span>
+                    <h4>Responsibility</h4>
+                    <p>We consider the long-term implications of the decisions we help shape.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        if (navLinks) {
-            navLinks.querySelectorAll('a').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    navLinks.classList.remove('open');
-                    hamburger.classList.remove('open');
-                    hamburger.setAttribute('aria-expanded', 'false');
-                });
-            });
-        }
+    <!-- ========== FOUNDER QUOTE ========== -->
+    <section class="quote-section">
+        <div class="container reveal">
+            <span class="quote-mark">"</span>
+            <blockquote>
+                Ambition deserves the right strategy, the right capabilities and the right opportunities to become impact.
+            </blockquote>
+            <div class="attribution">
+                <span class="name">Stephen Ochanda</span>
+                <span style="color: var(--text-muted);"> — Founder &amp; Managing Director, Krovana</span>
+            </div>
+        </div>
+    </section>
 
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+    <!-- ========== FINAL CTA ========== -->
+    <section class="cta-final">
+        <div class="container reveal">
+            <h2>Bring Us Your <span class="gold">Next Challenge</span>.</h2>
+            <p>Tell us what you're building, solving or preparing for.</p>
+            <div class="actions">
+                <a href="/contact" class="btn btn-primary">Start a Conversation →</a>
+                <a href="/services" class="secondary-link">Explore Krovana's Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer-premium">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand-large">
+                    <a href="/" class="logo-large">KROVANA</a>
+                    <div class="tagline">Building What Africa Needs Next.</div>
+                    <div class="desc">Strategic advisory and responsible AI for ambitious African organizations.</div>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <a href="/about">About</a>
+                    <a href="/services">Services</a>
+                    <a href="/krovana-ai">Krovana AI+</a>
+                    <a href="/team">Team</a>
+                    <a href="/contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Krovana Advisory</h4>
+                    <a href="/services">Investment Readiness</a>
+                    <a href="/services">Capital Advisory</a>
+                    <a href="/services">Capital Matchmaking</a>
+                    <a href="/services">Growth Strategy</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Krovana AI+</h4>
+                    <a href="/krovana-ai">Ethical AI Training</a>
+                    <a href="/krovana-ai">AI Literacy</a>
+                    <a href="/krovana-ai">Responsible AI</a>
+                    <a href="/krovana-ai">AI Governance</a>
+                    <a href="/krovana-ai">AI Strategy &amp; Adoption</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="tel:+254795655396">+254 795 655 396</a>
+                    <a href="#" style="opacity: 0.4; pointer-events: none;">hello@krovana.co.ke</a>
+                    <a href="#" style="margin-top: 8px; display: inline-block;">LinkedIn</a>
+                </div>
+            </div>
+
+            <hr class="footer-divider" />
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 Krovana. All rights reserved.</span>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <span style="color: var(--text-muted);">Building What Africa Needs Next.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ---- NAVIGATION ----
+            const navbar = document.getElementById('navbar');
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 40) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
                 }
-            });
-        }, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
+            }, { passive: true });
 
-        reveals.forEach(function(el) {
-            observer.observe(el);
-        });
-    })();
-</script>
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    const isOpen = navLinks.classList.toggle('open');
+                    hamburger.classList.toggle('open');
+                    hamburger.setAttribute('aria-expanded', isOpen);
+                });
+            }
+
+            if (navLinks) {
+                navLinks.querySelectorAll('a').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        navLinks.classList.remove('open');
+                        hamburger.classList.remove('open');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+
+            // ---- HERO NETWORK ----
+            const canvas = document.getElementById('hero-network');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                let width, height;
+                let nodes = [];
+                const numNodes = 40;
+                const connectionDistance = 120;
+
+                function resize() {
+                    const rect = canvas.parentElement.getBoundingClientRect();
+                    canvas.width = rect.width;
+                    canvas.height = rect.height;
+                    width = canvas.width;
+                    height = canvas.height;
+                }
+
+                function initNodes() {
+                    nodes = [];
+                    for (let i = 0; i < numNodes; i++) {
+                        nodes.push({
+                            x: Math.random() * width,
+                            y: Math.random() * height,
+                            vx: (Math.random() - 0.5) * 0.15,
+                            vy: (Math.random() - 0.5) * 0.15,
+                            radius: 1 + Math.random() * 1.5,
+                            isGold: Math.random() > 0.7
+                        });
+                    }
+                }
+
+                function animateNetwork() {
+                    ctx.clearRect(0, 0, width, height);
+
+                    // Update positions
+                    for (let n = 0; n < nodes.length; n++) {
+                        const node = nodes[n];
+                        node.x += node.vx;
+                        node.y += node.vy;
+                        if (node.x < 0 || node.x > width) node.vx *= -1;
+                        if (node.y < 0 || node.y > height) node.vy *= -1;
+                        node.x = Math.max(0, Math.min(width, node.x));
+                        node.y = Math.max(0, Math.min(height, node.y));
+                    }
+
+                    // Draw connections
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+                    ctx.lineWidth = 0.5;
+                    for (let i = 0; i < nodes.length; i++) {
+                        for (let j = i + 1; j < nodes.length; j++) {
+                            const dx = nodes[i].x - nodes[j].x;
+                            const dy = nodes[i].y - nodes[j].y;
+                            const dist = Math.sqrt(dx * dx + dy * dy);
+                            if (dist < connectionDistance) {
+                                const alpha = 1 - (dist / connectionDistance);
+                                ctx.globalAlpha = alpha * 0.25;
+                                ctx.beginPath();
+                                ctx.moveTo(nodes[i].x, nodes[i].y);
+                                ctx.lineTo(nodes[j].x, nodes[j].y);
+                                ctx.stroke();
+                            }
+                        }
+                    }
+
+                    // Draw nodes
+                    for (let k = 0; k < nodes.length; k++) {
+                        const n2 = nodes[k];
+                        ctx.globalAlpha = 0.3 + 0.3 * (n2.radius / 2);
+                        const color = n2.isGold ? '#C9A227' : '#F4F1EA';
+                        ctx.fillStyle = color;
+                        ctx.beginPath();
+                        ctx.arc(n2.x, n2.y, n2.radius, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        if (n2.isGold) {
+                            ctx.shadowColor = 'rgba(201, 162, 39, 0.08)';
+                            ctx.shadowBlur = 10;
+                            ctx.beginPath();
+                            ctx.arc(n2.x, n2.y, n2.radius * 2.5, 0, Math.PI * 2);
+                            ctx.fillStyle = 'rgba(201, 162, 39, 0.02)';
+                            ctx.fill();
+                            ctx.shadowBlur = 0;
+                        }
+                    }
+                    ctx.globalAlpha = 1;
+                    requestAnimationFrame(animateNetwork);
+                }
+
+                function initCanvas() {
+                    resize();
+                    initNodes();
+                    animateNetwork();
+                }
+
+                window.addEventListener('resize', function() {
+                    resize();
+                    initNodes();
+                });
+
+                window.addEventListener('orientationchange', function() {
+                    setTimeout(function() {
+                        resize();
+                        initNodes();
+                    }, 300);
+                });
+
+                initCanvas();
+            }
+
+            // ---- SCROLL REVEAL ----
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
+
+            reveals.forEach(function(el) {
+                observer.observe(el);
+            });
+
+        })();
+    </script>
 
 </body>
 </html>
