@@ -188,6 +188,9 @@ ul {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -0.02em;
@@ -198,6 +201,21 @@ ul {
 }
 .logo:hover {
     color: var(--gold);
+}
+
+/* Logo image styling */
+.logo img {
+    height: 35px;
+    width: auto;
+    display: block;
+}
+
+/* Responsive logo size for mobile */
+@media (max-width: 768px) {
+    .logo img {
+        height: 28px;
+    }
+}
 }
 
 .nav-links {
