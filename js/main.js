@@ -159,36 +159,50 @@
         observer.observe(el);
     });
 
-    // ---- CONTACT FORM ----
-    const contactForm = document.getElementById('contactForm');
-    const formFeedback = document.getElementById('formFeedback');
+    // ---- CONTACT FORM (Google Apps Script) ----
+const contactForm = document.getElementById('contactForm');
+const formFeedback = document.getElementById('formFeedback');
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
 
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
 
-            submitBtn.innerHTML = 'Sending...';
-            submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending...';
+        submitBtn.disabled = true;
 
-            // Simulate sending
+        const formData = new FormData(contactForm);
+
+        try {
+            await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            });
+
+            // With no-cors, we can't read the response
+            // But if no error is thrown, we assume success
+            formFeedback.innerHTML = `
+                <div class="success">
+                    ✓ Thank you! Your message has been sent. We'll be in touch within 24 hours.
+                </div>
+            `;
+            contactForm.reset();
+        } catch (error) {
+            formFeedback.innerHTML = `
+                <div class="error">
+                    ⚠️ Something went wrong. Please try again or email us directly at krovana.africa@gmail.com
+                </div>
+            `;
+        } finally {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+
             setTimeout(function() {
-                formFeedback.innerHTML = `
-                    <div style="background: rgba(201, 162, 39, 0.10); color: var(--gold); padding: 14px 20px; border-radius: 12px; border: 1px solid rgba(201, 162, 39, 0.12);">
-                        ✓ Thank you! Your message has been received. We'll be in touch within 24 hours.
-                    </div>
-                `;
-                contactForm.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-
-                setTimeout(function() {
-                    formFeedback.innerHTML = '';
-                }, 6000);
-            }, 1500);
-        });
-    }
-
-})();
+                formFeedback.innerHTML = '';
+            }, 8000);
+        }
+    });
+}
