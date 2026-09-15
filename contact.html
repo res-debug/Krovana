@@ -761,7 +761,7 @@
             observer.observe(el);
         });
 
-        // ---- CONTACT FORM (Formspree) ----
+        // ---- CONTACT FORM (Google Apps Script) ----
         const contactForm = document.getElementById('contactForm');
         const formFeedback = document.getElementById('formFeedback');
 
@@ -778,30 +778,24 @@
                 const formData = new FormData(contactForm);
 
                 try {
-                    const response = await fetch(contactForm.action, {
+                    await fetch(contactForm.action, {
                         method: 'POST',
                         body: formData,
-                        headers: { 'Accept': 'application/json' }
+                        mode: 'no-cors'
                     });
 
-                    if (response.ok) {
-                        formFeedback.innerHTML = `
-                            <div class="success">
-                                ✓ Thank you! Your message has been sent. We'll be in touch within 24 hours.
-                            </div>
-                        `;
-                        contactForm.reset();
-                    } else {
-                        formFeedback.innerHTML = `
-                            <div class="error">
-                                ⚠️ Something went wrong. Please try again.
-                            </div>
-                        `;
-                    }
+                    // With no-cors, we can't read the response
+                    // But if no error is thrown, we assume success
+                    formFeedback.innerHTML = `
+                        <div class="success">
+                            ✓ Thank you! Your message has been sent. We'll be in touch within 24 hours.
+                        </div>
+                    `;
+                    contactForm.reset();
                 } catch (error) {
                     formFeedback.innerHTML = `
                         <div class="error">
-                            ⚠️ Network error. Please check your connection and try again.
+                            ⚠️ Something went wrong. Please try again or email us directly at krovana.africa@gmail.com
                         </div>
                     `;
                 } finally {
