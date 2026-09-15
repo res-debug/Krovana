@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainability | Krovana</title>
+    <meta name="description" content="Discover how Krovana contributes to sustainable development through investment readiness, business growth, responsible AI, organizational capability and strategic partnerships across Africa.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <style>
+        /* ===== BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0B0D0F;
+            --bg-secondary: #111518;
+            --bg-card: #15191C;
+            --text-primary: #F4F1EA;
+            --text-secondary: #A5ADB2;
+            --text-muted: #6A7278;
+            --gold: #C9A45C;
+            --gold-dim: rgba(201, 164, 92, 0.10);
+            --cyan: #3B9EFF;
+            --cyan-dim: rgba(59, 158, 255, 0.08);
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --radius: 20px;
+            --radius-sm: 12px;
+            --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow-card: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
+            --max-width: 1240px;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+        .section-padding { padding: 100px 0; }
+        .section-padding-sm { padding: 80px 0; }
+        .section-alt { background: var(--bg-secondary); }
+
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+        .section-label.cyan { color: var(--cyan); }
+
+        .section-title {
+            font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .section-sub {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            line-height: 1.7;
+        }
+        .text-center { text-align: center; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .gold { color: var(--gold); }
+        .cyan { color: var(--cyan); }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 60px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            background: transparent;
+            color: var(--text-primary);
+            font-family: var(--font);
+        }
+        .btn-primary { background: var(--gold); color: var(--bg-primary); }
+        .btn-primary:hover { background: #dbb87a; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201, 164, 92, 0.25); }
+        .btn-outline { border: 1.5px solid rgba(255, 255, 255, 0.12); color: var(--text-primary); }
+        .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+        .btn-ai { background: var(--cyan); color: var(--bg-primary); }
+        .btn-ai:hover { background: #5aafff; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(59, 158, 255, 0.20); }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 16px 0;
+            z-index: 1000;
+            transition: background 0.35s, backdrop-filter 0.35s, border-color 0.35s;
+            background: transparent;
+            border-bottom: 1px solid transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(11, 13, 15, 0.88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-family: var(--font);
+            cursor: pointer;
+        }
+        .logo:hover { color: var(--gold); }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: 0.2s;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-primary);
+            border-bottom-color: var(--gold);
+        }
+        .nav-links a.ai-link { color: var(--cyan); }
+        .nav-links a.ai-link:hover,
+        .nav-links a.ai-link.active {
+            color: #7abfff;
+            border-bottom-color: var(--cyan);
+        }
+        .nav-links .plus { display: inline-block; font-weight: 700; font-size: 0.7rem; margin-left: 1px; }
+        .nav-cta .btn { padding: 10px 24px; font-size: 0.8rem; }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1001;
+        }
+        .hamburger .bar { width: 24px; height: 2px; background: var(--text-primary); transition: var(--transition); border-radius: 2px; }
+        .hamburger.open .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.open .bar:nth-child(2) { opacity: 0; }
+        .hamburger.open .bar:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        @media (max-width: 1024px) { .nav-links { gap: 20px; } }
+        @media (max-width: 900px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--bg-primary);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+                transition: 0.4s;
+                padding: 40px;
+                z-index: 999;
+            }
+            .nav-links.open { left: 0; }
+            .nav-links a { font-size: 1.2rem; }
+            .nav-cta { display: none; }
+            .hamburger { display: flex; }
+        }
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            padding: 160px 0 100px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(ellipse at 70% 30%, rgba(201, 164, 92, 0.04) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .page-hero h1 {
+            font-size: clamp(2.8rem, 5vw, 4.2rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            max-width: 900px;
+        }
+        .page-hero .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        .page-hero .hero-cta {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        /* ===== APPROACH FRAMEWORK ===== */
+        .approach-framework {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 50px;
+            position: relative;
+        }
+        .approach-framework::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: rgba(201, 164, 92, 0.15);
+            z-index: 0;
+        }
+        .approach-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            padding: 28px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: var(--transition);
+        }
+        .approach-step:hover {
+            border-color: rgba(201, 164, 92, 0.15);
+            transform: translateY(-4px);
+        }
+        .approach-step .step-num {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 8px;
+        }
+        .approach-step h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .approach-step p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .approach-framework { grid-template-columns: 1fr 1fr; }
+            .approach-framework::before { display: none; }
+        }
+        @media (max-width: 480px) {
+            .approach-framework { grid-template-columns: 1fr; }
+        }
+
+        /* ===== SDG SECTION ===== */
+        .sdg-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .sdg-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 32px 36px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: var(--transition);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 32px;
+            align-items: start;
+            position: relative;
+            overflow: hidden;
+        }
+        .sdg-card:hover {
+            border-color: rgba(201, 164, 92, 0.15);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-card);
+        }
+        .sdg-icon-wrapper {
+            width: 90px;
+            height: 90px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.03);
+            flex-shrink: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .sdg-icon-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+        }
+        .sdg-content .sdg-number {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 4px;
+            display: block;
+        }
+        .sdg-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+        }
+        .sdg-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+        .sdg-focus {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .sdg-focus span {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 4px 14px;
+            border-radius: 60px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        @media (max-width: 768px) {
+            .sdg-card {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 28px 24px;
+            }
+            .sdg-icon-wrapper {
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+        /* ===== PILLARS ===== */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .pillar-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            padding: 32px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: var(--transition);
+            text-align: center;
+        }
+        .pillar-card:hover {
+            border-color: rgba(201, 164, 92, 0.12);
+            transform: translateY(-4px);
+        }
+        .pillar-card .pillar-num {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            opacity: 0.15;
+            display: block;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .pillar-card h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .pillar-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        @media (max-width: 900px) {
+            .pillars-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .pillars-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ===== RESPONSIBLE AI ===== */
+        .ai-sustainability {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .ai-sustainability .left h2 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .ai-sustainability .left p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .ai-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+        .ai-list span {
+            background: var(--cyan-dim);
+            padding: 6px 16px;
+            border-radius: 60px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--cyan);
+            border: 1px solid rgba(59, 158, 255, 0.08);
+        }
+        @media (max-width: 900px) {
+            .ai-sustainability { grid-template-columns: 1fr; gap: 30px; }
+        }
+
+        /* ===== IMPACT FRAMEWORK ===== */
+        .impact-framework {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .impact-step {
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            padding: 20px 32px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            text-align: center;
+            min-width: 320px;
+            transition: var(--transition);
+        }
+        .impact-step:hover {
+            border-color: rgba(201, 164, 92, 0.15);
+        }
+        .impact-step h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+        .impact-arrow {
+            font-size: 1.2rem;
+            color: var(--gold);
+            opacity: 0.3;
+            padding: 6px 0;
+        }
+        @media (max-width: 480px) {
+            .impact-step { min-width: 100%; padding: 16px 20px; }
+            .impact-step h4 { font-size: 0.85rem; }
+        }
+
+        /* ===== AFRICAN CONTEXT ===== */
+        .africa-context {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .africa-context h2 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .africa-context p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .africa-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .africa-list span {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px 20px;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: var(--transition);
+        }
+        .africa-list span:hover {
+            border-color: var(--gold);
+            color: var(--text-primary);
+        }
+        @media (max-width: 900px) {
+            .africa-context { grid-template-columns: 1fr; gap: 30px; }
+        }
+
+        /* ===== FINAL CTA ===== */
+        .cta-final {
+            text-align: center;
+            padding: 100px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .cta-final h2 {
+            font-size: clamp(2.4rem, 4vw, 3.6rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .cta-final p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 32px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        .cta-final .actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; transform: none !important; } }
+
+        /* ===== FOOTER ===== */
+        .footer-premium {
+            padding: 60px 0 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .footer-premium .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-brand-large .logo-large {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 4px;
+            text-decoration: none;
+            font-family: var(--font);
+        }
+        .footer-brand-large .logo-large:hover { color: var(--gold); }
+        .footer-brand-large .tagline {
+            color: var(--gold);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .footer-brand-large .desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            max-width: 280px;
+            line-height: 1.7;
+        }
+        .footer-col h4 {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+        .footer-col a {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            transition: 0.2s;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .footer-col a:hover { color: var(--text-primary); }
+        .footer-divider {
+            border: none;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.04);
+            margin: 0 0 24px 0;
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+        .footer-bottom-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .footer-bottom-links a:hover { color: var(--text-primary); }
+        @media (max-width: 1024px) { .footer-premium .footer-top { grid-template-columns: 1fr 1fr 1fr; } }
+        @media (max-width: 768px) {
+            .footer-premium .footer-top { grid-template-columns: 1fr 1fr; gap: 30px; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+        }
+        @media (max-width: 480px) { .footer-premium .footer-top { grid-template-columns: 1fr; gap: 24px; } }
+
+        :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+        @media (max-width: 640px) {
+            .container { padding: 0 20px; }
+            .section-padding { padding: 60px 0; }
+            .section-padding-sm { padding: 50px 0; }
+            .page-hero { padding: 120px 0 60px; }
+            .page-hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+        <a href="/" class="logo" style="display: flex; align-items: center; gap: 10px;">
+            <img src="Krovana-logo.png" alt="Krovana" style="height: 35px; width: auto; display: block;">
+            KROVANA
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/krovana-ai" class="ai-link">Krovana AI<span class="plus">+</span></a></li>
+            <li><a href="/sustainability" class="active">Sustainability</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li class="nav-cta"><a href="/contact" class="btn btn-primary">Start a Conversation</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ========== PAGE HERO ========== -->
+<section class="page-hero">
+    <div class="container">
+        <span class="section-label">Sustainability</span>
+        <h1>Building Growth That <span class="gold">Lasts</span>.</h1>
+        <p class="hero-desc">Sustainability at Krovana is about helping African organizations build stronger businesses, responsible technologies and long-term value.</p>
+        <p class="hero-desc">We contribute to selected UN Sustainable Development Goals through our work across investment readiness, growth, responsible AI, capability building and partnerships.</p>
+        <div class="hero-cta">
+            <a href="#sdgs" class="btn btn-primary">Explore Our Impact <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SECTION 1: APPROACH ========== -->
+<section class="section-padding section-alt">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">Our Approach</span>
+            <h2 class="section-title">Sustainability Is Built Into Growth.</h2>
+            <p class="section-sub">For Krovana, sustainable growth means organizations that are financially resilient, strategically sound, well governed, responsible in their use of technology, and capable of creating meaningful economic opportunity.</p>
+        </div>
+
+        <div class="approach-framework reveal">
+            <div class="approach-step">
+                <span class="step-num">01</span>
+                <h4>Capital</h4>
+                <p>Connecting organizations with the right funding and partnerships.</p>
+            </div>
+            <div class="approach-step">
+                <span class="step-num">02</span>
+                <h4>Capability</h4>
+                <p>Strengthening financial, strategic and governance foundations.</p>
+            </div>
+            <div class="approach-step">
+                <span class="step-num">03</span>
+                <h4>Innovation</h4>
+                <p>Helping organizations adopt technology responsibly.</p>
+            </div>
+            <div class="approach-step">
+                <span class="step-num">04</span>
+                <h4>Sustainable Growth</h4>
+                <p>Building long-term value that endures.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SECTION 2: SDGs ========== -->
+<section class="section-padding" id="sdgs">
+    <div class="container">
+        <div class="text-center reveal">
+            <span class="section-label">Our Contribution</span>
+            <h2 class="section-title">Five SDGs We Contribute To.</h2>
+            <p class="section-sub mx-auto">Krovana's work is aligned with five priority UN Sustainable Development Goals. We contribute through the practical work we do with organizations across Africa.</p>
+        </div>
+
+        <div class="sdg-grid reveal">
+            <!-- SDG 4 -->
+            <div class="sdg-card">
+                <div class="sdg-icon-wrapper">
+                    <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/07/E_SDG_PRINT-04.jpg" alt="SDG 4 Quality Education" loading="lazy">
+                </div>
+                <div class="sdg-content">
+                    <span class="sdg-number">SDG 4</span>
+                    <h3>Quality Education</h3>
+                    <p>Through Krovana AI+, we build AI literacy and organizational capabilities that help individuals, teams and leaders understand and use emerging technologies effectively and responsibly.</p>
+                    <div class="sdg-focus">
+                        <span>AI Literacy</span>
+                        <span>Workforce Capability</span>
+                        <span>Digital Skills</span>
+                        <span>Responsible Technology Education</span>
+                        <span>Leadership Development</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SDG 8 -->
+            <div class="sdg-card">
+                <div class="sdg-icon-wrapper">
+                    <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/07/E_SDG_PRINT-08.jpg" alt="SDG 8 Decent Work and Economic Growth" loading="lazy">
+                </div>
+                <div class="sdg-content">
+                    <span class="sdg-number">SDG 8</span>
+                    <h3>Decent Work and Economic Growth</h3>
+                    <p>Krovana helps ambitious African businesses strengthen their foundations, prepare for investment, access growth opportunities and build sustainable enterprises capable of creating economic value.</p>
+                    <div class="sdg-focus">
+                        <span>Investment Readiness</span>
+                        <span>Business Growth</span>
+                        <span>Entrepreneurship</span>
+                        <span>Capital Access</span>
+                        <span>Organizational Capability</span>
+                        <span>Sustainable Enterprise Development</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SDG 9 -->
+            <div class="sdg-card">
+                <div class="sdg-icon-wrapper">
+                    <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/07/E_SDG_PRINT-09.jpg" alt="SDG 9 Industry, Innovation and Infrastructure" loading="lazy">
+                </div>
+                <div class="sdg-content">
+                    <span class="sdg-number">SDG 9</span>
+                    <h3>Industry, Innovation and Infrastructure</h3>
+                    <p>Krovana supports African organizations in strengthening innovation capabilities, adopting emerging technologies responsibly and building the systems required for sustainable growth.</p>
+                    <div class="sdg-focus">
+                        <span>Innovation</span>
+                        <span>Responsible AI</span>
+                        <span>Technology Adoption</span>
+                        <span>Business Infrastructure</span>
+                        <span>Investment Readiness</span>
+                        <span>Strategic Growth</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SDG 16 -->
+            <div class="sdg-card">
+                <div class="sdg-icon-wrapper">
+                    <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/07/E_SDG_PRINT-16.jpg" alt="SDG 16 Peace, Justice and Strong Institutions" loading="lazy">
+                </div>
+                <div class="sdg-content">
+                    <span class="sdg-number">SDG 16</span>
+                    <h3>Peace, Justice and Strong Institutions</h3>
+                    <p>Through responsible AI and governance-focused advisory work, Krovana helps organizations think more deliberately about accountability, risk, transparency and institutional resilience.</p>
+                    <div class="sdg-focus">
+                        <span>AI Governance</span>
+                        <span>Responsible Technology</span>
+                        <span>Organizational Governance</span>
+                        <span>Risk Management</span>
+                        <span>Accountability</span>
+                        <span>Transparency</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SDG 17 -->
+            <div class="sdg-card">
+                <div class="sdg-icon-wrapper">
+                    <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/07/E_SDG_PRINT-17.jpg" alt="SDG 17 Partnerships for the Goals" loading="lazy">
+                </div>
+                <div class="sdg-content">
+                    <span class="sdg-number">SDG 17</span>
+                    <h3>Partnerships for the Goals</h3>
+                    <p>Krovana connects businesses and organizations with investors, ecosystem builders, development organizations, strategic partners and other institutions to create stronger pathways for growth and impact.</p>
+                    <div class="sdg-focus">
+                        <span>Strategic Partnerships</span>
+                        <span>Capital Networks</span>
+                        <span>Investor Connections</span>
+                        <span>Ecosystem Collaboration</span>
+                        <span>Development Partnerships</span>
+                        <span>Cross-Sector Collaboration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SECTION 3: FROM SDGs TO ACTION ========== -->
+<section class="section-padding section-alt">
+    <div class="container">
+        <div class="text-center reveal">
+            <span class="section-label">Our Work</span>
+            <h2 class="section-title">From Ambition to <span class="gold">Action</span>.</h2>
+            <p class="section-sub mx-auto">Krovana's contribution to sustainability is delivered through our actual work with organizations across Africa.</p>
+        </div>
+
+        <div class="pillars-grid reveal">
+            <div class="pillar-card">
+                <span class="pillar-num">01</span>
+                <h4>Capital</h4>
+                <p>Helping organizations become investment-ready and connect with appropriate capital.</p>
+            </div>
+            <div class="pillar-card">
+                <span class="pillar-num">02</span>
+                <h4>Capability</h4>
+                <p>Strengthening the financial, strategic, governance and organizational capabilities required for sustainable growth.</p>
+            </div>
+            <div class="pillar-card">
+                <span class="pillar-num">03</span>
+                <h4>Responsible AI</h4>
+                <p>Helping organizations build AI literacy, governance and responsible adoption practices.</p>
+            </div>
+            <div class="pillar-card">
+                <span class="pillar-num">04</span>
+                <h4>Partnerships</h4>
+                <p>Connecting businesses, investors, institutions and ecosystem partners around shared opportunities.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SECTION 4: RESPONSIBLE AI ========== -->
+<section class="section-padding">
+    <div class="container">
+        <div class="ai-sustainability reveal">
+            <div class="left">
+                <span class="section-label cyan">Krovana AI+</span>
+                <h2>Technology Should Move Us Forward — <span class="cyan">Responsibly</span>.</h2>
+                <p>AI presents enormous opportunities for productivity, innovation and economic development. But responsible adoption requires more than enthusiasm — it requires readiness.</p>
+                <p>Krovana AI+ helps organizations build the knowledge, governance and practices to become not only AI-enabled, but AI-ready and AI-responsible.</p>
+                <div class="ai-list">
+                    <span>AI Literacy</span>
+                    <span>Governance</span>
+                    <span>Human Oversight</span>
+                    <span>Data Responsibility</span>
+                    <span>Risk Awareness</span>
+                    <span>Organizational Readiness</span>
+                </div>
+                <a href="/krovana-ai" class="btn btn-ai">Explore Krovana AI+ →</a>
+            </div>
+            <div class="right" style="text-align: center; font-size: 4rem; opacity: 0.08; display: flex; justify-content: center; align-items: center;">
+                <span>⚡</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SECTION 5: IMPACT FRAMEWORK ========== -->
+<section class="section-padding section-alt">
+    <div class="container">
+        <div class="text-center reveal">
+            <span class="section-label">Our Impact</span>
+            <h2 class="section-title">How Impact Is Created.</h2>
+            <p class="section-sub mx-auto">Krovana's impact is created through the work we do with organizations, not through donations or standalone CSR initiatives.</p>
+        </div>
+
+        <div class="impact-framework reveal">
+            <div class="impact-step"><h4>Stronger Organizations</h4></div>
+            <div class="impact-arrow">↓</div>
+            <div class="impact-step"><h4>Better Capabilities</h4></div>
+            <div class="impact-arrow">↓</div>
+            <div class="impact-step"><h4>Responsible Innovation</h4></div>
+            <div class="impact-arrow">↓</div>
+            <div class="impact-step"><h4>Access to Capital &amp; Partnerships</h4></div>
+            <div class="impact-arrow">↓</div>
+            <div class="impact-step"><h4>Sustainable Growth</h4></div>
+            <div class="impact-arrow">↓</div>
+            <div class="impact-step"><h4>Long-Term Impact</h4></div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SECTION 6: AFRICAN CONTEXT ========== -->
+<section class="section-padding">
+    <div class="container">
+        <div class="africa-context reveal">
+            <div>
+                <span class="section-label">Our Context</span>
+                <h2>Built for Africa. <span class="gold">Designed for the Long Term.</span></h2>
+                <p>Krovana's sustainability perspective is grounded in the realities of African businesses and institutions.</p>
+                <p>We focus on the areas where sustainable growth is built: access to capital, skills and capabilities, responsible technology, institutional resilience, entrepreneurship, innovation and strategic partnerships.</p>
+                <div class="africa-list">
+                    <span>Access to Capital</span>
+                    <span>Skills &amp; Capabilities</span>
+                    <span>Responsible Technology</span>
+                    <span>Institutional Resilience</span>
+                    <span>Entrepreneurship</span>
+                    <span>Innovation</span>
+                    <span>Strategic Partnerships</span>
+                </div>
+            </div>
+            <div style="background: var(--bg-card); border-radius: var(--radius); aspect-ratio: 1/0.9; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.04);">
+                <span style="font-size: 5rem; opacity: 0.08;">🌍</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SECTION 7: FINAL CTA ========== -->
+<section class="cta-final">
+    <div class="container reveal">
+        <h2>Build What Africa <span class="gold">Needs Next</span>.</h2>
+        <p>Whether you're strengthening an organization, preparing for growth, adopting AI or building strategic partnerships, Krovana helps turn ambition into lasting capability and sustainable value.</p>
+        <div class="actions">
+            <a href="/contact" class="btn btn-primary">Talk to Krovana <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="/services" class="btn btn-outline">Explore Our Services</a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer-premium">
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-brand-large">
+                <a href="/" class="logo-large">KROVANA</a>
+                <div class="tagline">Building What Africa Needs Next.</div>
+                <div class="desc">Strategic advisory and responsible AI for ambitious African organizations.</div>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <a href="/about">About</a>
+                <a href="/services">Services</a>
+                <a href="/krovana-ai">Krovana AI+</a>
+                <a href="/sustainability">Sustainability</a>
+                <a href="/team">Team</a>
+                <a href="/contact">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Krovana Advisory</h4>
+                <a href="/services">Investment Readiness</a>
+                <a href="/services">Capital Advisory</a>
+                <a href="/services">Capital Matchmaking</a>
+                <a href="/services">Growth Strategy</a>
+            </div>
+            <div class="footer-col">
+                <h4>Krovana AI+</h4>
+                <a href="/krovana-ai">Ethical AI Training</a>
+                <a href="/krovana-ai">AI Literacy</a>
+                <a href="/krovana-ai">Responsible AI</a>
+                <a href="/krovana-ai">AI Governance</a>
+                <a href="/krovana-ai">AI Strategy &amp; Adoption</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="tel:+254795655396">+254 795 655 396</a>
+                <a href="#" style="margin-top:8px; display:inline-block;">LinkedIn</a>
+            </div>
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="footer-bottom">
+            <span>&copy; 2026 Krovana. All rights reserved.</span>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <span style="color: var(--text-muted);">Building What Africa Needs Next.</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    (function() {
+        'use strict';
+
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 40) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }, { passive: true });
+
+        if (hamburger) {
+            hamburger.addEventListener('click', function() {
+                const isOpen = navLinks.classList.toggle('open');
+                hamburger.classList.toggle('open');
+                hamburger.setAttribute('aria-expanded', isOpen);
+            });
+        }
+
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('open');
+                    hamburger.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
+
+        reveals.forEach(function(el) {
+            observer.observe(el);
+        });
+    })();
+</script>
+
+</body>
+</html>
