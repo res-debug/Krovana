@@ -20,8 +20,8 @@
             --text-primary: #F4F1EA;
             --text-secondary: #A5ADB2;
             --text-muted: #6A7278;
-            --gold: #C9A45C;
-            --gold-dim: rgba(201, 164, 92, 0.10);
+            --gold: #C9A227;
+            --gold-dim: rgba(201, 162, 39, 0.10);
             --cyan: #3B9EFF;
             --cyan-dim: rgba(59, 158, 255, 0.08);
             --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -30,6 +30,13 @@
             --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --shadow-card: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
             --max-width: 1240px;
+
+            /* SDG official colors */
+            --sdg4: #C5192D;
+            --sdg8: #A21942;
+            --sdg9: #FD6925;
+            --sdg16: #00689D;
+            --sdg17: #19486A;
         }
         html { scroll-behavior: smooth; }
         body {
@@ -94,7 +101,7 @@
             font-family: var(--font);
         }
         .btn-primary { background: var(--gold); color: var(--bg-primary); }
-        .btn-primary:hover { background: #dbb87a; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201, 164, 92, 0.25); }
+        .btn-primary:hover { background: #dbb230; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201, 162, 39, 0.25); }
         .btn-outline { border: 1.5px solid rgba(255, 255, 255, 0.12); color: var(--text-primary); }
         .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
         .btn-ai { background: var(--cyan); color: var(--bg-primary); }
@@ -216,7 +223,7 @@
             right: 0;
             width: 60%;
             height: 100%;
-            background: radial-gradient(ellipse at 70% 30%, rgba(201, 164, 92, 0.04) 0%, transparent 60%);
+            background: radial-gradient(ellipse at 70% 30%, rgba(201, 162, 39, 0.05) 0%, transparent 60%);
             pointer-events: none;
         }
         .page-hero h1 {
@@ -256,7 +263,7 @@
             left: 10%;
             right: 10%;
             height: 1px;
-            background: rgba(201, 164, 92, 0.15);
+            background: rgba(201, 162, 39, 0.15);
             z-index: 0;
         }
         .approach-step {
@@ -270,7 +277,7 @@
             transition: var(--transition);
         }
         .approach-step:hover {
-            border-color: rgba(201, 164, 92, 0.15);
+            border-color: rgba(201, 162, 39, 0.15);
             transform: translateY(-4px);
         }
         .approach-step .step-num {
@@ -321,28 +328,30 @@
             overflow: hidden;
         }
         .sdg-card:hover {
-            border-color: rgba(201, 164, 92, 0.15);
+            border-color: rgba(201, 162, 39, 0.18);
             transform: translateY(-3px);
             box-shadow: var(--shadow-card);
         }
+
+        /* Krovana custom SDG icon */
         .sdg-icon-wrapper {
-            width: 90px;
-            height: 90px;
+            width: 96px;
+            height: 96px;
             border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.03);
             flex-shrink: 0;
-            overflow: hidden;
             position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.04);
         }
-        .sdg-icon-wrapper img {
+        .sdg-icon-wrapper svg {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            border-radius: var(--radius-sm);
+            display: block;
         }
+
         .sdg-content .sdg-number {
             font-size: 0.7rem;
             font-weight: 600;
@@ -385,8 +394,8 @@
                 padding: 28px 24px;
             }
             .sdg-icon-wrapper {
-                width: 70px;
-                height: 70px;
+                width: 80px;
+                height: 80px;
             }
         }
 
@@ -406,7 +415,7 @@
             text-align: center;
         }
         .pillar-card:hover {
-            border-color: rgba(201, 164, 92, 0.12);
+            border-color: rgba(201, 162, 39, 0.15);
             transform: translateY(-4px);
         }
         .pillar-card .pillar-num {
@@ -492,7 +501,7 @@
             transition: var(--transition);
         }
         .impact-step:hover {
-            border-color: rgba(201, 164, 92, 0.15);
+            border-color: rgba(201, 162, 39, 0.18);
         }
         .impact-step h4 {
             font-size: 0.95rem;
@@ -763,10 +772,28 @@
         </div>
 
         <div class="sdg-grid reveal">
-            <!-- SDG 4 -->
+            <!-- ========== SDG 4 ========== -->
             <div class="sdg-card">
                 <div class="sdg-icon-wrapper">
-                    <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/07/E_SDG_PRINT-04.jpg" alt="SDG 4 Quality Education" loading="lazy">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SDG 4 Quality Education">
+                        <defs>
+                            <linearGradient id="sdg4bg" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#C5192D"/>
+                                <stop offset="100%" stop-color="#8B0F1F"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="100" height="100" fill="url(#sdg4bg)"/>
+                        <!-- Open book icon -->
+                        <path d="M15 65 Q30 55 50 62 Q70 55 85 65 L85 40 Q70 30 50 37 Q30 30 15 40 Z" fill="#FFFFFF" opacity="0.95"/>
+                        <path d="M50 62 L50 37" stroke="#C5192D" stroke-width="1.5"/>
+                        <path d="M22 45 Q35 40 47 45" stroke="#C5192D" stroke-width="1" fill="none" opacity="0.6"/>
+                        <path d="M22 50 Q35 45 47 50" stroke="#C5192D" stroke-width="1" fill="none" opacity="0.6"/>
+                        <path d="M22 55 Q35 50 47 55" stroke="#C5192D" stroke-width="1" fill="none" opacity="0.6"/>
+                        <path d="M53 45 Q65 40 78 45" stroke="#C5192D" stroke-width="1" fill="none" opacity="0.6"/>
+                        <path d="M53 50 Q65 45 78 50" stroke="#C5192D" stroke-width="1" fill="none" opacity="0.6"/>
+                        <path d="M53 55 Q65 50 78 55" stroke="#C5192D" stroke-width="1" fill="none" opacity="0.6"/>
+                        <text x="50" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF" letter-spacing="1">4</text>
+                    </svg>
                 </div>
                 <div class="sdg-content">
                     <span class="sdg-number">SDG 4</span>
@@ -782,10 +809,25 @@
                 </div>
             </div>
 
-            <!-- SDG 8 -->
+            <!-- ========== SDG 8 ========== -->
             <div class="sdg-card">
                 <div class="sdg-icon-wrapper">
-                    <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/07/E_SDG_PRINT-08.jpg" alt="SDG 8 Decent Work and Economic Growth" loading="lazy">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SDG 8 Decent Work and Economic Growth">
+                        <defs>
+                            <linearGradient id="sdg8bg" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#A21942"/>
+                                <stop offset="100%" stop-color="#6F0F2C"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="100" height="100" fill="url(#sdg8bg)"/>
+                        <!-- Growth arrow with bar chart -->
+                        <rect x="22" y="62" width="10" height="18" fill="#FFFFFF" opacity="0.85"/>
+                        <rect x="38" y="52" width="10" height="28" fill="#FFFFFF" opacity="0.9"/>
+                        <rect x="54" y="42" width="10" height="38" fill="#FFFFFF" opacity="0.95"/>
+                        <path d="M20 50 L40 35 L55 42 L80 22" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polygon points="80,22 74,22 80,28" fill="#FFFFFF"/>
+                        <text x="50" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF" letter-spacing="1">8</text>
+                    </svg>
                 </div>
                 <div class="sdg-content">
                     <span class="sdg-number">SDG 8</span>
@@ -802,10 +844,29 @@
                 </div>
             </div>
 
-            <!-- SDG 9 -->
+            <!-- ========== SDG 9 ========== -->
             <div class="sdg-card">
                 <div class="sdg-icon-wrapper">
-                    <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/07/E_SDG_PRINT-09.jpg" alt="SDG 9 Industry, Innovation and Infrastructure" loading="lazy">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SDG 9 Industry, Innovation and Infrastructure">
+                        <defs>
+                            <linearGradient id="sdg9bg" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#FD6925"/>
+                                <stop offset="100%" stop-color="#B8430F"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="100" height="100" fill="url(#sdg9bg)"/>
+                        <!-- Factory/building icons + network node -->
+                        <rect x="20" y="55" width="18" height="25" fill="#FFFFFF" opacity="0.9"/>
+                        <rect x="42" y="45" width="18" height="35" fill="#FFFFFF" opacity="0.95"/>
+                        <rect x="64" y="62" width="16" height="18" fill="#FFFFFF" opacity="0.85"/>
+                        <path d="M24 50 L29 42 L34 50" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linejoin="round"/>
+                        <circle cx="42" cy="40" r="3" fill="#FFFFFF"/>
+                        <line x1="42" y1="40" x2="55" y2="35" stroke="#FFFFFF" stroke-width="1.5"/>
+                        <line x1="42" y1="40" x2="30" y2="35" stroke="#FFFFFF" stroke-width="1.5"/>
+                        <circle cx="55" cy="35" r="2" fill="#FFFFFF"/>
+                        <circle cx="30" cy="35" r="2" fill="#FFFFFF"/>
+                        <text x="50" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF" letter-spacing="1">9</text>
+                    </svg>
                 </div>
                 <div class="sdg-content">
                     <span class="sdg-number">SDG 9</span>
@@ -822,10 +883,26 @@
                 </div>
             </div>
 
-            <!-- SDG 16 -->
+            <!-- ========== SDG 16 ========== -->
             <div class="sdg-card">
                 <div class="sdg-icon-wrapper">
-                    <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/07/E_SDG_PRINT-16.jpg" alt="SDG 16 Peace, Justice and Strong Institutions" loading="lazy">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SDG 16 Peace, Justice and Strong Institutions">
+                        <defs>
+                            <linearGradient id="sdg16bg" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#00689D"/>
+                                <stop offset="100%" stop-color="#003A5C"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="100" height="100" fill="url(#sdg16bg)"/>
+                        <!-- Scales of justice -->
+                        <line x1="50" y1="28" x2="50" y2="72" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+                        <line x1="30" y1="40" x2="70" y2="40" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M30 40 L22 58 L38 58 Z" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linejoin="round"/>
+                        <path d="M70 40 L62 58 L78 58 Z" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linejoin="round"/>
+                        <circle cx="50" cy="26" r="3" fill="#FFFFFF"/>
+                        <rect x="42" y="72" width="16" height="3" rx="1" fill="#FFFFFF"/>
+                        <text x="50" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF" letter-spacing="1">16</text>
+                    </svg>
                 </div>
                 <div class="sdg-content">
                     <span class="sdg-number">SDG 16</span>
@@ -842,10 +919,31 @@
                 </div>
             </div>
 
-            <!-- SDG 17 -->
+            <!-- ========== SDG 17 ========== -->
             <div class="sdg-card">
                 <div class="sdg-icon-wrapper">
-                    <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/07/E_SDG_PRINT-17.jpg" alt="SDG 17 Partnerships for the Goals" loading="lazy">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SDG 17 Partnerships for the Goals">
+                        <defs>
+                            <linearGradient id="sdg17bg" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#19486A"/>
+                                <stop offset="100%" stop-color="#0B2A44"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="100" height="100" fill="url(#sdg17bg)"/>
+                        <!-- Connected network nodes -->
+                        <circle cx="50" cy="52" r="6" fill="#FFFFFF"/>
+                        <circle cx="28" cy="38" r="4" fill="#FFFFFF" opacity="0.9"/>
+                        <circle cx="72" cy="38" r="4" fill="#FFFFFF" opacity="0.9"/>
+                        <circle cx="28" cy="68" r="4" fill="#FFFFFF" opacity="0.9"/>
+                        <circle cx="72" cy="68" r="4" fill="#FFFFFF" opacity="0.9"/>
+                        <line x1="50" y1="52" x2="28" y2="38" stroke="#FFFFFF" stroke-width="1.5" opacity="0.8"/>
+                        <line x1="50" y1="52" x2="72" y2="38" stroke="#FFFFFF" stroke-width="1.5" opacity="0.8"/>
+                        <line x1="50" y1="52" x2="28" y2="68" stroke="#FFFFFF" stroke-width="1.5" opacity="0.8"/>
+                        <line x1="50" y1="52" x2="72" y2="68" stroke="#FFFFFF" stroke-width="1.5" opacity="0.8"/>
+                        <line x1="28" y1="38" x2="72" y2="38" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+                        <line x1="28" y1="68" x2="72" y2="68" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+                        <text x="50" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF" letter-spacing="1">17</text>
+                    </svg>
                 </div>
                 <div class="sdg-content">
                     <span class="sdg-number">SDG 17</span>
