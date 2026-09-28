@@ -616,7 +616,7 @@
         try {
 
             const url =
-                `${endpoint}?query=${encodeURIComponent(query)}&$slug=${encodeURIComponent(slug)}`;
+                `${endpoint}?query=${encodeURIComponent(query)}&$slug=${encodeURIComponent(JSON.stringify(slug))}`;
 
             console.log("Loading story:", slug);
             console.log("Sanity URL:", url);
