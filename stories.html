@@ -13,7 +13,7 @@
     <style>
         /* ============================================================
            KROVANA — STORIES PAGE
-           Empty state with future CMS-ready architecture
+           Empty state + Sanity CMS integration
            ============================================================ */
 
         /* ===== BASE ===== */
@@ -276,6 +276,187 @@
             line-height: 1.8;
             max-width: 560px;
             margin: 0 auto;
+        }
+
+        /* ===== LIVE STORIES ===== */
+        .stories-live {
+            padding: 100px 0;
+            background: var(--bg-primary);
+        }
+
+        .stories-live-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .stories-live-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-top: 8px;
+        }
+
+        .story-stream-labels {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .story-filter {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding-bottom: 6px;
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
+        }
+
+        .story-filter:hover,
+        .story-filter.active {
+            color: var(--text-primary);
+            border-bottom-color: var(--gold);
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .story-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(201,162,39,0.25);
+            box-shadow: var(--shadow-card);
+        }
+
+        .story-card-image {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            display: block;
+            background: var(--bg-secondary);
+        }
+
+        .story-card-content {
+            padding: 28px;
+        }
+
+        .story-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .story-card-stream,
+        .story-card-type {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+        }
+
+        .story-card-stream {
+            color: var(--gold);
+        }
+
+        .story-card-stream.ai-plus {
+            color: var(--cyan);
+        }
+
+        .story-card-type {
+            color: var(--text-muted);
+        }
+
+        .story-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            line-height: 1.3;
+            margin-bottom: 14px;
+        }
+
+        .story-card-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 22px;
+        }
+
+        .story-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .story-card-date {
+            color: var(--text-muted);
+            font-size: 0.72rem;
+        }
+
+        .story-card-link {
+            color: var(--text-primary);
+            font-size: 0.78rem;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .story-card-link:hover {
+            color: var(--gold);
+        }
+
+        .story-loading {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--text-muted);
+            padding: 60px 0;
+        }
+
+        .story-error {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--text-muted);
+            padding: 60px 0;
+        }
+
+        @media (max-width: 900px) {
+            .stories-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stories-live-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-stream-labels {
+                gap: 18px;
+            }
         }
 
         /* ===== STREAMS PREVIEW ===== */
@@ -573,7 +754,6 @@
     <div class="container">
         <div class="empty-state-inner">
 
-            <!-- Elegant Krovana mark -->
             <div class="empty-mark">
                 <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <circle cx="40" cy="40" r="38" fill="none" stroke="#C9A227" stroke-width="0.75" opacity="0.3"/>
@@ -591,6 +771,30 @@
 </section>
 
 <!-- ============================================================
+     STORIES FROM SANITY
+     ============================================================ -->
+<section class="stories-live" id="storiesLive" hidden>
+    <div class="container">
+
+        <div class="stories-live-header">
+            <div>
+                <span class="section-label">Krovana Stories</span>
+                <h2>From the work.</h2>
+            </div>
+
+            <div class="story-stream-labels">
+                <span class="story-filter active" data-stream="all">All</span>
+                <span class="story-filter" data-stream="ai-plus">AI+</span>
+                <span class="story-filter" data-stream="impact">Impact</span>
+            </div>
+        </div>
+
+        <div class="stories-grid" id="storiesGrid"></div>
+
+    </div>
+</section>
+
+<!-- ============================================================
      FUTURE STREAMS PREVIEW
      ============================================================ -->
 <section class="streams-preview">
@@ -604,7 +808,6 @@
 
         <div class="streams-grid">
 
-            <!-- AI+ Stream Preview -->
             <div class="stream-preview ai-preview">
                 <span class="stream-label">AI+</span>
                 <h3>Technology, responsibility and the future of work.</h3>
@@ -615,7 +818,6 @@
                 </div>
             </div>
 
-            <!-- Impact Stream Preview -->
             <div class="stream-preview">
                 <span class="stream-label">Impact</span>
                 <h3>Businesses, partnerships and work on the ground.</h3>
@@ -749,39 +951,253 @@
         }
 
         /* ============================================================
-           CMS READY ARCHITECTURE (Comment for future developers)
+           SANITY CMS
+           ============================================================ */
 
-           When Sanity CMS is connected, this section will be
-           replaced with a fetch() call to the Sanity API that
-           returns Story objects matching this schema:
+        const SANITY_PROJECT_ID = '3r0ul386';
+        const SANITY_DATASET = 'production';
+        const SANITY_API_VERSION = '2026-06-09';
 
-           {
-             _id: string,
-             title: string,
-             slug: { current: string },
-             stream: 'ai-plus' | 'impact',
-             storyType: 'project' | 'engagement' | 'partnership' | 'insight' | 'event' | 'krovana-update',
-             status: 'ongoing' | 'completed',
-             publicationDate: date,
-             excerpt: text,
-             body: portable text,
-             featuredImage: image,
-             author: string,
-             organisation: string,
-             location: string,
-             featured: boolean,
-             seoTitle: string,
-             seoDescription: string
-           }
+        const storiesLive = document.getElementById('storiesLive');
+        const storiesGrid = document.getElementById('storiesGrid');
+        const emptyState = document.querySelector('.empty-state');
+        const streamsPreview = document.querySelector('.streams-preview');
+        const cmsNote = document.querySelector('.cms-note');
 
-           The front-end will render:
-           - Stories where featured === true into the featured slot
-           - Stories where stream === 'ai-plus' into the AI+ section
-           - Stories where stream === 'impact' into the Impact section
-           - All stories with 'Read Story →' linking to /stories/{slug}
+        let allStories = [];
+        let activeStream = 'all';
 
-           For now, no stories exist, so we display the empty state.
-        ============================================================ */
+        const query = `
+            *[_type == "story"]
+            | order(publicationDate desc)
+            {
+                _id,
+                title,
+                slug,
+                stream,
+                storyType,
+                status,
+                publicationDate,
+                excerpt,
+                featuredImage,
+                author,
+                organisation,
+                location,
+                featured
+            }
+        `;
+
+        function sanityImageUrl(image) {
+            if (!image || !image.asset || !image.asset._ref) {
+                return '';
+            }
+
+            const ref = image.asset._ref;
+
+            if (!ref.startsWith('image-')) {
+                return '';
+            }
+
+            const parts = ref.replace('image-', '').split('-');
+            const extension = parts.pop();
+            const dimensions = parts.pop();
+            const assetId = parts.join('-');
+
+            return `https://cdn.sanity.io/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${assetId}-${dimensions}.${extension}`;
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return '';
+
+            return new Intl.DateTimeFormat('en-GB', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric'
+            }).format(new Date(dateString));
+        }
+
+        function escapeHtml(value) {
+            if (!value) return '';
+
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function renderStories(stories) {
+            if (!storiesGrid) return;
+
+            if (!stories.length) {
+                storiesGrid.innerHTML = `
+                    <div class="story-loading">
+                        No stories have been published in this stream yet.
+                    </div>
+                `;
+                return;
+            }
+
+            storiesGrid.innerHTML = stories.map(story => {
+
+                const imageUrl = sanityImageUrl(story.featuredImage);
+
+                const streamName =
+                    story.stream === 'ai-plus'
+                        ? 'AI+'
+                        : 'Impact';
+
+                const streamClass =
+                    story.stream === 'ai-plus'
+                        ? 'ai-plus'
+                        : '';
+
+                return `
+                    <article class="story-card">
+
+                        ${
+                            imageUrl
+                                ? `<img
+                                    src="${imageUrl}"
+                                    alt="${escapeHtml(story.title)}"
+                                    class="story-card-image"
+                                    loading="lazy"
+                                   >`
+                                : ''
+                        }
+
+                        <div class="story-card-content">
+
+                            <div class="story-card-meta">
+                                <span class="story-card-stream ${streamClass}">
+                                    ${streamName}
+                                </span>
+
+                                <span class="story-card-type">
+                                    ${escapeHtml(
+                                        (story.storyType || 'story')
+                                            .replace(/-/g, ' ')
+                                    )}
+                                </span>
+                            </div>
+
+                            <h3>${escapeHtml(story.title)}</h3>
+
+                            <p class="story-card-excerpt">
+                                ${escapeHtml(story.excerpt)}
+                            </p>
+
+                            <div class="story-card-footer">
+                                <span class="story-card-date">
+                                    ${formatDate(story.publicationDate)}
+                                </span>
+
+                                <a
+                                    href="story.html?slug=${encodeURIComponent(story.slug.current)}"
+                                    class="story-card-link"
+                                >
+                                    Read Story →
+                                </a>
+                            </div>
+
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        function filterStories(stream) {
+            activeStream = stream;
+
+            document.querySelectorAll('.story-filter').forEach(filter => {
+                filter.classList.toggle(
+                    'active',
+                    filter.dataset.stream === stream
+                );
+            });
+
+            const filtered =
+                stream === 'all'
+                    ? allStories
+                    : allStories.filter(story => story.stream === stream);
+
+            renderStories(filtered);
+        }
+
+        async function loadStories() {
+
+            if (!storiesGrid) return;
+
+            storiesGrid.innerHTML = `
+                <div class="story-loading">
+                    Loading stories...
+                </div>
+            `;
+
+            const endpoint =
+                `https://${SANITY_PROJECT_ID}.apicdn.sanity.io/v${SANITY_API_VERSION}/data/query/${SANITY_DATASET}`;
+
+            try {
+
+                const response = await fetch(
+                    `${endpoint}?query=${encodeURIComponent(query)}`
+                );
+
+                if (!response.ok) {
+                    throw new Error(`Sanity request failed: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                allStories = data.result || [];
+
+                if (allStories.length === 0) {
+                    return;
+                }
+
+                if (emptyState) {
+                    emptyState.style.display = 'none';
+                }
+
+                if (streamsPreview) {
+                    streamsPreview.style.display = 'none';
+                }
+
+                if (cmsNote) {
+                    cmsNote.style.display = 'none';
+                }
+
+                if (storiesLive) {
+                    storiesLive.hidden = false;
+                }
+
+                renderStories(allStories);
+
+            } catch (error) {
+
+                console.error('Krovana Stories / Sanity error:', error);
+
+                if (storiesLive) {
+                    storiesLive.hidden = true;
+                }
+
+                if (storiesGrid) {
+                    storiesGrid.innerHTML = '';
+                }
+
+            }
+        }
+
+        document.querySelectorAll('.story-filter').forEach(filter => {
+
+            filter.addEventListener('click', function() {
+                filterStories(this.dataset.stream);
+            });
+
+        });
+
+        loadStories();
 
     })();
 </script>
