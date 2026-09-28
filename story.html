@@ -486,29 +486,6 @@
         return params.get("slug");
     }
 
-    const query = `
-        *[
-            _type == "story" &&
-            slug.current == $slug
-        ][0]
-        {
-            _id,
-            title,
-            slug,
-            stream,
-            storyType,
-            status,
-            publicationDate,
-            excerpt,
-            body,
-            featuredImage,
-            author,
-            organisation,
-            location,
-            featured
-        }
-    `;
-
     function formatDate(dateString) {
         if (!dateString) return "";
 
@@ -615,8 +592,26 @@
 
         try {
 
-            const url =
-                `${endpoint}?query=${encodeURIComponent(query)}&$slug=${encodeURIComponent(JSON.stringify(slug))}`;
+            const safeSlug = slug.replace(/"/g, '\\"');
+
+            const query = `*[_type == "story" && slug.current == "${safeSlug}"][0]{
+                _id,
+                title,
+                slug,
+                stream,
+                storyType,
+                status,
+                publicationDate,
+                excerpt,
+                body,
+                featuredImage,
+                author,
+                organisation,
+                location,
+                featured
+            }`;
+
+            const url = `${endpoint}?query=${encodeURIComponent(query)}`;
 
             console.log("Loading story:", slug);
             console.log("Sanity URL:", url);
