@@ -13,7 +13,7 @@
     <style>
         /* ============================================================
            KROVANA — STORIES PAGE
-           Editorial journal layout with two content streams
+           Empty state with future CMS-ready architecture
            ============================================================ */
 
         /* ===== BASE ===== */
@@ -64,19 +64,6 @@
         }
         .section-label.cyan { color: var(--cyan); }
 
-        .section-title {
-            font-size: clamp(2.2rem, 4.5vw, 3.6rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-            margin-bottom: 16px;
-        }
-        .section-sub {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 640px;
-            line-height: 1.7;
-        }
         .text-center { text-align: center; }
         .mx-auto { margin-left: auto; margin-right: auto; }
         .gold { color: var(--gold); }
@@ -103,8 +90,6 @@
         .btn-primary:hover { background: #dbb230; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201, 162, 39, 0.25); }
         .btn-outline { border: 1.5px solid rgba(255, 255, 255, 0.12); color: var(--text-primary); }
         .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
-        .btn-ai { background: var(--cyan); color: var(--bg-primary); }
-        .btn-ai:hover { background: #5aafff; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(59, 158, 255, 0.20); }
 
         /* ===== NAVIGATION ===== */
         .navbar {
@@ -252,295 +237,180 @@
             line-height: 1.7;
         }
 
-        /* ===== STREAM HEADER ===== */
-        .stream-header {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 60px;
-            align-items: end;
-            margin-bottom: 56px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        /* ===== EMPTY STATE ===== */
+        .empty-state {
+            padding: 100px 0;
+            position: relative;
         }
-        .stream-header .stream-eyebrow {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 14px;
-            display: inline-block;
+        .empty-state-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
         }
-        .stream-header .stream-eyebrow.cyan { color: var(--cyan); }
-        .stream-header h2 {
+        .empty-state .empty-mark {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 32px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .empty-state .empty-mark svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .empty-state h2 {
             font-family: var(--font-display);
             font-size: clamp(2rem, 3.5vw, 2.8rem);
             font-weight: 700;
             letter-spacing: -0.02em;
             line-height: 1.15;
-            margin-bottom: 0;
-        }
-        .stream-header .stream-desc {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.7;
-            max-width: 500px;
-        }
-
-        @media (max-width: 900px) {
-            .stream-header {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                margin-bottom: 40px;
-                padding-bottom: 30px;
-            }
-        }
-
-        /* ===== FEATURED STORY ===== */
-        .story-featured {
-            display: block;
-            margin-bottom: 64px;
-            padding-bottom: 64px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            transition: var(--transition);
-            cursor: pointer;
-        }
-        .story-featured .featured-inner {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 56px;
-            align-items: center;
-        }
-        .story-featured .story-image {
-            width: 100%;
-            aspect-ratio: 16 / 11;
-            border-radius: var(--radius);
-            overflow: hidden;
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            position: relative;
-        }
-        .story-featured .story-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .story-featured:hover .story-image img {
-            transform: scale(1.04);
-        }
-        .story-featured .story-image .image-fallback {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-display);
-            font-size: 5rem;
-            color: var(--gold);
-            opacity: 0.12;
-            pointer-events: none;
-        }
-
-        .story-featured .story-content {
-            display: flex;
-            flex-direction: column;
-        }
-        .story-featured .story-meta {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            font-size: 0.75rem;
-            color: var(--text-muted);
             margin-bottom: 20px;
-            letter-spacing: 0.02em;
         }
-        .story-featured .story-meta .label-ai {
-            color: var(--cyan);
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            font-size: 0.68rem;
-        }
-        .story-featured .story-meta .label-impact {
-            color: var(--gold);
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            font-size: 0.68rem;
-        }
-        .story-featured .story-meta .dot { opacity: 0.4; }
-        .story-featured .story-meta .type-tag {
-            padding: 3px 10px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 40px;
-            font-size: 0.65rem;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
+        .empty-state p {
             color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            max-width: 560px;
+            margin: 0 auto;
         }
-        .story-featured h3 {
+
+        /* ===== STREAMS PREVIEW ===== */
+        .streams-preview {
+            padding: 80px 0 100px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            background: var(--bg-secondary);
+        }
+        .streams-preview-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .streams-preview-header h2 {
             font-family: var(--font-display);
             font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 700;
             letter-spacing: -0.02em;
             line-height: 1.2;
-            margin-bottom: 18px;
-            transition: color 0.3s ease;
+            margin-bottom: 16px;
         }
-        .story-featured:hover h3 { color: var(--gold); }
-        .story-featured .story-excerpt {
+        .streams-preview-header p {
             color: var(--text-secondary);
             font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 24px;
+            line-height: 1.7;
             max-width: 560px;
-        }
-        .story-featured .read-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--gold);
-            transition: gap 0.25s ease;
-        }
-        .story-featured:hover .read-link { gap: 14px; }
-
-        @media (max-width: 900px) {
-            .story-featured .featured-inner { grid-template-columns: 1fr; gap: 28px; }
-            .story-featured { margin-bottom: 48px; padding-bottom: 48px; }
+            margin: 0 auto;
         }
 
-        /* ===== STORY GRID ===== */
-        .story-grid {
+        .streams-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px 32px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-        @media (max-width: 1024px) {
-            .story-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 640px) {
-            .story-grid { grid-template-columns: 1fr; gap: 36px; }
-        }
-
-        .story-card {
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .story-card .story-image {
-            width: 100%;
-            aspect-ratio: 16 / 11;
-            border-radius: var(--radius-sm);
-            overflow: hidden;
+        .stream-preview {
             background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 44px 40px;
             border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: var(--transition);
             position: relative;
-            margin-bottom: 22px;
+            overflow: hidden;
         }
-        .story-card .story-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        .stream-preview:hover {
+            border-color: rgba(255, 255, 255, 0.08);
+            transform: translateY(-4px);
         }
-        .story-card:hover .story-image img {
-            transform: scale(1.05);
-        }
-        .story-card .story-image .image-fallback {
+        .stream-preview::before {
+            content: '';
             position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-display);
-            font-size: 3rem;
-            color: var(--gold);
-            opacity: 0.1;
-            pointer-events: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+            opacity: 0.3;
         }
-        .story-card .story-meta {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
+        .stream-preview.ai-preview::before {
+            background: var(--cyan);
+        }
+        .stream-preview .stream-label {
             font-size: 0.7rem;
-            color: var(--text-muted);
-            margin-bottom: 14px;
-            letter-spacing: 0.02em;
-        }
-        .story-card .story-meta .label-ai {
-            color: var(--cyan);
             font-weight: 600;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            font-size: 0.65rem;
-        }
-        .story-card .story-meta .label-impact {
             color: var(--gold);
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            font-size: 0.65rem;
+            margin-bottom: 16px;
+            display: inline-block;
         }
-        .story-card .story-meta .dot { opacity: 0.4; }
-        .story-card .story-meta .type-tag {
-            padding: 2px 9px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 40px;
-            font-size: 0.6rem;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: var(--text-secondary);
+        .stream-preview.ai-preview .stream-label {
+            color: var(--cyan);
         }
-        .story-card h3 {
+        .stream-preview h3 {
             font-family: var(--font-display);
-            font-size: 1.3rem;
+            font-size: 1.6rem;
             font-weight: 700;
             letter-spacing: -0.01em;
-            line-height: 1.3;
-            margin-bottom: 12px;
-            transition: color 0.3s ease;
+            line-height: 1.25;
+            margin-bottom: 14px;
         }
-        .story-card:hover h3 { color: var(--gold); }
-        .story-card .story-excerpt {
+        .stream-preview p {
             color: var(--text-secondary);
-            font-size: 0.92rem;
+            font-size: 0.95rem;
             line-height: 1.7;
-            margin-bottom: 18px;
-            flex-grow: 1;
+            margin-bottom: 0;
         }
-        .story-card .read-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--gold);
-            transition: gap 0.25s ease;
-        }
-        .story-card:hover .read-link { gap: 12px; }
-
-        /* ===== STREAM SECTIONS ===== */
-        .stream-section {
-            padding: 90px 0;
-        }
-        .stream-section + .stream-section {
+        .stream-preview .stream-note {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-top: 24px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        @media (max-width: 640px) {
-            .stream-section { padding: 60px 0; }
+        .stream-preview .stream-note .dot-indicator {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            display: inline-block;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            .streams-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .stream-preview {
+                padding: 36px 28px;
+            }
+        }
+
+        /* ===== CMS NOTE (subtle) ===== */
+        .cms-note {
+            padding: 60px 0 80px;
+            text-align: center;
+        }
+        .cms-note p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            line-height: 1.7;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
         /* ===== CTA BAND ===== */
         .cta-band {
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
             padding: 100px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.03);
             border-bottom: 1px solid rgba(255, 255, 255, 0.03);
@@ -648,6 +518,9 @@
             .container { padding: 0 20px; }
             .page-hero { padding: 120px 0 60px; }
             .page-hero h1 { font-size: 2rem; }
+            .empty-state { padding: 70px 0; }
+            .streams-preview { padding: 60px 0 70px; }
+            .cta-band { padding: 70px 0; }
         }
     </style>
 </head>
@@ -694,190 +567,76 @@
 <main>
 
 <!-- ============================================================
-     FEATURED STORY
+     EMPTY STATE
      ============================================================ -->
-<section class="stream-section" style="padding-bottom: 0;">
+<section class="empty-state">
     <div class="container">
-        <article class="story-featured">
-            <a href="stories/building-krovana-ai-plus.html" aria-label="Read featured story: Building Krovana AI+">
-                <div class="featured-inner">
-                    <div class="story-image">
-                        <img src="images/stories/story-featured-ai.jpg" alt="Krovana AI+ featured story" loading="lazy">
-                        <span class="image-fallback">K</span>
-                    </div>
-                    <div class="story-content">
-                        <div class="story-meta">
-                            <span class="label-ai">AI+</span>
-                            <span class="dot">·</span>
-                            <span>September 2026</span>
-                            <span class="dot">·</span>
-                            <span class="type-tag">Project · Ongoing</span>
-                        </div>
-                        <h3>Building Krovana AI+: Why Responsible AI Matters in Africa</h3>
-                        <p class="story-excerpt">An introduction to the thinking behind Krovana AI+ and the work we are building around responsible artificial intelligence, governance, literacy and organisational readiness across Africa.</p>
-                        <span class="read-link">Read Story →</span>
-                    </div>
+        <div class="empty-state-inner">
+
+            <!-- Elegant Krovana mark -->
+            <div class="empty-mark">
+                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="40" cy="40" r="38" fill="none" stroke="#C9A227" stroke-width="0.75" opacity="0.3"/>
+                    <circle cx="40" cy="40" r="28" fill="none" stroke="#C9A227" stroke-width="0.5" opacity="0.4"/>
+                    <path d="M28 26 L28 54 M28 40 L48 26 M28 40 L48 54" stroke="#C9A227" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="40" cy="40" r="2" fill="#C9A227" opacity="0.6"/>
+                </svg>
+            </div>
+
+            <h2>We're building the story.</h2>
+            <p>As Krovana's work develops, we'll share the projects, partnerships, insights and lessons shaping what we are building across Africa.</p>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FUTURE STREAMS PREVIEW
+     ============================================================ -->
+<section class="streams-preview">
+    <div class="container">
+
+        <div class="streams-preview-header">
+            <span class="section-label">What We Will Document</span>
+            <h2>Two streams of stories.</h2>
+            <p>Krovana Stories will eventually document our work across two streams — the technology we are building and the businesses we are supporting.</p>
+        </div>
+
+        <div class="streams-grid">
+
+            <!-- AI+ Stream Preview -->
+            <div class="stream-preview ai-preview">
+                <span class="stream-label">AI+</span>
+                <h3>Technology, responsibility and the future of work.</h3>
+                <p>A future stream for stories about Krovana AI+, responsible AI, governance, education, literacy and workforce readiness.</p>
+                <div class="stream-note">
+                    <span class="dot-indicator"></span>
+                    <span>Awaiting first story</span>
                 </div>
-            </a>
-        </article>
+            </div>
+
+            <!-- Impact Stream Preview -->
+            <div class="stream-preview">
+                <span class="stream-label">Impact</span>
+                <h3>Businesses, partnerships and work on the ground.</h3>
+                <p>A future stream for stories about Krovana's projects, engagements, partnerships, investment readiness and growth work.</p>
+                <div class="stream-note">
+                    <span class="dot-indicator"></span>
+                    <span>Awaiting first story</span>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 </section>
 
 <!-- ============================================================
-     AI+ STREAM
+     SUBTLE CMS NOTE
      ============================================================ -->
-<section class="stream-section" id="ai">
+<section class="cms-note">
     <div class="container">
-        <div class="stream-header">
-            <div>
-                <span class="stream-eyebrow cyan">AI+</span>
-                <h2>Technology, responsibility and the future of work.</h2>
-            </div>
-            <p class="stream-desc">Stories from Krovana AI+ and our work around responsible AI, governance, literacy, education and workforce readiness.</p>
-        </div>
-
-        <div class="story-grid">
-
-            <!-- Story 1 -->
-            <article class="story-card">
-                <a href="stories/ai-literacy-african-workforce.html" aria-label="Read: AI Literacy Is Becoming a Business Skill">
-                    <div class="story-image">
-                        <img src="images/stories/story-ai-literacy.jpg" alt="AI literacy in African organisations" loading="lazy">
-                        <span class="image-fallback">AI</span>
-                    </div>
-                    <div class="story-meta">
-                        <span class="label-ai">AI+</span>
-                        <span class="dot">·</span>
-                        <span>September 2026</span>
-                        <span class="dot">·</span>
-                        <span class="type-tag">Insight</span>
-                    </div>
-                    <h3>AI Literacy Is Becoming a Business Skill</h3>
-                    <p class="story-excerpt">Exploring why organisations need to prepare their people for an increasingly AI-enabled workplace — from leadership to frontline teams.</p>
-                    <span class="read-link">Read Story →</span>
-                </a>
-            </article>
-
-            <!-- Story 2 -->
-            <article class="story-card">
-                <a href="stories/responsible-ai-governance.html" aria-label="Read: Who Should Govern AI in African Organisations?">
-                    <div class="story-image">
-                        <img src="images/stories/story-ai-governance.jpg" alt="AI governance in African organisations" loading="lazy">
-                        <span class="image-fallback">AI</span>
-                    </div>
-                    <div class="story-meta">
-                        <span class="label-ai">AI+</span>
-                        <span class="dot">·</span>
-                        <span>September 2026</span>
-                        <span class="dot">·</span>
-                        <span class="type-tag">Insight</span>
-                    </div>
-                    <h3>Who Should Govern AI in African Organisations?</h3>
-                    <p class="story-excerpt">Governance is where AI strategy meets accountability. This piece looks at how African institutions are approaching responsibility and oversight.</p>
-                    <span class="read-link">Read Story →</span>
-                </a>
-            </article>
-
-            <!-- Story 3 -->
-            <article class="story-card">
-                <a href="stories/ai-and-the-future-of-work.html" aria-label="Read: Preparing Africa's Workforce for an AI-Driven Future">
-                    <div class="story-image">
-                        <img src="images/stories/story-ai-workforce.jpg" alt="Preparing Africa's workforce for AI" loading="lazy">
-                        <span class="image-fallback">AI</span>
-                    </div>
-                    <div class="story-meta">
-                        <span class="label-ai">AI+</span>
-                        <span class="dot">·</span>
-                        <span>September 2026</span>
-                        <span class="dot">·</span>
-                        <span class="type-tag">Insight</span>
-                    </div>
-                    <h3>Preparing Africa's Workforce for an AI-Driven Future</h3>
-                    <p class="story-excerpt">AI literacy is no longer optional. We explore what organisations need to build capability that lasts.</p>
-                    <span class="read-link">Read Story →</span>
-                </a>
-            </article>
-
-        </div>
-    </div>
-</section>
-
-<!-- ============================================================
-     IMPACT STREAM
-     ============================================================ -->
-<section class="stream-section section-alt" id="impact">
-    <div class="container">
-        <div class="stream-header">
-            <div>
-                <span class="stream-eyebrow">Impact</span>
-                <h2>Businesses, partnerships and work on the ground.</h2>
-            </div>
-            <p class="stream-desc">Stories from Krovana's engagements, projects, partnerships and work supporting African businesses and organisations.</p>
-        </div>
-
-        <div class="story-grid">
-
-            <!-- Story 1 -->
-            <article class="story-card">
-                <a href="stories/building-krovana.html" aria-label="Read: Building Krovana — Creating an Investment-Ready Africa">
-                    <div class="story-image">
-                        <img src="images/stories/story-building-krovana.jpg" alt="Building Krovana" loading="lazy">
-                        <span class="image-fallback">K</span>
-                    </div>
-                    <div class="story-meta">
-                        <span class="label-impact">Impact</span>
-                        <span class="dot">·</span>
-                        <span>September 2026</span>
-                        <span class="dot">·</span>
-                        <span class="type-tag">Krovana Update</span>
-                    </div>
-                    <h3>Building Krovana: Creating an Investment-Ready Africa</h3>
-                    <p class="story-excerpt">The thinking, work and experiences shaping Krovana's approach to helping African businesses become investment ready.</p>
-                    <span class="read-link">Read Story →</span>
-                </a>
-            </article>
-
-            <!-- Story 2 -->
-            <article class="story-card">
-                <a href="stories/investment-readiness.html" aria-label="Read: What Happens When African Businesses Become Investment Ready">
-                    <div class="story-image">
-                        <img src="images/stories/story-investment-readiness.jpg" alt="Investment readiness in Africa" loading="lazy">
-                        <span class="image-fallback">K</span>
-                    </div>
-                    <div class="story-meta">
-                        <span class="label-impact">Impact</span>
-                        <span class="dot">·</span>
-                        <span>September 2026</span>
-                        <span class="dot">·</span>
-                        <span class="type-tag">Insight</span>
-                    </div>
-                    <h3>What Happens When African Businesses Become Investment Ready</h3>
-                    <p class="story-excerpt">Readiness changes how businesses see themselves — and how capital sees them. Here's what happens next.</p>
-                    <span class="read-link">Read Story →</span>
-                </a>
-            </article>
-
-            <!-- Story 3 -->
-            <article class="story-card">
-                <a href="stories/where-capital-meets-opportunity.html" aria-label="Read: Where Capital Meets Opportunity">
-                    <div class="story-image">
-                        <img src="images/stories/story-capital-opportunity.jpg" alt="Capital meets opportunity" loading="lazy">
-                        <span class="image-fallback">K</span>
-                    </div>
-                    <div class="story-meta">
-                        <span class="label-impact">Impact</span>
-                        <span class="dot">·</span>
-                        <span>September 2026</span>
-                        <span class="dot">·</span>
-                        <span class="type-tag">Partnership</span>
-                    </div>
-                    <h3>Where Capital Meets Opportunity</h3>
-                    <p class="story-excerpt">Understanding how capital actually flows into African businesses — and where the real opportunities sit.</p>
-                    <span class="read-link">Read Story →</span>
-                </a>
-            </article>
-
-        </div>
+        <p>Stories will be published here as Krovana's work develops.</p>
     </div>
 </section>
 
@@ -988,6 +747,42 @@
                 });
             });
         }
+
+        /* ============================================================
+           CMS READY ARCHITECTURE (Comment for future developers)
+
+           When Sanity CMS is connected, this section will be
+           replaced with a fetch() call to the Sanity API that
+           returns Story objects matching this schema:
+
+           {
+             _id: string,
+             title: string,
+             slug: { current: string },
+             stream: 'ai-plus' | 'impact',
+             storyType: 'project' | 'engagement' | 'partnership' | 'insight' | 'event' | 'krovana-update',
+             status: 'ongoing' | 'completed',
+             publicationDate: date,
+             excerpt: text,
+             body: portable text,
+             featuredImage: image,
+             author: string,
+             organisation: string,
+             location: string,
+             featured: boolean,
+             seoTitle: string,
+             seoDescription: string
+           }
+
+           The front-end will render:
+           - Stories where featured === true into the featured slot
+           - Stories where stream === 'ai-plus' into the AI+ section
+           - Stories where stream === 'impact' into the Impact section
+           - All stories with 'Read Story →' linking to /stories/{slug}
+
+           For now, no stories exist, so we display the empty state.
+        ============================================================ */
+
     })();
 </script>
 
