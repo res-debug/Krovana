@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories | Krovana</title>
+    <meta name="description" content="Ideas, projects, partnerships and insights from Krovana's work with African businesses, entrepreneurs and organisations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <style>
+        /* ============================================================
+           KROVANA — STORIES PAGE
+           Editorial journal layout with two content streams
+           ============================================================ */
+
+        /* ===== BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0B0D0F;
+            --bg-secondary: #111518;
+            --bg-card: #15191C;
+            --text-primary: #F4F1EA;
+            --text-secondary: #A5ADB2;
+            --text-muted: #6A7278;
+            --gold: #C9A227;
+            --gold-dim: rgba(201, 162, 39, 0.10);
+            --cyan: #3B9EFF;
+            --cyan-dim: rgba(59, 158, 255, 0.08);
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --radius: 20px;
+            --radius-sm: 12px;
+            --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow-card: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
+            --max-width: 1240px;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+        .section-padding { padding: 100px 0; }
+        .section-padding-sm { padding: 80px 0; }
+        .section-alt { background: var(--bg-secondary); }
+
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+        .section-label.cyan { color: var(--cyan); }
+
+        .section-title {
+            font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .section-sub {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            line-height: 1.7;
+        }
+        .text-center { text-align: center; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .gold { color: var(--gold); }
+        .cyan { color: var(--cyan); }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 60px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            background: transparent;
+            color: var(--text-primary);
+            font-family: var(--font);
+        }
+        .btn-primary { background: var(--gold); color: var(--bg-primary); }
+        .btn-primary:hover { background: #dbb230; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201, 162, 39, 0.25); }
+        .btn-outline { border: 1.5px solid rgba(255, 255, 255, 0.12); color: var(--text-primary); }
+        .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+        .btn-ai { background: var(--cyan); color: var(--bg-primary); }
+        .btn-ai:hover { background: #5aafff; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(59, 158, 255, 0.20); }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 16px 0;
+            z-index: 1000;
+            transition: background 0.35s, backdrop-filter 0.35s, border-color 0.35s;
+            background: transparent;
+            border-bottom: 1px solid transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(11, 13, 15, 0.88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-family: var(--font);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo:hover { color: var(--gold); }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: 0.2s;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+            white-space: nowrap;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-primary);
+            border-bottom-color: var(--gold);
+        }
+        .nav-links a.ai-link { color: var(--cyan); }
+        .nav-links a.ai-link:hover,
+        .nav-links a.ai-link.active {
+            color: #7abfff;
+            border-bottom-color: var(--cyan);
+        }
+        .nav-links .plus { display: inline-block; font-weight: 700; font-size: 0.7rem; margin-left: 1px; }
+        .nav-cta .btn { padding: 10px 22px; font-size: 0.8rem; }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1001;
+        }
+        .hamburger .bar { width: 24px; height: 2px; background: var(--text-primary); transition: var(--transition); border-radius: 2px; }
+        .hamburger.open .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.open .bar:nth-child(2) { opacity: 0; }
+        .hamburger.open .bar:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        @media (max-width: 1200px) {
+            .nav-links { gap: 18px; }
+            .nav-links a { font-size: 0.78rem; }
+        }
+        @media (max-width: 1024px) {
+            .nav-links { gap: 14px; }
+            .nav-links a { font-size: 0.75rem; }
+        }
+        @media (max-width: 900px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--bg-primary);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+                transition: 0.4s;
+                padding: 40px;
+                z-index: 999;
+            }
+            .nav-links.open { left: 0; }
+            .nav-links a { font-size: 1.2rem; }
+            .nav-cta { display: none; }
+            .hamburger { display: flex; }
+        }
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            padding: 160px 0 80px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(ellipse at 70% 30%, rgba(201, 162, 39, 0.04) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .page-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 5vw, 4.2rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            max-width: 900px;
+        }
+        .page-hero .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            line-height: 1.7;
+        }
+
+        /* ===== STREAM HEADER ===== */
+        .stream-header {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: end;
+            margin-bottom: 56px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .stream-header .stream-eyebrow {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+            display: inline-block;
+        }
+        .stream-header .stream-eyebrow.cyan { color: var(--cyan); }
+        .stream-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 0;
+        }
+        .stream-header .stream-desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        @media (max-width: 900px) {
+            .stream-header {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-bottom: 40px;
+                padding-bottom: 30px;
+            }
+        }
+
+        /* ===== FEATURED STORY ===== */
+        .story-featured {
+            display: block;
+            margin-bottom: 64px;
+            padding-bottom: 64px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .story-featured .featured-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .story-featured .story-image {
+            width: 100%;
+            aspect-ratio: 16 / 11;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+        }
+        .story-featured .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .story-featured:hover .story-image img {
+            transform: scale(1.04);
+        }
+        .story-featured .story-image .image-fallback {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 5rem;
+            color: var(--gold);
+            opacity: 0.12;
+            pointer-events: none;
+        }
+
+        .story-featured .story-content {
+            display: flex;
+            flex-direction: column;
+        }
+        .story-featured .story-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            letter-spacing: 0.02em;
+        }
+        .story-featured .story-meta .label-ai {
+            color: var(--cyan);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.68rem;
+        }
+        .story-featured .story-meta .label-impact {
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.68rem;
+        }
+        .story-featured .story-meta .dot { opacity: 0.4; }
+        .story-featured .story-meta .type-tag {
+            padding: 3px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 40px;
+            font-size: 0.65rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+        .story-featured h3 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 18px;
+            transition: color 0.3s ease;
+        }
+        .story-featured:hover h3 { color: var(--gold); }
+        .story-featured .story-excerpt {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            max-width: 560px;
+        }
+        .story-featured .read-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gold);
+            transition: gap 0.25s ease;
+        }
+        .story-featured:hover .read-link { gap: 14px; }
+
+        @media (max-width: 900px) {
+            .story-featured .featured-inner { grid-template-columns: 1fr; gap: 28px; }
+            .story-featured { margin-bottom: 48px; padding-bottom: 48px; }
+        }
+
+        /* ===== STORY GRID ===== */
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px 32px;
+        }
+        @media (max-width: 1024px) {
+            .story-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            .story-grid { grid-template-columns: 1fr; gap: 36px; }
+        }
+
+        .story-card {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .story-card .story-image {
+            width: 100%;
+            aspect-ratio: 16 / 11;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 22px;
+        }
+        .story-card .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .story-card:hover .story-image img {
+            transform: scale(1.05);
+        }
+        .story-card .story-image .image-fallback {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--gold);
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        .story-card .story-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            letter-spacing: 0.02em;
+        }
+        .story-card .story-meta .label-ai {
+            color: var(--cyan);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+        }
+        .story-card .story-meta .label-impact {
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+        }
+        .story-card .story-meta .dot { opacity: 0.4; }
+        .story-card .story-meta .type-tag {
+            padding: 2px 9px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 40px;
+            font-size: 0.6rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+        .story-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+        .story-card:hover h3 { color: var(--gold); }
+        .story-card .story-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: 18px;
+            flex-grow: 1;
+        }
+        .story-card .read-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gold);
+            transition: gap 0.25s ease;
+        }
+        .story-card:hover .read-link { gap: 12px; }
+
+        /* ===== STREAM SECTIONS ===== */
+        .stream-section {
+            padding: 90px 0;
+        }
+        .stream-section + .stream-section {
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        @media (max-width: 640px) {
+            .stream-section { padding: 60px 0; }
+        }
+
+        /* ===== CTA BAND ===== */
+        .cta-band {
+            background: var(--bg-secondary);
+            padding: 100px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            text-align: center;
+        }
+        .cta-band h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .cta-band p {
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto 32px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-premium {
+            padding: 60px 0 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .footer-premium .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-brand-large .logo-large {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 4px;
+            text-decoration: none;
+            font-family: var(--font);
+        }
+        .footer-brand-large .logo-large:hover { color: var(--gold); }
+        .footer-brand-large .tagline {
+            color: var(--gold);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .footer-brand-large .desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            max-width: 280px;
+            line-height: 1.7;
+        }
+        .footer-col h4 {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+        .footer-col a {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            transition: 0.2s;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .footer-col a:hover { color: var(--text-primary); }
+        .footer-divider {
+            border: none;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.04);
+            margin: 0 0 24px 0;
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+        .footer-bottom-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .footer-bottom-links a:hover { color: var(--text-primary); }
+        @media (max-width: 1024px) { .footer-premium .footer-top { grid-template-columns: 1fr 1fr 1fr; } }
+        @media (max-width: 768px) {
+            .footer-premium .footer-top { grid-template-columns: 1fr 1fr; gap: 30px; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+        }
+        @media (max-width: 480px) { .footer-premium .footer-top { grid-template-columns: 1fr; gap: 24px; } }
+
+        :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+        @media (max-width: 640px) {
+            .container { padding: 0 20px; }
+            .page-hero { padding: 120px 0 60px; }
+            .page-hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+        <a href="/" class="logo">
+            <img src="Krovana-logo.png" alt="Krovana" style="height: 35px; width: auto; display: block;">
+            KROVANA
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/krovana-ai" class="ai-link">Krovana AI<span class="plus">+</span></a></li>
+            <li><a href="/sustainability">Sustainability</a></li>
+            <li><a href="/stories" class="active">Stories</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li class="nav-cta"><a href="/contact" class="btn btn-primary">Start a Conversation</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="page-hero">
+    <div class="container">
+        <span class="section-label">Krovana Stories</span>
+        <h1>Stories from the work <span class="gold">we are building.</span></h1>
+        <p class="hero-desc">Ideas, projects, partnerships and insights from Krovana's work with African businesses, entrepreneurs and organisations.</p>
+    </div>
+</section>
+
+<main>
+
+<!-- ============================================================
+     FEATURED STORY
+     ============================================================ -->
+<section class="stream-section" style="padding-bottom: 0;">
+    <div class="container">
+        <article class="story-featured">
+            <a href="stories/building-krovana-ai-plus.html" aria-label="Read featured story: Building Krovana AI+">
+                <div class="featured-inner">
+                    <div class="story-image">
+                        <img src="images/stories/story-featured-ai.jpg" alt="Krovana AI+ featured story" loading="lazy">
+                        <span class="image-fallback">K</span>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-meta">
+                            <span class="label-ai">AI+</span>
+                            <span class="dot">·</span>
+                            <span>September 2026</span>
+                            <span class="dot">·</span>
+                            <span class="type-tag">Project · Ongoing</span>
+                        </div>
+                        <h3>Building Krovana AI+: Why Responsible AI Matters in Africa</h3>
+                        <p class="story-excerpt">An introduction to the thinking behind Krovana AI+ and the work we are building around responsible artificial intelligence, governance, literacy and organisational readiness across Africa.</p>
+                        <span class="read-link">Read Story →</span>
+                    </div>
+                </div>
+            </a>
+        </article>
+    </div>
+</section>
+
+<!-- ============================================================
+     AI+ STREAM
+     ============================================================ -->
+<section class="stream-section" id="ai">
+    <div class="container">
+        <div class="stream-header">
+            <div>
+                <span class="stream-eyebrow cyan">AI+</span>
+                <h2>Technology, responsibility and the future of work.</h2>
+            </div>
+            <p class="stream-desc">Stories from Krovana AI+ and our work around responsible AI, governance, literacy, education and workforce readiness.</p>
+        </div>
+
+        <div class="story-grid">
+
+            <!-- Story 1 -->
+            <article class="story-card">
+                <a href="stories/ai-literacy-african-workforce.html" aria-label="Read: AI Literacy Is Becoming a Business Skill">
+                    <div class="story-image">
+                        <img src="images/stories/story-ai-literacy.jpg" alt="AI literacy in African organisations" loading="lazy">
+                        <span class="image-fallback">AI</span>
+                    </div>
+                    <div class="story-meta">
+                        <span class="label-ai">AI+</span>
+                        <span class="dot">·</span>
+                        <span>September 2026</span>
+                        <span class="dot">·</span>
+                        <span class="type-tag">Insight</span>
+                    </div>
+                    <h3>AI Literacy Is Becoming a Business Skill</h3>
+                    <p class="story-excerpt">Exploring why organisations need to prepare their people for an increasingly AI-enabled workplace — from leadership to frontline teams.</p>
+                    <span class="read-link">Read Story →</span>
+                </a>
+            </article>
+
+            <!-- Story 2 -->
+            <article class="story-card">
+                <a href="stories/responsible-ai-governance.html" aria-label="Read: Who Should Govern AI in African Organisations?">
+                    <div class="story-image">
+                        <img src="images/stories/story-ai-governance.jpg" alt="AI governance in African organisations" loading="lazy">
+                        <span class="image-fallback">AI</span>
+                    </div>
+                    <div class="story-meta">
+                        <span class="label-ai">AI+</span>
+                        <span class="dot">·</span>
+                        <span>September 2026</span>
+                        <span class="dot">·</span>
+                        <span class="type-tag">Insight</span>
+                    </div>
+                    <h3>Who Should Govern AI in African Organisations?</h3>
+                    <p class="story-excerpt">Governance is where AI strategy meets accountability. This piece looks at how African institutions are approaching responsibility and oversight.</p>
+                    <span class="read-link">Read Story →</span>
+                </a>
+            </article>
+
+            <!-- Story 3 -->
+            <article class="story-card">
+                <a href="stories/ai-and-the-future-of-work.html" aria-label="Read: Preparing Africa's Workforce for an AI-Driven Future">
+                    <div class="story-image">
+                        <img src="images/stories/story-ai-workforce.jpg" alt="Preparing Africa's workforce for AI" loading="lazy">
+                        <span class="image-fallback">AI</span>
+                    </div>
+                    <div class="story-meta">
+                        <span class="label-ai">AI+</span>
+                        <span class="dot">·</span>
+                        <span>September 2026</span>
+                        <span class="dot">·</span>
+                        <span class="type-tag">Insight</span>
+                    </div>
+                    <h3>Preparing Africa's Workforce for an AI-Driven Future</h3>
+                    <p class="story-excerpt">AI literacy is no longer optional. We explore what organisations need to build capability that lasts.</p>
+                    <span class="read-link">Read Story →</span>
+                </a>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     IMPACT STREAM
+     ============================================================ -->
+<section class="stream-section section-alt" id="impact">
+    <div class="container">
+        <div class="stream-header">
+            <div>
+                <span class="stream-eyebrow">Impact</span>
+                <h2>Businesses, partnerships and work on the ground.</h2>
+            </div>
+            <p class="stream-desc">Stories from Krovana's engagements, projects, partnerships and work supporting African businesses and organisations.</p>
+        </div>
+
+        <div class="story-grid">
+
+            <!-- Story 1 -->
+            <article class="story-card">
+                <a href="stories/building-krovana.html" aria-label="Read: Building Krovana — Creating an Investment-Ready Africa">
+                    <div class="story-image">
+                        <img src="images/stories/story-building-krovana.jpg" alt="Building Krovana" loading="lazy">
+                        <span class="image-fallback">K</span>
+                    </div>
+                    <div class="story-meta">
+                        <span class="label-impact">Impact</span>
+                        <span class="dot">·</span>
+                        <span>September 2026</span>
+                        <span class="dot">·</span>
+                        <span class="type-tag">Krovana Update</span>
+                    </div>
+                    <h3>Building Krovana: Creating an Investment-Ready Africa</h3>
+                    <p class="story-excerpt">The thinking, work and experiences shaping Krovana's approach to helping African businesses become investment ready.</p>
+                    <span class="read-link">Read Story →</span>
+                </a>
+            </article>
+
+            <!-- Story 2 -->
+            <article class="story-card">
+                <a href="stories/investment-readiness.html" aria-label="Read: What Happens When African Businesses Become Investment Ready">
+                    <div class="story-image">
+                        <img src="images/stories/story-investment-readiness.jpg" alt="Investment readiness in Africa" loading="lazy">
+                        <span class="image-fallback">K</span>
+                    </div>
+                    <div class="story-meta">
+                        <span class="label-impact">Impact</span>
+                        <span class="dot">·</span>
+                        <span>September 2026</span>
+                        <span class="dot">·</span>
+                        <span class="type-tag">Insight</span>
+                    </div>
+                    <h3>What Happens When African Businesses Become Investment Ready</h3>
+                    <p class="story-excerpt">Readiness changes how businesses see themselves — and how capital sees them. Here's what happens next.</p>
+                    <span class="read-link">Read Story →</span>
+                </a>
+            </article>
+
+            <!-- Story 3 -->
+            <article class="story-card">
+                <a href="stories/where-capital-meets-opportunity.html" aria-label="Read: Where Capital Meets Opportunity">
+                    <div class="story-image">
+                        <img src="images/stories/story-capital-opportunity.jpg" alt="Capital meets opportunity" loading="lazy">
+                        <span class="image-fallback">K</span>
+                    </div>
+                    <div class="story-meta">
+                        <span class="label-impact">Impact</span>
+                        <span class="dot">·</span>
+                        <span>September 2026</span>
+                        <span class="dot">·</span>
+                        <span class="type-tag">Partnership</span>
+                    </div>
+                    <h3>Where Capital Meets Opportunity</h3>
+                    <p class="story-excerpt">Understanding how capital actually flows into African businesses — and where the real opportunities sit.</p>
+                    <span class="read-link">Read Story →</span>
+                </a>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CTA BAND
+     ============================================================ -->
+<section class="cta-band">
+    <div class="container">
+        <h2>Building, learning and moving forward.</h2>
+        <p>Follow the work, ideas and people shaping what Krovana is building across Africa.</p>
+        <a href="/contact" class="btn btn-primary">Work With Us →</a>
+    </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer-premium">
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-brand-large">
+                <a href="/" class="logo-large">KROVANA</a>
+                <div class="tagline">Building What Africa Needs Next.</div>
+                <div class="desc">Strategic advisory and responsible AI for ambitious African organizations.</div>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <a href="/about">About</a>
+                <a href="/services">Services</a>
+                <a href="/krovana-ai">Krovana AI+</a>
+                <a href="/sustainability">Sustainability</a>
+                <a href="/stories">Stories</a>
+                <a href="/team">Team</a>
+                <a href="/contact">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Krovana Advisory</h4>
+                <a href="/services">Investment Readiness</a>
+                <a href="/services">Capital Advisory</a>
+                <a href="/services">Capital Matchmaking</a>
+                <a href="/services">Growth Strategy</a>
+            </div>
+            <div class="footer-col">
+                <h4>Krovana AI+</h4>
+                <a href="/krovana-ai">Ethical AI Training</a>
+                <a href="/krovana-ai">AI Literacy</a>
+                <a href="/krovana-ai">Responsible AI</a>
+                <a href="/krovana-ai">AI Governance</a>
+                <a href="/krovana-ai">AI Strategy &amp; Adoption</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="tel:+254795655396">+254 795 655 396</a>
+                <a href="mailto:krovana.africa@gmail.com">krovana.africa@gmail.com</a>
+                <a href="#" style="margin-top:8px; display:inline-block;">LinkedIn</a>
+            </div>
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="footer-bottom">
+            <span>&copy; 2026 Krovana. All rights reserved.</span>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <span style="color: var(--text-muted);">Building What Africa Needs Next.</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+    (function() {
+        'use strict';
+
+        /* ===== NAVIGATION ===== */
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 40) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }, { passive: true });
+
+        if (hamburger) {
+            hamburger.addEventListener('click', function() {
+                const isOpen = navLinks.classList.toggle('open');
+                hamburger.classList.toggle('open');
+                hamburger.setAttribute('aria-expanded', isOpen);
+            });
+        }
+
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('open');
+                    hamburger.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+    })();
+</script>
+
+</body>
+</html>
