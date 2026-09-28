@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Story | Krovana</title>
+    <meta name="description" content="Krovana Stories — ideas, projects, partnerships and insights from our work across Africa.">
+
+    <link rel="icon" type="image/png" href="Krovana-logo.png">
+
+    <style>
+        :root {
+            --dark: #0B0D0F;
+            --ivory: #F4F1EA;
+            --gold: #C9A45C;
+            --muted: #8E8C87;
+            --line: rgba(244, 241, 234, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--dark);
+            color: var(--ivory);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+
+        header {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav {
+            min-height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+        }
+
+        .logo img {
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 13px;
+        }
+
+        .nav-links a {
+            color: var(--ivory);
+            opacity: 0.82;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .nav-cta {
+            color: var(--gold) !important;
+        }
+
+        /* STORY */
+
+        .story-page {
+            padding: 100px 0 120px;
+        }
+
+        .story-meta-top {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .story-meta-top span:not(:last-child)::after {
+            content: "·";
+            margin-left: 12px;
+            color: var(--muted);
+        }
+
+        .story-title {
+            max-width: 900px;
+            font-size: clamp(42px, 6vw, 78px);
+            line-height: 1.04;
+            font-weight: 500;
+            letter-spacing: -0.035em;
+            margin-bottom: 32px;
+        }
+
+        .story-excerpt {
+            max-width: 780px;
+            color: #B9B6AF;
+            font-size: 21px;
+            line-height: 1.65;
+            margin-bottom: 55px;
+        }
+
+        .story-image {
+            width: 100%;
+            max-height: 620px;
+            object-fit: cover;
+            margin-bottom: 70px;
+            display: block;
+        }
+
+        .story-content {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .story-content h1 {
+            font-size: 38px;
+            line-height: 1.15;
+            font-weight: 500;
+            margin: 0 0 30px;
+            letter-spacing: -0.02em;
+        }
+
+        .story-content h2 {
+            font-size: 30px;
+            line-height: 1.2;
+            font-weight: 500;
+            margin: 52px 0 20px;
+            letter-spacing: -0.015em;
+        }
+
+        .story-content h3 {
+            font-size: 23px;
+            font-weight: 500;
+            margin: 40px 0 16px;
+        }
+
+        .story-content p {
+            color: #C7C4BD;
+            font-size: 17px;
+            line-height: 1.9;
+            margin-bottom: 24px;
+        }
+
+        .story-content strong {
+            color: var(--ivory);
+        }
+
+        .story-content em {
+            font-style: italic;
+        }
+
+        .story-content ul,
+        .story-content ol {
+            color: #C7C4BD;
+            margin: 0 0 28px 25px;
+        }
+
+        .story-content li {
+            margin-bottom: 10px;
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        .story-content blockquote {
+            margin: 45px 0;
+            padding: 25px 30px;
+            border-left: 2px solid var(--gold);
+            color: var(--ivory);
+            font-size: 20px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .story-content a {
+            color: var(--gold);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .story-footer {
+            max-width: 780px;
+            margin: 75px auto 0;
+            padding-top: 28px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .story-back {
+            display: inline-block;
+            margin-top: 45px;
+            color: var(--gold);
+            font-size: 13px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .loading,
+        .error {
+            padding: 120px 0;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 70px 0 35px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .footer-brand {
+            max-width: 340px;
+        }
+
+        .footer-brand h3 {
+            font-size: 15px;
+            letter-spacing: 0.12em;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .footer-column h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 20px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 11px;
+        }
+
+        .footer-bottom {
+            margin-top: 60px;
+            padding-top: 22px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        @media (max-width: 850px) {
+            .nav {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 22px 0;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 14px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: min(100% - 32px, 1180px);
+            }
+
+            .story-page {
+                padding: 70px 0 90px;
+            }
+
+            .story-title {
+                font-size: 43px;
+            }
+
+            .story-excerpt {
+                font-size: 18px;
+            }
+
+            .story-content h1 {
+                font-size: 30px;
+            }
+
+            .story-content h2 {
+                font-size: 25px;
+            }
+
+            .story-content p,
+            .story-content li {
+                font-size: 16px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+
+        <a href="index.html" class="logo">
+            <img src="Krovana-logo.png" alt="Krovana">
+            <span>KROVANA</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="krovana-ai.html">Krovana AI+</a>
+            <a href="sustainability.html">Sustainability</a>
+            <a href="stories.html">Stories</a>
+            <a href="team.html">Team</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="nav-cta">Start a Conversation</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+    <section class="story-page">
+
+        <div class="container">
+
+            <div id="storyLoading" class="loading">
+                Loading story...
+            </div>
+
+            <article id="storyArticle" hidden>
+
+                <div class="story-meta-top">
+                    <span id="storyStream"></span>
+                    <span id="storyType"></span>
+                    <span id="storyStatus"></span>
+                    <span id="storyDate"></span>
+                </div>
+
+                <h1 class="story-title" id="storyTitle"></h1>
+
+                <p class="story-excerpt" id="storyExcerpt"></p>
+
+                <img
+                    id="storyImage"
+                    class="story-image"
+                    alt=""
+                    hidden
+                >
+
+                <div class="story-content" id="storyBody"></div>
+
+                <div class="story-footer" id="storyContext"></div>
+
+                <a href="stories.html" class="story-back">
+                    ← Back to Stories
+                </a>
+
+            </article>
+
+            <div id="storyError" class="error" hidden>
+                <p>We couldn't find this story.</p>
+                <a href="stories.html" class="story-back">
+                    ← Back to Stories
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <h3>KROVANA</h3>
+                <p>
+                    Building What Africa Needs Next.<br><br>
+                    Strategic advisory and responsible AI for ambitious African organizations.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Explore</h4>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="krovana-ai.html">Krovana AI+</a>
+                <a href="sustainability.html">Sustainability</a>
+                <a href="stories.html">Stories</a>
+                <a href="team.html">Team</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>Krovana Advisory</h4>
+                <a href="services.html">Investment Readiness</a>
+                <a href="services.html">Capital Advisory</a>
+                <a href="services.html">Capital Matchmaking</a>
+                <a href="services.html">Growth Strategy</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>Krovana AI+</h4>
+                <a href="krovana-ai.html">Ethical AI Training</a>
+                <a href="krovana-ai.html">AI Literacy</a>
+                <a href="krovana-ai.html">Responsible AI</a>
+                <a href="krovana-ai.html">AI Governance</a>
+                <a href="krovana-ai.html">AI Strategy &amp; Adoption</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Krovana. All rights reserved.
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+    const SANITY_PROJECT_ID = "3r0ul386";
+    const SANITY_DATASET = "production";
+    const SANITY_API_VERSION = "2025-02-19";
+
+    const endpoint =
+        `https://${SANITY_PROJECT_ID}.apicdn.sanity.io/v${SANITY_API_VERSION}/data/query/${SANITY_DATASET}`;
+
+    function getSlug() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get("slug");
+    }
+
+    const query = `
+        *[
+            _type == "story" &&
+            slug.current == $slug
+        ][0]
+        {
+            _id,
+            title,
+            slug,
+            stream,
+            storyType,
+            status,
+            publicationDate,
+            excerpt,
+            body,
+            featuredImage,
+            author,
+            organisation,
+            location,
+            featured
+        }
+    `;
+
+    function formatDate(dateString) {
+        if (!dateString) return "";
+
+        return new Intl.DateTimeFormat("en-GB", {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }).format(new Date(dateString));
+    }
+
+    function getImageUrl(imageRef) {
+        if (!imageRef || !imageRef.asset || !imageRef.asset._ref) {
+            return null;
+        }
+
+        const ref = imageRef.asset._ref;
+
+        if (!ref.startsWith("image-")) {
+            return null;
+        }
+
+        const parts = ref.replace("image-", "").split("-");
+
+        const format = parts.pop();
+        const height = parts.pop();
+        const width = parts.pop();
+        const id = parts.join("-");
+
+        return `https://cdn.sanity.io/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${id}-${width}x${height}.${format}?auto=format`;
+    }
+
+    function escapeHtml(value) {
+        if (!value) return "";
+
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    function renderPortableText(blocks) {
+        if (!Array.isArray(blocks)) {
+            return "";
+        }
+
+        return blocks.map(block => {
+
+            if (!block || block._type !== "block") {
+                return "";
+            }
+
+            let html = (block.children || [])
+                .map(child => {
+                    let text = escapeHtml(child.text || "");
+
+                    if (child.marks && child.marks.includes("strong")) {
+                        text = `<strong>${text}</strong>`;
+                    }
+
+                    if (child.marks && child.marks.includes("em")) {
+                        text = `<em>${text}</em>`;
+                    }
+
+                    return text;
+                })
+                .join("");
+
+            if (!html.trim()) {
+                return "";
+            }
+
+            if (block.style === "h1") {
+                return `<h1>${html}</h1>`;
+            }
+
+            if (block.style === "h2") {
+                return `<h2>${html}</h2>`;
+            }
+
+            if (block.style === "h3") {
+                return `<h3>${html}</h3>`;
+            }
+
+            if (block.style === "blockquote") {
+                return `<blockquote>${html}</blockquote>`;
+            }
+
+            return `<p>${html}</p>`;
+
+        }).join("");
+    }
+
+    async function loadStory() {
+
+        const slug = getSlug();
+
+        if (!slug) {
+            document.getElementById("storyLoading").hidden = true;
+            document.getElementById("storyError").hidden = false;
+            return;
+        }
+
+        try {
+
+            const url =
+                `${endpoint}?query=${encodeURIComponent(query)}&$slug=${encodeURIComponent(slug)}`;
+
+            console.log("Loading story:", slug);
+            console.log("Sanity URL:", url);
+
+            const response = await fetch(url);
+
+            console.log("Sanity response status:", response.status);
+
+            if (!response.ok) {
+                throw new Error(`Sanity request failed: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            console.log("Sanity data:", data);
+
+            const story = data.result;
+
+            if (!story) {
+                throw new Error("Story not found");
+            }
+
+            document.title = `${story.title} | Krovana`;
+
+            document.getElementById("storyTitle").textContent =
+                story.title || "";
+
+            document.getElementById("storyExcerpt").textContent =
+                story.excerpt || "";
+
+            document.getElementById("storyStream").textContent =
+                story.stream === "ai-plus" ? "AI+" : "Impact";
+
+            document.getElementById("storyType").textContent =
+                (story.storyType || "Story").replace(/-/g, " ");
+
+            document.getElementById("storyStatus").textContent =
+                story.status === "completed" ? "Completed" : "Ongoing";
+
+            document.getElementById("storyDate").textContent =
+                formatDate(story.publicationDate);
+
+            document.getElementById("storyBody").innerHTML =
+                renderPortableText(story.body);
+
+            const imageUrl = getImageUrl(story.featuredImage);
+
+            if (imageUrl) {
+                const image = document.getElementById("storyImage");
+                image.src = imageUrl;
+                image.alt = story.title || "Krovana story";
+                image.hidden = false;
+            }
+
+            const context = [];
+
+            if (story.author) {
+                context.push(`By ${story.author}`);
+            }
+
+            if (story.organisation) {
+                context.push(story.organisation);
+            }
+
+            if (story.location) {
+                context.push(story.location);
+            }
+
+            document.getElementById("storyContext").textContent =
+                context.join(" · ");
+
+            document.getElementById("storyLoading").hidden = true;
+            document.getElementById("storyArticle").hidden = false;
+
+        } catch (error) {
+
+            console.error("Story loading error:", error);
+
+            document.getElementById("storyLoading").hidden = true;
+            document.getElementById("storyError").hidden = false;
+
+        }
+
+    }
+
+    loadStory();
+
+</script>
+
+</body>
+</html>
