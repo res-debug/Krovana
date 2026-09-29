@@ -496,27 +496,6 @@
         }).format(new Date(dateString));
     }
 
-    function getImageUrl(imageRef) {
-        if (!imageRef || !imageRef.asset || !imageRef.asset._ref) {
-            return null;
-        }
-
-        const ref = imageRef.asset._ref;
-
-        if (!ref.startsWith("image-")) {
-            return null;
-        }
-
-        const parts = ref.replace("image-", "").split("-");
-
-        const format = parts.pop();
-        const height = parts.pop();
-        const width = parts.pop();
-        const id = parts.join("-");
-
-        return `https://cdn.sanity.io/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${id}-${width}x${height}.${format}?auto=format`;
-    }
-
     function escapeHtml(value) {
         if (!value) return "";
 
@@ -604,7 +583,7 @@
                 publicationDate,
                 excerpt,
                 body,
-                featuredImage,
+                "featuredImageUrl": featuredImage.asset->url,
                 author,
                 organisation,
                 location,
@@ -657,13 +636,13 @@
             document.getElementById("storyBody").innerHTML =
                 renderPortableText(story.body);
 
-            const imageUrl = getImageUrl(story.featuredImage);
+            if (story.featuredImageUrl) {
 
-            if (imageUrl) {
                 const image = document.getElementById("storyImage");
-                image.src = imageUrl;
+                image.src = story.featuredImageUrl;
                 image.alt = story.title || "Krovana story";
                 image.hidden = false;
+                image.style.display = "block";
             }
 
             const context = [];
